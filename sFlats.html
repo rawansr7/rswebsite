@@ -63,11 +63,11 @@
     </nav>
     <section id="prodetails" class="section-p1"> 
       <div class="single-pro-image">
-        <img src="imgaboutUs/c1blanc.png" width="100%" id="MainImg" alt>
+        <img src="imgaboutUs/c1bleu.png" width="100%" id="MainImg" alt>
      
         <div class="small-img-grp">
           <div class="small-img-col">
-             <img src="imgaboutUs/c1blanc.png" width="100%" class="small-img"> 
+             <img src="imgaboutUs/c1bleu.png" width="100%" class="small-img"> 
           </div>
           <div class="small-img-col">
             <img src="imgaboutUs/c1n.png" width="100%" class="small-img"> 
@@ -76,20 +76,22 @@
             <img src="imgaboutUs/c1b.png" width="100%" class="small-img"> 
          </div>
          <div class="small-img-col">
-            <img src="imgaboutUs/c1g.png" width="100%" class="small-img"> 
+            <img src="imgaboutUs/c1blanc.png" width="100%" class="small-img"> 
          </div>
 
         </div>
       </div>
 
       <div class="single-pro-details">
-      <h6> Creta- Hundai 2021</h6>
+      <h1> Creta- Hundai 2021</h1>
       
-       <i class="bi bi-briefcase"></i> <span> 2 bags </span>
-       <i class="stm-rental-seats"></i> <span> 5 seats</span>
-       <i class="stm-rental-seats"></i> <span> 4 doors </span> <br>
+       <i class=""></i> <span> 4 doors </span>
+       <i class="fas fa-tachometer-alt "></i> <span> 5 seats</span>
+       <i class="fas fa-briefcase"></i> <span> 2 bags </span> 
+
+       <div class="price"> 25$/day</div>
        <button class="normal"> Add to cart</button>
-       <h4> More Information</h2>
+       <h4> More Information</h4>
        <p>Powerful and responsive, Creta’s highly evolved powertrains make driving a pure joy.
          Gasoline engines feature weight-saving all-aluminum construction for better fuel economy
          and they come with Dual Overhead Camshafts (DOHC) plus Dual Variable Valve Timing for
@@ -101,13 +103,27 @@
       </div>
     </section> 
  
+     <script>
+      
+      var MainImg = document.getElementById("MainImg")
+      var smallimg = document.getElementsByClassName("small-img")
+
+      smallimg[0].onclick = function() {
+         MainImg.src = smallimg[0].src;
+      }
+      smallimg[1].onclick = function() {
+         MainImg.src = smallimg[1].src;
+      }
+      smallimg[2].onclick = function() {
+         MainImg.src = smallimg[2].src;
+      }
+      smallimg[3].onclick = function() {
+         MainImg.src = smallimg[3].src;
+      }
+     </script>
 
 
-<script src="script.js">
-  var MainImg= document.getElementById("MainImg");
-  var MainImg= document.getElementsByClassName("small-img");
-  smalling[0].onclick=function(){
-    MainImg.src = smalling[0].src
-  }
-</script>
+    <script src="script.js"> </script>
+
+</body>
 </html>

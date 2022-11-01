@@ -100,7 +100,14 @@
     }
     #register input {font-size:15px; color:white;
     }
-
+    /* login error*/
+    .input-group-login #email_error, 
+    .input-group-login #pass_error { margin-top:5px ; width:280px; font-size:18px; color:red;
+                                      text-align: center; border: 1px solid #EF9A9A; 
+    }
+    #eye { position: absolute; right: 3px; transform: translateY(0,-50%); cursor: pointer; 
+           font-size: 18px; color: #7a797e; bottom: 17px;
+    }
 
 </style>
 </head>
@@ -172,10 +179,17 @@
                     <button type="button" onclick="register()" class="toggle-btnn"> Register</button>
     
     </div>
-                <form id="login" class="input-group-login">
-                    <input type="text" class="input-field" placeholder="Email Id" /> 
-                    <input type="text" class="input-field" placeholder="Enter Password" /> 
-                    
+                <form id="login" class="input-group-login"  action="Flats.html" onsubmit="return Verif()">
+                    <input type="text" class="input-field" id="email" placeholder="Email Id" />
+
+                    <div id="email_error" style ="color:red ; visibility:hidden;"> Please Fill up your email</div> 
+                    <input type="password" class="input-field"id="password" placeholder="Enter Password" /> 
+                    <span>
+                      <i id="eye" class="fa fa-eye" aria-hidden="true" onclick="toggle()"></i>
+                    </span>
+                    <div id="pass_error" style="color:red ; visibility:hidden;"> Please Fill up your password</div>
+
+
                     <button type="submit" class="submit-btnn"> Close </button>
     </form>
     <form id="register" class="input-group-login">
@@ -233,11 +247,11 @@
     
     
     </script>
-
+                 
           
         <br /> <br />
 
-
+       
 
     <div class="container1 bg-white">
          <div class="services">
@@ -245,195 +259,247 @@
          </div>
          <div class="row">
              <div class="col-md-4 text-center"> 
-                 <div class="icon">
-                     <i class="fa fa-car " ></i>
-                 </div>
-                 <h3> Wide Selection </h3>
-                 <p> From standard cars to luxurious sport cars, SUV’s and convertibles, NN Rent a Car has a wide selection of new and safe cars that are constantly under maintenance. Enjoy the ride without any concerns!</p>
+                <div class="icon">
+                    <i class="fa fa-car " ></i>
+                </div>
+                <h3> Wide Selection </h3>
+                <p> From standard cars to luxurious sport cars, SUV’s and convertibles, NN Rent a Car has a wide selection of new and safe cars that are constantly under maintenance. Enjoy the ride without any concerns!</p>
+
+            </div>
+             <div class="col-md-4 text-center"> 
+                <div class="icon">
+                    <i class="fa fa-phone" aria-hidden="true"></i>
+
+                </div>
+                <h3> 24/7 Support </h3>
+                <p> NN Rent a Car is ready 24/7 to serve clients in case of any inconvenience. Our services cover different areas all around Lebanon. Call us at: +961 3 664024</p>
+                
 
              </div>
-              <div class="col-md-4 text-center"> 
-                 <div class="icon">
-                     <i class="fa fa-phone" aria-hidden="true"></i>
+             <div class="col-md-4 text-center"> 
+                <div class="icon">
+                    <i class="fa fa-dollar-sign"></i>
 
-                 </div>
-                 <h3> 24/7 Support </h3>
-                 <p> NN Rent a Car is ready 24/7 to serve clients in case of any inconvenience. Our services cover different areas all around Lebanon. Call us at: +961 3 664024</p>
-                 
+                </div>
+                <h3> Great Prices  </h3>
+                <p> Explore the city with a car of your choice; whether friendly economy or luxurious, all our prices are calculated to fit your needs!</p>
 
-              </div>
-              <div class="col-md-4 text-center"> 
-                 <div class="icon">
-                     <i class="fa fa-dollar-sign"></i>
-
-                 </div>
-                 <h3> Great Prices  </h3>
-                 <p> Explore the city with a car of your choice; whether friendly economy or luxurious, all our prices are calculated to fit your needs!</p>
-
-              </div>
-        </div> 
-     </div>
-        
+             </div>
+       </div> 
+    </div>
        
+      
 
-  <section class="Feedbacks" >
-     <div class="container">
-       <h1 class="ligne"> What Our Custumers Say </h1>
-        <p class="text-center">  </p>
-        <div class="row"> 
-            <div class=" col-md-4 text-center">
-               <div class="profile">
-                    <img src ="imghomePage/user2.jpg" class="user"/>
-                     
-                  <blockquote>  <i class="fa fa-quote-left" style="color: #f5b70b"></i> 
-                                Always using Sibrour Rent a Car for car rentiing in Lebanon.
-                                Fair prices,a lot of flexibility,I personally trust these guys,
-                                their mission is to safisfy their custumers.
-                   
-                </blockquote>
-                
-                   <h3> Joury K.</h3>
-               </div>
-           </div>
-             <div class=" col-md-4 text-center">
-               <div class="profile">
-                   
-                <img src="imghomePage/user1.jpg" class="user"/>
-
-                   <blockquote> <i class="fa fa-quote-left" style="color: #f5b70b"></i>
-                                One of the most reputable caar rental companies in the region.
-                                Ponctuality, professionalism, and prices are always remarkable 
-                               with the clienteles. 
-                   </blockquote>
-                
-                   <h3> François Z. </h3>
-               </div>
-           </div>
-            <div class=" col-md-4 text-center">
-               <div class="profile">
-                   
-                  <img src="imghomePage/user3.jpg" class="user"/>
+ <section class="Feedbacks" >
+    <div class="container">
+      <h1 class="ligne"> What Our Custumers Say </h1>
+       <p class="text-center">  </p>
+       <div class="row"> 
+           <div class=" col-md-4 text-center">
+              <div class="profile">
+                   <img src ="imghomePage/user2.jpg" class="user"/>
+                    
+                 <blockquote>  <i class="fa fa-quote-left" style="color: #f5b70b"></i> 
+                               Always using Sibrour Rent a Car for car rentiing in Lebanon.
+                               Fair prices,a lot of flexibility,I personally trust these guys,
+                               their mission is to safisfy their custumers.
                   
-                   <blockquote> <i class="fa fa-quote-left" style="color: #f5b70b"></i>
-                                Wide variety of cars, friendly and helpful staff.
-                                Prices are very good. Also all fleet well maintained
-                                and new. Love this place my number one go too. Highly 
-                                recommended!
-                                
-                   </blockquote>
-                
-                   <h3> Céline B.</h3>
-               </div>
-           </div>
+               </blockquote>
+               
+                  <h3> Joury K.</h3>
+              </div>
+          </div>
+            <div class=" col-md-4 text-center">
+              <div class="profile">
+                  
+               <img src="imghomePage/user1.jpg" class="user"/>
+
+                  <blockquote> <i class="fa fa-quote-left" style="color: #f5b70b"></i>
+                               One of the most reputable caar rental companies in the region.
+                               Ponctuality, professionalism, and prices are always remarkable 
+                              with the clienteles. 
+                  </blockquote>
+               
+                  <h3> François Z. </h3>
+              </div>
+          </div>
+           <div class=" col-md-4 text-center">
+              <div class="profile">
+                  
+                 <img src="imghomePage/user3.jpg" class="user"/>
+                 
+                  <blockquote> <i class="fa fa-quote-left" style="color: #f5b70b"></i>
+                               Wide variety of cars, friendly and helpful staff.
+                               Prices are very good. Also all fleet well maintained
+                               and new. Love this place my number one go too. Highly 
+                               recommended!
+                               
+                  </blockquote>
+               
+                  <h3> Céline B.</h3>
+              </div>
           </div>
          </div>
-        
-  </section>    
-           <br />
-        
+        </div>
+       
+ </section>    
+          <br />
+       
 <footer class="bg-dark text-white pt-5 pb-4">
 
-  <div class="container text-center text-md-left">
+ <div class="container text-center text-md-left">
 
-      <div class="row text-center text-md-left">
-          <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-              <h5 class="text-uppercase mb-4 font-weight-bold text-warning"> Abour Sibrour</h5>
-              <p> Our mission is to always provide a vast range of vehicles, the best quality, service, unbeatable prices and the latest vehicles to our clients..</p>
-          </div>
+     <div class="row text-center text-md-left">
+         <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+             <h5 class="text-uppercase mb-4 font-weight-bold text-warning"> About Sibrour</h5>
+             <p> Our mission is to always provide a vast range of vehicles, the best quality, service, unbeatable prices and the latest vehicles to our clients..</p>
+         </div>
+         
+         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+             <h5 class="text-uppercase mb-4 font-weight-bold text-warning"> Options</h5>
           
-          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-              <h5 class="text-uppercase mb-4 font-weight-bold text-warning"> Options</h5>
-           
-            <p>
-                <a href="#" class="text-white" style="text-decoration:none;">Weddings Car </a>
-            </p>
-            <p>
-                <a href="#" class="text-white" style="text-decoration:none;"> Sports Car </a>
-            </p>
-              <p>
-                <a href="#" class="text-white" style="text-decoration:none;"> Car's Adds</a>
-            </p>
-            
-          </div>
-
-          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-              <h5 class="text-uppercase mb-4 font-weight-bold text-warning"> Useful links</h5>
- <p>
-                <a href="#" class="text-white" style="text-decoration:none;"> Your Account </a>
-            </p>
-            <p>
-                <a href="#" class="text-white" style="text-decoration:none;"> Become an Affiles </a>
-            </p>
-              <p>
-                <a href="#" class="text-white" style="text-decoration:none;"> Shipping Rates </a>
-            </p>
+           <p>
+               <a href="#" class="text-white" style="text-decoration:none;">Weddings Car </a>
+           </p>
+           <p>
+               <a href="#" class="text-white" style="text-decoration:none;"> Sports Car </a>
+           </p>
              <p>
-                <a href="#" class="text-white" style="text-decoration:none;"> Help </a>
-            </p>             
-          </div>
+               <a href="#" class="text-white" style="text-decoration:none;"> Car's Adds</a>
+           </p>
+           
+         </div>
 
-         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-              <h5 class="text-uppercase mb-4 font-weight-bold text-warning"> Contact Us</h5>
-             <p> 
-                 <i class="fas fa-home mr-3"> </i> Bshara El Khoury, NY 2033, Lebanon
-             </p>
-             <p> 
-                 <i class="fas fa-envelope mr-3"></i> SibRour98@gmail.com
-             </p>
-             <p> 
-                 <i class="fas fa-phone mr-3"> </i> +961 25479658
-             </p>
-             <p> 
-                 <i class="fas fa-print mr-3"> </i> +01 353 597 25
-             </p>
-          </div>
-    </div>
+         <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+             <h5 class="text-uppercase mb-4 font-weight-bold text-warning"> Useful links</h5>
+<p>
+               <a href="#" class="text-white" style="text-decoration:none;"> Your Account </a>
+           </p>
+           <p>
+               <a href="#" class="text-white" style="text-decoration:none;"> Become an Affiles </a>
+           </p>
+             <p>
+               <a href="#" class="text-white" style="text-decoration:none;"> Shipping Rates </a>
+           </p>
+            <p>
+               <a href="#" class="text-white" style="text-decoration:none;"> Help </a>
+           </p>             
+         </div>
 
-    <hr class="mb-4" />
-    <div class="row align-items-center" >
-      <div class="col-md-7 col-lg-8">
-          <p> Copyright 02020 All rights reserved by:
-              <a href="#" style="text-decoration:none;">
-                  <strong class="text-warning"> The Providers</strong>
-              </a>
-          </p>
-      </div>
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+             <h5 class="text-uppercase mb-4 font-weight-bold text-warning"> Contact Us</h5>
+            <p> 
+                <i class="fas fa-home mr-3"> </i> Bshara El Khoury, NY 2033, Lebanon
+            </p>
+            <p> 
+                <i class="fas fa-envelope mr-3"></i> SibRour98@gmail.com
+            </p>
+            <p> 
+                <i class="fas fa-phone mr-3"> </i> +961 25479658
+            </p>
+            <p> 
+                <i class="fas fa-print mr-3"> </i> +01 353 597 25
+            </p>
+         </div>
+   </div>
+
+   <hr class="mb-4" />
+   <div class="row align-items-center" >
+     <div class="col-md-7 col-lg-8">
+         <p> Copyright 02020 All rights reserved by:
+             <a href="#" style="text-decoration:none;">
+                 <strong class="text-warning"> The Providers</strong>
+             </a>
+         </p>
+     </div>
 
 
-    </div>
+   </div>
 
-      <div class="col-md-5 col-lg-4">
-          <div class="text-center  text-md-right">
+     <div class="col-md-5 col-lg-4">
+         <div class="text-center  text-md-right">
 
-              <ul class="list-unstyled list-inline">
-                 <li class="list-inline-item">
-                     <a href="#" class="btn-floating btn-sm text-white" style="font-size:23px;"> <i class="fab fa-facebook"></i></a>
-                 </li> 
-                 <li class="list-inline-item">
-                     <a href="#" class="btn-floating btn-sm text-white" style="font-size:23px;"> <i class="fab fa-twitter"></i></a>
-                 </li> 
-                   <li class="list-inline-item">
-                     <a href="#" class="btn-floating btn-sm text-white" style="font-size:23px;"> <i class="fab fa-youtube"></i> </a>
-                 </li> 
-                   <li class="list-inline-item">
-                     <a href="#" class="btn-floating btn-sm text-white" style="font-size:23px;"> <i class="fab fa-linkedin-in"></i></a>
-                 </li> 
+             <ul class="list-unstyled list-inline">
+                <li class="list-inline-item">
+                    <a href="#" class="btn-floating btn-sm text-white" style="font-size:23px;"> <i class="fab fa-facebook"></i></a>
+                </li> 
+                <li class="list-inline-item">
+                    <a href="#" class="btn-floating btn-sm text-white" style="font-size:23px;"> <i class="fab fa-twitter"></i></a>
+                </li> 
+                  <li class="list-inline-item">
+                    <a href="#" class="btn-floating btn-sm text-white" style="font-size:23px;"> <i class="fab fa-youtube"></i> </a>
+                </li> 
+                  <li class="list-inline-item">
+                    <a href="#" class="btn-floating btn-sm text-white" style="font-size:23px;"> <i class="fab fa-linkedin-in"></i></a>
+                </li> 
 
-              </ul>
+             </ul>
 
-          </div>
+         </div>
 
 </div>
 </div>
 </footer>
-       
-
+      
 
 </div>
 
+   <script >
+    function Verif() {
 
+    var username = document.getElementById("email");
+    var password = document.getElementById("password");
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    if (username.value == "" ) 
+    {
+      username.style.borderBottom = "solid 1px red";
+      username.focus();
+      document.getElementById("email_error").style.visibility="visible";
+      
+       return false;
+     }
+        else if (password.value == "")
+     {        
+      password.style.borderBottom = "solid 1px red";
+      document.getElementById("pass_error").style.visibility="visible";
+      
+        return false;
+      }
+     
+ else if (password.value.trim().length < 6 )
+     {        
+      password.style.border = "solid 3px red";
+      document.getElementById("pass_error").innerHTML.value="Pass should be min 6";
+
+      password.focus();
+        return false;
+      }
+ 
+ else { 
+           return true;
+      }
+}
+
+   var state= false;
+   function toggle() {
+
+  if (state) {
+       document.getElementById ("password").setAttribute("type","password");
+       document.getElementById ("eye").style.color='#7a79e';
+       state = false;
+  }
+  else { 
+           document.getElementById("password").setAttribute("type","text");
+           document.getElementById ("eye").style.color='red';
+
+           state = true;
+
+  } 
+
+}
+   </script>
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 
 </body>
