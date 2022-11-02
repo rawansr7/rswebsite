@@ -1,0 +1,285 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.nav-item>.nav-link {
+    font-size: larger;
+}
+
+h2,
+.card-title {
+    text-align: center;
+}
+
+nav ul li a:hover {
+    background-color: #fff
+}
+
+.slide1 {
+    background-image: url(imghomePage/bg2.png);
+}
+
+.bg-cover {
+    background-position: center !important;
+    background-size: cover !important;
+}
+
+
+.Feedbacks {
+    margin: 50px auto;
+}
+
+.ligne {
+    text-align: center;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+    color: #f5b70b;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.ligne h1::after {
+    content: '';
+    background: #f5b70b;
+    display: block;
+    height: 3px;
+    width: 170px;
+    margin: 20px auto 5px;
+}
+
+.Feedbacks .row {
+    margin-top: 30px;
+}
+
+.col-md-4 {
+    margin: 40px auto;
+}
+
+.profile {
+    padding: 70px 10px 10px;
+    background-color: #d3d3d3;
+}
+
+.profile img {
+    top: 1350px;
+    position: absolute;
+    left: calc(50% -40px);
+    border: 10px solid white;
+}
+
+.user {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.profile h3 {
+    font-size: 20px;
+    margin-top: 15px;
+    color: #f5b70b;
+}
+
+blockquote {
+    font-size: 16px;
+    line-height: 30px;
+}
+
+blockquote::before {
+    content: '\93';
+    font-size: 50px;
+    position: relative;
+    color: #f5b70b;
+    line-height: 20px;
+    bottom: -15px;
+    right: 5px;
+}
+
+blockquote::before {
+    content: '\94';
+    font-size: 50px;
+    position: relative;
+    color: #f5b70b;
+    line-height: 10px;
+    bottom: -15px;
+    right: 5px;
+}
+
+.profile:hover {
+    box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+
+.container1 {
+    background-size: 100%;
+    background-position: center;
+    color: #f5b70b !important;
+}
+
+.services {
+    margin: 10px auto;
+    text-align: center;
+}
+
+.ligne {
+    font-family: sans-serif;
+    letter-spacing: 1px;
+}
+
+.ligne::after {
+    content: '';
+    background: #f5b70b;
+    display: block;
+    width: 150px;
+    height: 3px;
+    margin: 10px auto;
+}
+
+.icon {
+    font-size: 40px;
+    margin: 20px auto;
+    padding: 20px;
+    height: 80px;
+    width: 80px;
+    border: 1px solid #f5b70b;
+    border-radius: 50%;
+}
+
+.col-md-4:hover {
+    box-shadow: 5px 7px 9px -3px rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+}
+
+
+
+.login-page {
+    display: none;
+}
+
+.form-box {
+    width: 380px;
+    height: 400px;
+    position: relative;
+    margin: 2% auto;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    overflow: hidden;
+}
+
+.button-box {
+    width: 220px;
+    margin: 35px auto;
+    position: relative;
+    box-shadow: 0 0 20px 9px #ff61241f;
+    border-radius: 30px;
+}
+
+.toggle-btnn {
+    padding: 10px 20px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+}
+
+#btnn {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 110px;
+    height: 100%;
+    background: #F3C693;
+    border-radius: 30px;
+    transition: .5s;
+}
+
+.input-group-login {
+    top: 150px;
+    position: absolute;
+    width: 280px;
+    transition: .5s;
+}
+
+.input-group-register {
+    top: 120px;
+    position: absolute;
+    width: 280px;
+    transition: .5s;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid #F3C693;
+    outline: none;
+    background: transparent;
+}
+
+.submit-btnn {
+    width: 85%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    outline: none;
+    background: #F3C693;
+    border: 0;
+    border-radius: 30px;
+}
+
+.check-box {
+    margin: 30px 10px 34px 0;
+}
+
+span {
+    color: #777;
+    font-size: 12px;
+    bottom: 68px;
+    position: absolute;
+}
+
+#login {
+    left: 30px;
+}
+
+#login input {
+    color: white;
+    font-size: 15px;
+}
+
+#register {
+    left: 450px;
+}
+
+#register input {
+    font-size: 15px;
+    color: white;
+}
+
+/* login error*/
+.input-group-login #email_error,
+.input-group-login #pass_error {
+    margin-top: 5px;
+    width: 280px;
+    font-size: 18px;
+    color: red;
+    text-align: center;
+    border: 1px solid #EF9A9A;
+}
+
+#eye {
+    position: absolute;
+    right: 3px;
+    transform: translateY(0, -50%);
+    cursor: pointer;
+    font-size: 18px;
+    color: #7a797e;
+    bottom: 17px;
+}

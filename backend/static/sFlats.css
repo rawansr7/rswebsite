@@ -1,0 +1,28 @@
+.nav-item>.nav-link {
+    font-size: larger;
+}
+
+nav ul li a:hover {
+    background-color: #fff;
+}
+
+.section-title {
+    font-size: 40px;
+}
+
+.line {
+    width: 150px;
+    background: #ddd;
+    height: 3px;
+    margin: auto;
+}
+
+.line span {
+    display: block;
+    width: 100px;
+    height: 4px;
+    background-color: #f5b70b;
+    margin: auto;
+    position: relative;
+    bottom: 0.5px;
+}

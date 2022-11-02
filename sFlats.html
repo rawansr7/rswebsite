@@ -1,129 +1,55 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title> Sibrour Rent A Car Lebanon </title>
-<link rel="stylesheet" href="http://pro.font-awesome.com.relases/v5.10.0/css/all.css"/>
-<link rel="stylesheet" href="Flats.css"/>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
-<link rel="stylesheet"type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
-<style>
+{% extends 'base.html' %}
+{% block title %} <title> Sibrour Rent A Car Lebanon </title> {% endblock %}
 
-   .nav-item > .nav-link {  font-size: larger;
-    }
-    nav ul li a:hover { background-color: #fff;
-    }
-    .section-title { font-size:40px; 
-    }
-    .line {width: 150px; background: #ddd;  height: 3px; margin: auto; 
-    }
-    .line span {display:block;width: 100px; height: 4px; background-color: #f5b70b; margin: auto; position:relative;bottom: 0.5px;
-    }
-</style>
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-dark ">
-        <div class="container-fluid ">
-          <a class="navbar-brand" href="#">
-            <img src="imghomePage/logoo.png" alt="" width="100" height="55"/>
-          </a>
-      
-            <button
-                 class="navbar-toggler" 
-                 type="button"
-                 data-bs-toggle="collapse"
-                 data-bs-target="#navbarNav">  
-               <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                <a class="nav-link active text-warning" aria-current="page" href="homePage.html">Home</a>
-              </li>
-                <li class="nav-item">
-                <a class="nav-link active text-warning" aria-current="page" href="Flats.html">Our Flats</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-warning" href="#">Reservation</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-warning" href="aboutUs.html">About US</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled text-warning" href="#" tabindex="-1" aria-disabled="true">Contact US</a>
-              </li>
-              
-            </ul>
-          </div>
-        </div> 
-        
-        
-    </nav>
-    <section id="prodetails" class="section-p1"> 
-      <div class="single-pro-image">
-        <img src="imgaboutUs/c1bleu.png" width="100%" id="MainImg" alt>
-     
-        <div class="small-img-grp">
-          <div class="small-img-col">
-             <img src="imgaboutUs/c1bleu.png" width="100%" class="small-img"> 
-          </div>
-          <div class="small-img-col">
-            <img src="imgaboutUs/c1n.png" width="100%" class="small-img"> 
-         </div>
-         <div class="small-img-col">
-            <img src="imgaboutUs/c1b.png" width="100%" class="small-img"> 
-         </div>
-         <div class="small-img-col">
-            <img src="imgaboutUs/c1blanc.png" width="100%" class="small-img"> 
-         </div>
 
-        </div>
+{% block content %}
+
+{% load static %}
+
+<section id="prodetails" class="section-p1">
+  <div class="single-pro-image">
+    <img src="{% static car.image_urls.0 %}" width="100%" id="MainImg" alt>
+
+    <div class="small-img-grp">
+      {% for image_url in car.image_urls %}
+      <div class="small-img-col">
+        <img src="{% static image_url %}" width="100%" class="small-img">
       </div>
+      {% endfor %}
 
-      <div class="single-pro-details">
-      <h1> Creta- Hundai 2021</h1>
-      
-       <i class=""></i> <span> 4 doors </span>
-       <i class="fas fa-tachometer-alt "></i> <span> 5 seats</span>
-       <i class="fas fa-briefcase"></i> <span> 2 bags </span> 
+    </div>
+  </div>
 
-       <div class="price"> 25$/day</div>
-       <button class="normal"> Add to cart</button>
-       <h4> More Information</h4>
-       <p>Powerful and responsive, Creta’s highly evolved powertrains make driving a pure joy.
-         Gasoline engines feature weight-saving all-aluminum construction for better fuel economy
-         and they come with Dual Overhead Camshafts (DOHC) plus Dual Variable Valve Timing for
-         improved performance. Gearbox options have been expanded to include a 7-speed Dual Clutch 
-         Transmission which delivers lightning-fast shifting and the all-new Intelligent Variable 
-         Transmission.
-      </p>
+  <div class="single-pro-details">
+    <h1> {{ car.brand }} {{ car.year }} </h1>
 
-      </div>
-    </section> 
- 
-     <script>
-      
-      var MainImg = document.getElementById("MainImg")
-      var smallimg = document.getElementsByClassName("small-img")
+    <i class=""></i> <span> {{ car.doors }} doors </span>
+    <i class="fas fa-tachometer-alt "></i> <span> {{ car.seats }} seats</span>
+    <i class="fas fa-briefcase"></i> <span> {{ car.bags }} bags </span>
 
-      smallimg[0].onclick = function() {
-         MainImg.src = smallimg[0].src;
-      }
-      smallimg[1].onclick = function() {
-         MainImg.src = smallimg[1].src;
-      }
-      smallimg[2].onclick = function() {
-         MainImg.src = smallimg[2].src;
-      }
-      smallimg[3].onclick = function() {
-         MainImg.src = smallimg[3].src;
-      }
-     </script>
+    <div class="price"> {{ car.price }}$/day</div>
+    <button class="normal"> Add to cart</button>
+    <h4> More Information </h4>
+    <p>{{ car.description }}</p>
+  </div>
+</section>
 
+<script>
 
-    <script src="script.js"> </script>
+  var MainImg = document.getElementById("MainImg")
+  var smallimg = document.getElementsByClassName("small-img")
 
-</body>
-</html>
+  smallimg[0].onclick = function () {
+    MainImg.src = smallimg[0].src;
+  }
+  smallimg[1].onclick = function () {
+    MainImg.src = smallimg[1].src;
+  }
+  smallimg[2].onclick = function () {
+    MainImg.src = smallimg[2].src;
+  }
+  smallimg[3].onclick = function () {
+    MainImg.src = smallimg[3].src;
+  }
+</script>
+{% endblock %}

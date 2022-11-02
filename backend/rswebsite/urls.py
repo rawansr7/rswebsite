@@ -16,9 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.views.generic import TemplateView
+from .views import flats_details, Flats
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", TemplateView.as_view(template_name="homePage.html"), name="home"),
     path("about", TemplateView.as_view(template_name="aboutUs.html"), name="about"),
+    path("flats", Flats.as_view(), name="flats"),
+    path(
+        "sflats/<int:pk>",
+        flats_details,
+        name="sflats",
+    ),
 ]

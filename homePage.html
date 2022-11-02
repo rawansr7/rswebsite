@@ -1,228 +1,240 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
-  <link rel="stylesheet"type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
-<link rel="stylesheet"href="homePage.css">
-<title>  Sibrour Rent A Car Lebanon </title>
+{% extends 'base.html' %}
 
-<style>
-   * 
-   {margin: 0;
-    padding: 0 ;
-    box-sizing: border-box;
-   }
-  
-    .nav-item >.nav-link{font-size:larger;
-    }
-   h2, .card-title { text-align:center;
-    }
-    
-    nav ul li a:hover{background-color:#fff
-    }
-    .slide1 {background-image:url(imghomePage/bg2.png); 
-    }
-    .bg-cover {background-position:center !important; background-size:cover !important;
-    }
+{% block title %} <title> Sibrour Rent A Car Lebanon </title> {% endblock %}
+
+{% block content %}
+{% load static %}
+<div class="container-fluid">
 
 
-    .Feedbacks { margin:50px auto;
-    }
-   .ligne { text-align: center; font-family: sans-serif; letter-spacing: 1px; color:#f5b70b; padding-bottom:10px; text-transform:uppercase;
-    }
-   
-    .ligne h1::after { content:''; background:#f5b70b; display:block; height: 3px; width:170px ; margin: 20px auto 5px;
-    }
-    .Feedbacks .row { margin-top:30px;
-    }
-    .col-md-4 {margin:40px auto;
-    }
-    .profile { padding:70px 10px 10px; background-color: #d3d3d3;
-    }
-    .profile img { top:1350px; position:absolute; left: calc(50% -40px); border:10px solid white;
-    }
-     .user {width:100px; height:100px; border-radius: 50%;
-    }
-    .profile h3 {font-size:20px; margin-top: 15px; color:#f5b70b;
-    }
-    blockquote {font-size:16px; line-height:30px;
-    }
-    blockquote::before {content: '\93';font-size:50px; position:relative; color: #f5b70b; line-height:20px; bottom: -15px; right:5px;
-    }
-    blockquote::before {content: '\94';font-size:50px; position:relative; color: #f5b70b; line-height:10px; bottom: -15px; right:5px;
-    }
-    .profile:hover {box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.2); cursor:pointer;
-    }
+    <div class="slider-wrapper ">
+        <div class="slide1 min-vh-100 bg-cover d-flex align-items-center">
+            <div class="container">
 
+                <div class="row">
+                    <div class="col-12">
+                        <h6 class="text-uppercase text-warning"> Rent A Car In Lebanon And Drive In Style</h6>
+                        <h1 class="display-2 "> Choose the car <br /> of your dreams</h1>
+                        <a href="#" class="btn btn-outline-dark" onclick="openform()" style="width:auto;"> Login
+                        </a>
 
-    .container1 {background-size:100% ; background-position:center; color:#f5b70b !important;
-    }
-    .services {margin: 10px auto; text-align:center;
-    }
-    .ligne {font-family: sans-serif; letter-spacing: 1px;
-    }
-    .ligne::after { content: ''; background:#f5b70b; display:block; width: 150px; height: 3px; margin: 10px auto;
-     }
-    .icon {font-size:40px; margin:20px auto; padding:20px; height:80px; width:80px; border:1px solid #f5b70b; border-radius: 50%;
-    }
-    .col-md-4:hover {box-shadow:5px 7px 9px -3px rgba(255,255,255,0.5); cursor:pointer;
-    }
+                        <a href="Flats.html" class="btn btn-outline-warning text-dark ms-md-3 "> Our Flats</a>
 
+                    </div>
+                </div>
 
-    
-    .login-page {display:none;
-    }      
-   .form-box { width:380px; height:400px; position:relative;margin:2% auto; background:rgba(0,0,0,0.3);padding:10px; overflow:hidden;
-    }
-   .button-box {width:220px; margin:35px auto;position:relative; box-shadow:0 0 20px 9px #ff61241f; border-radius:30px;
-    }
-    .toggle-btnn { padding:10px 20px; cursor:pointer;background:transparent; border:0;outline:none; position:relative;
-    }
-    #btnn {top:0;left:0; position:absolute;width:110px; height:100%; background:#F3C693;border-radius:30px;transition:.5s;
-    }
-     .input-group-login { top:150px; position:absolute;width:280px;transition:.5s;
-    }
-     .input-group-register { top:120px; position:absolute;width:280px;transition:.5s;
-    }
-    .input-field { width:100%;padding:10px 0; margin:5px 0; border-left:0;border-top:0;border-right:0; border-bottom:1px solid #F3C693; outline:none; background:transparent;
-    }
-    .submit-btnn { width:85%;padding:10px 30px; cursor:pointer; display:block; margin:auto; outline:none; background:#F3C693;border:0; border-radius:30px;
-    }
-    .check-box { margin: 30px 10px 34px 0;
-    }
-    span {color:#777;font-size:12px; bottom:68px; position:absolute;
-    }
-    #login {left:30px;
-    }
-    #login input {color:white; font-size:15px;
-    }
-    #register { left:450px;
-    }
-    #register input {font-size:15px; color:white;
-    }
-    /* login error*/
-    .input-group-login #email_error, 
-    .input-group-login #pass_error { margin-top:5px ; width:280px; font-size:18px; color:red;
-                                      text-align: center; border: 1px solid #EF9A9A; 
-    }
-    #eye { position: absolute; right: 3px; transform: translateY(0,-50%); cursor: pointer; 
-           font-size: 18px; color: #7a797e; bottom: 17px;
-    }
-
-</style>
-</head>
-<body>
-    <div class="container-fluid">
-        
-        <nav class="navbar navbar-expand-lg navbar-light bg-dark ">
-         <div class="container-fluid ">
-         <a class="navbar-brand" href="#">
-         <img src="imghomePage/logoo.png" alt="" width="100" height="55"/>
-         </a>
-      
-         </div>
-         <button
-            class="navbar-toggler "
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav">  
-          <span class="navbar-toggler-icon"> </span>
-        </button>
- 
-     <div class="collapse navbar-collapse" id="navbarNav">
-       <ul id="MenuItems" class="navbar-nav ms-auto">
-         <li class="nav-item">
-           <a class="nav-link active text-warning" style="text-decoration:underline" href="#">Home</a>
-         </li>
-           <li class="nav-item">
-           <a class="nav-link active text-warning"  href="Flats.html">OurFlats</a>
-         </li>
-         <li class="nav-item">
-           <a class="nav-link text-warning" href="#">Reservation</a>
-         </li>
-         <li class="nav-item">
-           <a class="nav-link text-warning" href="aboutUs.html">AboutUS</a>
-         </li>
-         <li class="nav-item">
-           <a class="nav-link  text-warning" href="maps.aspx">ContactUS</a>
-         </li>
-         
-       </ul>
-     </div>
-    
-</nav>
- 
-
-
-<div class="slider-wrapper ">
-  <div class="slide1 min-vh-100 bg-cover d-flex align-items-center">
-    <div class="container">
-
-        <div class="row">
-            <div class="col-12">
-              <h6 class="text-uppercase text-warning"> Rent A Car In Lebanon And Drive In Style</h6>
-                <h1 class="display-2 "> Choose the car <br />  of your dreams</h1>
-                <a href="#" class="btn btn-outline-dark" onclick="openform()"  style="width:auto;"> Login </a>
-            
-                <a href="Flats.html" class="btn btn-outline-warning text-dark ms-md-3 "> Our Flats</a>
-               
             </div>
+
+            <div id="login-form" class="login-page">
+                <div class="form-box">
+                    <div class="button-box">
+                        <div id="btnn"></div>
+                        <button type="button" onclick="login()" class="toggle-btnn"> Log In</button>
+                        <button type="button" onclick="register()" class="toggle-btnn"> Register</button>
+
+                    </div>
+                    <form id="login" class="input-group-login" action="Flats.html" onsubmit="return Verif()">
+                        <input type="text" class="input-field" id="email" placeholder="Email Id" />
+
+                        <div id="email_error" style="color:red ; visibility:hidden;"> Please Fill up your email
+                        </div>
+                        <input type="password" class="input-field" id="password" placeholder="Enter Password" />
+                        <span>
+                            <i id="eye" class="fa fa-eye" aria-hidden="true" onclick="toggle()"></i>
+                        </span>
+                        <div id="pass_error" style="color:red ; visibility:hidden;"> Please Fill up your password
+                        </div>
+
+
+                        <button type="submit" class="submit-btnn"> Close </button>
+                    </form>
+                    <form id="register" class="input-group-login">
+                        <input type="text" class="input-field" placeholder="First Name" />
+                        <input type="text" class="input-field" placeholder="Last Name" />
+                        <input type="email" class="input-field" placeholder="Email Id" />
+                        <input type="password" class="input-field" placeholder="Password" />
+                        <input type="password" class="input-field" placeholder="Confirm Password" />
+                        <input type="checkbox" class="check-box" /> <span>I agree to the terms and conditions</span>
+                        <button type="submit" class="submit-btnn">Register</button>
+                    </form>
+                </div>
+
             </div>
+
+
 
         </div>
 
-        <div id="login-form"  class="login-page">
-            <div class="form-box">
-                <div class="button-box">
-                    <div id="btnn"></div>
-                    <button type="button" onclick="login()" class="toggle-btnn"> Log In</button> 
-                    <button type="button" onclick="register()" class="toggle-btnn"> Register</button>
-    
     </div>
-                <form id="login" class="input-group-login"  action="Flats.html" onsubmit="return Verif()">
-                    <input type="text" class="input-field" id="email" placeholder="Email Id" />
-
-                    <div id="email_error" style ="color:red ; visibility:hidden;"> Please Fill up your email</div> 
-                    <input type="password" class="input-field"id="password" placeholder="Enter Password" /> 
-                    <span>
-                      <i id="eye" class="fa fa-eye" aria-hidden="true" onclick="toggle()"></i>
-                    </span>
-                    <div id="pass_error" style="color:red ; visibility:hidden;"> Please Fill up your password</div>
 
 
-                    <button type="submit" class="submit-btnn"> Close </button>
-    </form>
-    <form id="register" class="input-group-login">
-                    <input type="text" class="input-field" placeholder="First Name" /> 
-                    <input type="text" class="input-field" placeholder="Last Name" /> 
-                    <input type="email" class="input-field" placeholder="Email Id" /> 
-                    <input type="password" class="input-field" placeholder="Password" /> 
-                    <input type="password" class="input-field" placeholder="Confirm Password" /> 
-                    <input type="checkbox" class="check-box"  /> <span>I agree to the terms and conditions</span>
-                    <button type="submit" class="submit-btnn">Register</button>
-     </form>
+    <br /> <br />
+
+
+
+    <div class="container1 bg-white">
+        <div class="services">
+            <h1 class="ligne"> Our Services </h1>
+        </div>
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <div class="icon">
+                    <i class="fa fa-car "></i>
+                </div>
+                <h3> Wide Selection </h3>
+                <p> From standard cars to luxurious sport cars, SUV’s and convertibles, NN Rent a Car has a wide
+                    selection of new and safe cars that are constantly under maintenance. Enjoy the ride without any
+                    concerns!</p>
+
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="icon">
+                    <i class="fa fa-phone" aria-hidden="true"></i>
+
+                </div>
+                <h3> 24/7 Support </h3>
+                <p> NN Rent a Car is ready 24/7 to serve clients in case of any inconvenience. Our services cover
+                    different areas all around Lebanon. Call us at: +961 3 664024</p>
+
+
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="icon">
+                    <i class="fa fa-dollar-sign"></i>
+
+                </div>
+                <h3> Great Prices </h3>
+                <p> Explore the city with a car of your choice; whether friendly economy or luxurious, all our
+                    prices are calculated to fit your needs!</p>
+
+            </div>
+        </div>
     </div>
-    
-      </div>
 
 
 
-    </div>
-    
+    <section class="Feedbacks">
+        <div class="container">
+            <h1 class="ligne"> What Our Custumers Say </h1>
+            <p class="text-center"> </p>
+            <div class="row">
+                <div class=" col-md-4 text-center">
+                    <div class="profile">
+                        <img src="{% static 'imghomePage/user2.jpg' %}" class="user" />
+
+                        <blockquote> <i class="fa fa-quote-left" style="color: #f5b70b"></i>
+                            Always using Sibrour Rent a Car for car rentiing in Lebanon.
+                            Fair prices,a lot of flexibility,I personally trust these guys,
+                            their mission is to safisfy their custumers.
+
+                        </blockquote>
+
+                        <h3> Joury K.</h3>
+                    </div>
+                </div>
+                <div class=" col-md-4 text-center">
+                    <div class="profile">
+
+                        <img src="{% static 'imghomePage/user1.jpg' %}" class="user" />
+
+                        <blockquote> <i class="fa fa-quote-left" style="color: #f5b70b"></i>
+                            One of the most reputable caar rental companies in the region.
+                            Ponctuality, professionalism, and prices are always remarkable
+                            with the clienteles.
+                        </blockquote>
+
+                        <h3> François Z. </h3>
+                    </div>
+                </div>
+                <div class=" col-md-4 text-center">
+                    <div class="profile">
+
+                        <img src="{% static 'imghomePage/user3.jpg' %}" class="user" />
+
+                        <blockquote> <i class="fa fa-quote-left" style="color: #f5b70b"></i>
+                            Wide variety of cars, friendly and helpful staff.
+                            Prices are very good. Also all fleet well maintained
+                            and new. Love this place my number one go too. Highly
+                            recommended!
+
+                        </blockquote>
+
+                        <h3> Céline B.</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <br />
+
 </div>
 <script>
-    var r = document.getElementById('login-form') ;
+    function Verif() {
+
+        var username = document.getElementById("email");
+        var password = document.getElementById("password");
+
+        if (username.value == "") {
+            username.style.borderBottom = "solid 1px red";
+            username.focus();
+            document.getElementById("email_error").style.visibility = "visible";
+
+            return false;
+        }
+        else if (password.value == "") {
+            password.style.borderBottom = "solid 1px red";
+            document.getElementById("pass_error").style.visibility = "visible";
+
+            return false;
+        }
+
+        else if (password.value.trim().length < 6) {
+            password.style.border = "solid 3px red";
+            document.getElementById("pass_error").innerHTML.value = "Pass should be min 6";
+
+            password.focus();
+            return false;
+        }
+
+        else {
+            return true;
+        }
+    }
+
+    var state = false;
+    function toggle() {
+
+        if (state) {
+            document.getElementById("password").setAttribute("type", "password");
+            document.getElementById("eye").style.color = '#7a79e';
+            state = false;
+        }
+        else {
+            document.getElementById("password").setAttribute("type", "text");
+            document.getElementById("eye").style.color = 'red';
+
+            state = true;
+
+        }
+
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+<script>
+    var r = document.getElementById('login-form');
     var x = document.getElementById('login');
     var y = document.getElementById('register');
     var z = document.getElementById('btnn');
-    function openform()
-    {
+    function openform() {
         r.style.display = 'block';
 
 
     }
-    function register()
-    {
+    function register() {
         x.style.left = '-400px';
         y.style.left = '50px';
         z.style.left = '110px';
@@ -232,275 +244,17 @@
         y.style.left = '450px';
         z.style.left = '0px';
     }
-   
+
 </script>
 <script>
     var modal = document.getElementById('login-form');
-        window.onclick = function (event)
-        {
-            if (event.target == modal)
-            {
-                modal.style.display = "none"
-            }
-    
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none"
         }
-    
-    
-    </script>
-                 
-          
-        <br /> <br />
 
-       
-
-    <div class="container1 bg-white">
-         <div class="services">
-            <h1 class="ligne"> Our Services  </h1>
-         </div>
-         <div class="row">
-             <div class="col-md-4 text-center"> 
-                <div class="icon">
-                    <i class="fa fa-car " ></i>
-                </div>
-                <h3> Wide Selection </h3>
-                <p> From standard cars to luxurious sport cars, SUV’s and convertibles, NN Rent a Car has a wide selection of new and safe cars that are constantly under maintenance. Enjoy the ride without any concerns!</p>
-
-            </div>
-             <div class="col-md-4 text-center"> 
-                <div class="icon">
-                    <i class="fa fa-phone" aria-hidden="true"></i>
-
-                </div>
-                <h3> 24/7 Support </h3>
-                <p> NN Rent a Car is ready 24/7 to serve clients in case of any inconvenience. Our services cover different areas all around Lebanon. Call us at: +961 3 664024</p>
-                
-
-             </div>
-             <div class="col-md-4 text-center"> 
-                <div class="icon">
-                    <i class="fa fa-dollar-sign"></i>
-
-                </div>
-                <h3> Great Prices  </h3>
-                <p> Explore the city with a car of your choice; whether friendly economy or luxurious, all our prices are calculated to fit your needs!</p>
-
-             </div>
-       </div> 
-    </div>
-       
-      
-
- <section class="Feedbacks" >
-    <div class="container">
-      <h1 class="ligne"> What Our Custumers Say </h1>
-       <p class="text-center">  </p>
-       <div class="row"> 
-           <div class=" col-md-4 text-center">
-              <div class="profile">
-                   <img src ="imghomePage/user2.jpg" class="user"/>
-                    
-                 <blockquote>  <i class="fa fa-quote-left" style="color: #f5b70b"></i> 
-                               Always using Sibrour Rent a Car for car rentiing in Lebanon.
-                               Fair prices,a lot of flexibility,I personally trust these guys,
-                               their mission is to safisfy their custumers.
-                  
-               </blockquote>
-               
-                  <h3> Joury K.</h3>
-              </div>
-          </div>
-            <div class=" col-md-4 text-center">
-              <div class="profile">
-                  
-               <img src="imghomePage/user1.jpg" class="user"/>
-
-                  <blockquote> <i class="fa fa-quote-left" style="color: #f5b70b"></i>
-                               One of the most reputable caar rental companies in the region.
-                               Ponctuality, professionalism, and prices are always remarkable 
-                              with the clienteles. 
-                  </blockquote>
-               
-                  <h3> François Z. </h3>
-              </div>
-          </div>
-           <div class=" col-md-4 text-center">
-              <div class="profile">
-                  
-                 <img src="imghomePage/user3.jpg" class="user"/>
-                 
-                  <blockquote> <i class="fa fa-quote-left" style="color: #f5b70b"></i>
-                               Wide variety of cars, friendly and helpful staff.
-                               Prices are very good. Also all fleet well maintained
-                               and new. Love this place my number one go too. Highly 
-                               recommended!
-                               
-                  </blockquote>
-               
-                  <h3> Céline B.</h3>
-              </div>
-          </div>
-         </div>
-        </div>
-       
- </section>    
-          <br />
-       
-<footer class="bg-dark text-white pt-5 pb-4">
-
- <div class="container text-center text-md-left">
-
-     <div class="row text-center text-md-left">
-         <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-             <h5 class="text-uppercase mb-4 font-weight-bold text-warning"> About Sibrour</h5>
-             <p> Our mission is to always provide a vast range of vehicles, the best quality, service, unbeatable prices and the latest vehicles to our clients..</p>
-         </div>
-         
-         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-             <h5 class="text-uppercase mb-4 font-weight-bold text-warning"> Options</h5>
-          
-           <p>
-               <a href="#" class="text-white" style="text-decoration:none;">Weddings Car </a>
-           </p>
-           <p>
-               <a href="#" class="text-white" style="text-decoration:none;"> Sports Car </a>
-           </p>
-             <p>
-               <a href="#" class="text-white" style="text-decoration:none;"> Car's Adds</a>
-           </p>
-           
-         </div>
-
-         <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-             <h5 class="text-uppercase mb-4 font-weight-bold text-warning"> Useful links</h5>
-<p>
-               <a href="#" class="text-white" style="text-decoration:none;"> Your Account </a>
-           </p>
-           <p>
-               <a href="#" class="text-white" style="text-decoration:none;"> Become an Affiles </a>
-           </p>
-             <p>
-               <a href="#" class="text-white" style="text-decoration:none;"> Shipping Rates </a>
-           </p>
-            <p>
-               <a href="#" class="text-white" style="text-decoration:none;"> Help </a>
-           </p>             
-         </div>
-
-        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-             <h5 class="text-uppercase mb-4 font-weight-bold text-warning"> Contact Us</h5>
-            <p> 
-                <i class="fas fa-home mr-3"> </i> Bshara El Khoury, NY 2033, Lebanon
-            </p>
-            <p> 
-                <i class="fas fa-envelope mr-3"></i> SibRour98@gmail.com
-            </p>
-            <p> 
-                <i class="fas fa-phone mr-3"> </i> +961 25479658
-            </p>
-            <p> 
-                <i class="fas fa-print mr-3"> </i> +01 353 597 25
-            </p>
-         </div>
-   </div>
-
-   <hr class="mb-4" />
-   <div class="row align-items-center" >
-     <div class="col-md-7 col-lg-8">
-         <p> Copyright 02020 All rights reserved by:
-             <a href="#" style="text-decoration:none;">
-                 <strong class="text-warning"> The Providers</strong>
-             </a>
-         </p>
-     </div>
+    }
 
 
-   </div>
-
-     <div class="col-md-5 col-lg-4">
-         <div class="text-center  text-md-right">
-
-             <ul class="list-unstyled list-inline">
-                <li class="list-inline-item">
-                    <a href="#" class="btn-floating btn-sm text-white" style="font-size:23px;"> <i class="fab fa-facebook"></i></a>
-                </li> 
-                <li class="list-inline-item">
-                    <a href="#" class="btn-floating btn-sm text-white" style="font-size:23px;"> <i class="fab fa-twitter"></i></a>
-                </li> 
-                  <li class="list-inline-item">
-                    <a href="#" class="btn-floating btn-sm text-white" style="font-size:23px;"> <i class="fab fa-youtube"></i> </a>
-                </li> 
-                  <li class="list-inline-item">
-                    <a href="#" class="btn-floating btn-sm text-white" style="font-size:23px;"> <i class="fab fa-linkedin-in"></i></a>
-                </li> 
-
-             </ul>
-
-         </div>
-
-</div>
-</div>
-</footer>
-      
-
-</div>
-
-   <script >
-    function Verif() {
-
-    var username = document.getElementById("email");
-    var password = document.getElementById("password");
-
-    if (username.value == "" ) 
-    {
-      username.style.borderBottom = "solid 1px red";
-      username.focus();
-      document.getElementById("email_error").style.visibility="visible";
-      
-       return false;
-     }
-        else if (password.value == "")
-     {        
-      password.style.borderBottom = "solid 1px red";
-      document.getElementById("pass_error").style.visibility="visible";
-      
-        return false;
-      }
-     
- else if (password.value.trim().length < 6 )
-     {        
-      password.style.border = "solid 3px red";
-      document.getElementById("pass_error").innerHTML.value="Pass should be min 6";
-
-      password.focus();
-        return false;
-      }
- 
- else { 
-           return true;
-      }
-}
-
-   var state= false;
-   function toggle() {
-
-  if (state) {
-       document.getElementById ("password").setAttribute("type","password");
-       document.getElementById ("eye").style.color='#7a79e';
-       state = false;
-  }
-  else { 
-           document.getElementById("password").setAttribute("type","text");
-           document.getElementById ("eye").style.color='red';
-
-           state = true;
-
-  } 
-
-}
-   </script>
-
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-
-</body>
-</html>
+</script>
+{% endblock %}

@@ -1,0 +1,62 @@
+[
+    {
+        "model": "cars.Car",
+        "pk": 1,
+        "fields": {
+            "brand": "Creta-Hundai",
+            "year": 2021,
+            "price": 25,
+            "stars": 3,
+            "description": "BLA BLA BLA",
+            "image_urls": [
+                "imgaboutUs/c1bleu.png",
+                "imgaboutUs/c1n.png",
+                "imgaboutUs/c1b.png",
+                "imgaboutUs/c1blanc.png"
+            ],
+            "seats": 4,
+            "bags": 2,
+            "doors": 4
+        }
+    },
+    {
+        "model": "cars.Car",
+        "pk": 2,
+        "fields": {
+            "brand": "BMW",
+            "year": 2002,
+            "price": 40,
+            "stars": 5,
+            "description": "BLA BLA BLA",
+            "image_urls": [
+                "imgaboutUs/c1bleu.png",
+                "imgaboutUs/c1n.png",
+                "imgaboutUs/c1b.png",
+                "imgaboutUs/c1blanc.png"
+            ],
+            "seats": 3,
+            "bags": 1,
+            "doors": 5
+        }
+    },
+    {
+        "model": "cars.Car",
+        "pk": 3,
+        "fields": {
+            "brand": "totoya",
+            "year": 2021,
+            "price": 500,
+            "stars": 3,
+            "description": "BLA ooooo BLA",
+            "image_urls": [
+                "imgaboutUs/c1bleu.png",
+                "imgaboutUs/c1n.png",
+                "imgaboutUs/c1b.png",
+                "imgaboutUs/c1blanc.png"
+            ],
+            "seats": 4,
+            "bags": 2,
+            "doors": 4
+        }
+    }
+]
