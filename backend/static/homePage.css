@@ -160,7 +160,7 @@ blockquote::before {
 
 .form-box {
     width: 380px;
-    height: 400px;
+    height: 600px;
     position: relative;
     margin: 2% auto;
     background: rgba(0, 0, 0, 0.3);

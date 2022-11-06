@@ -15,8 +15,14 @@
                     <div class="col-12">
                         <h6 class="text-uppercase text-warning"> Rent A Car In Lebanon And Drive In Style</h6>
                         <h1 class="display-2 "> Choose the car <br /> of your dreams</h1>
-                        <a href="#" class="btn btn-outline-dark" onclick="openform()" style="width:auto;"> Login
+                        {% if user.is_authenticated %}
+                        <h6> Welcome {{ user.first_name }}! </h6>
+                        <a href="#" class="btn btn-outline-dark" onclick="LogoutUser()" style="width:auto;"> Logout
                         </a>
+                        {% else %}
+                        <a href="#" class="btn btn-outline-dark" onclick="openform()" style="width:auto;"> Login/Signup
+                        </a>
+                        {% endif %}
 
                         <a href="Flats.html" class="btn btn-outline-warning text-dark ms-md-3 "> Our Flats</a>
 
@@ -24,7 +30,6 @@
                 </div>
 
             </div>
-
             <div id="login-form" class="login-page">
                 <div class="form-box">
                     <div class="button-box">
@@ -33,7 +38,10 @@
                         <button type="button" onclick="register()" class="toggle-btnn"> Register</button>
 
                     </div>
-                    <form id="login" class="input-group-login" action="Flats.html" onsubmit="return Verif()">
+                    <form method="POST" id="login" class="input-group-login">
+                        {% csrf_token %}
+                        <div id="invalid_login_id" style="color:red ; visibility:hidden;"> Invalid credentials
+                        </div>
                         <input type="text" class="input-field" id="email" placeholder="Email Id" />
 
                         <div id="email_error" style="color:red ; visibility:hidden;"> Please Fill up your email
@@ -46,16 +54,25 @@
                         </div>
 
 
-                        <button type="submit" class="submit-btnn"> Close </button>
+                        <button type="button" class="submit-btnn" onclick="LoginUser()"> Login </button>
                     </form>
-                    <form id="register" class="input-group-login">
-                        <input type="text" class="input-field" placeholder="First Name" />
-                        <input type="text" class="input-field" placeholder="Last Name" />
-                        <input type="email" class="input-field" placeholder="Email Id" />
-                        <input type="password" class="input-field" placeholder="Password" />
-                        <input type="password" class="input-field" placeholder="Confirm Password" />
+                    <form method="POST" id="register" class="input-group-register" action={% url 'signup' %}>
+                        {% csrf_token %}
+                        <input name="reg_fname" type="text" class="input-field" placeholder="First Name" />
+                        <div id="fname_error" style="color:red ; visibility:hidden;"> Please Fill up your first name
+                        </div>
+                        <input name="reg_lname" type="text" class="input-field" placeholder="Last Name" />
+                        <div id="lname_error" style="color:red ; visibility:hidden;"> Please Fill up your last name
+                        </div>
+                        <input name="reg_email" type="email" class="input-field" placeholder="Email Id" />
+                        <div id="reg_email_error" style="color:red ; visibility:hidden;"> Please Fill up your email
+                        </div>
+                        <input name="reg_pass1" type="password" class="input-field" placeholder="Password" />
+                        <input name="reg_pass2" type="password" class="input-field" placeholder="Confirm Password" />
+                        <div id="reg_pass_error" style="color:red ; visibility:hidden;"> Passwords don't match
+                        </div>
                         <input type="checkbox" class="check-box" /> <span>I agree to the terms and conditions</span>
-                        <button type="submit" class="submit-btnn">Register</button>
+                        <button type="button" class="submit-btnn" onclick="CreateUser()">Register</button>
                     </form>
                 </div>
 
@@ -170,36 +187,56 @@
 
 </div>
 <script>
-    function Verif() {
+    function reset_errors() {
+        document.getElementById("fname_error").style.visibility = "hidden";
+        document.getElementById("lname_error").style.visibility = "hidden";
+        document.getElementById("reg_email_error").style.visibility = "hidden";
+        document.getElementById("reg_pass_error").style.visibility = "hidden";
+        // borders??
+    }
+
+    function is_empty(element, error_id) {
+        if (element.value == "") {
+            element.style.borderBottom = "solid 1px red";
+            element.focus();
+            document.getElementById(error_id).style.visibility = "visible";
+
+            return true;
+        }
+        return false;
+    }
+
+    function process_response(response, error_id) {
+        response = JSON.parse(response);
+        if ("error" in response) {
+            document.getElementById(error_id).style.visibility = "visible";
+            document.getElementById(error_id).innerHTML = response["error"];
+            return false;
+        }
+        return true;
+    }
+</script>
+<script>
+    function LoginUser() {
 
         var username = document.getElementById("email");
         var password = document.getElementById("password");
+        var csrf = document.getElementsByName("csrfmiddlewaretoken")[0];
 
-        if (username.value == "") {
-            username.style.borderBottom = "solid 1px red";
-            username.focus();
-            document.getElementById("email_error").style.visibility = "visible";
+        if (is_empty(username, "email_error") ||
+            is_empty(password, "pass_error")) { return; }
 
-            return false;
-        }
-        else if (password.value == "") {
-            password.style.borderBottom = "solid 1px red";
-            document.getElementById("pass_error").style.visibility = "visible";
+        const formData = new FormData();
+        formData.append('email', username.value);
+        formData.append('pass', password.value);
+        formData.append('csrfmiddlewaretoken', csrf.value);
 
-            return false;
-        }
 
-        else if (password.value.trim().length < 6) {
-            password.style.border = "solid 3px red";
-            document.getElementById("pass_error").innerHTML.value = "Pass should be min 6";
-
-            password.focus();
-            return false;
-        }
-
-        else {
-            return true;
-        }
+        const request = new XMLHttpRequest();
+        request.open("POST", "/login", false);
+        request.send(formData);
+        success = process_response(request.response, "invalid_login_id");
+        if (success) { window.location.reload(true); }
     }
 
     var state = false;
@@ -255,6 +292,68 @@
 
     }
 
+
+</script>
+<script>
+
+    function CreateUser() {
+        reset_errors();
+        form = document.getElementById('register');
+        fname = form.elements["reg_fname"];
+        lname = form.elements["reg_lname"];
+        email = form.elements["reg_email"];
+        pass1 = form.elements["reg_pass1"];
+        pass2 = form.elements["reg_pass2"];
+        csrf = form.elements["csrfmiddlewaretoken"];
+
+        if (is_empty(fname, "fname_error") ||
+            is_empty(lname, "lname_error") ||
+            is_empty(email, "reg_email_error")) { return; }
+
+        if (pass1.value.trim().length < 6) {
+            pass1.style.border = "solid 3px red";
+            document.getElementById("reg_pass_error").innerHTML = "Pass should be min 6";
+            document.getElementById("reg_pass_error").style.visibility = "visible";
+            pass1.focus();
+            return;
+        }
+
+        if (pass1.value !== pass2.value) {
+            pass1.style.border = "solid 3px red";
+            pass2.style.border = "solid 3px red";
+            document.getElementById("reg_pass_error").style.visibility = "visible";
+            document.getElementById("reg_pass_error").innerHTML = "Passwords don't match";
+            pass2.focus();
+            return;
+        }
+        const formData = new FormData();
+        formData.append('first_name', fname.value);
+        formData.append('last_name', lname.value);
+        formData.append('email', email.value);
+        formData.append('pass', pass1.value);
+        formData.append('csrfmiddlewaretoken', csrf.value);
+
+
+        const request = new XMLHttpRequest();
+        request.open("POST", "/signup", false);
+        request.send(formData);
+        success = process_response(request.response, "reg_email_error");
+        if (success) {
+            form.reset();
+            reset_errors();
+            login();
+        }
+    }
+
+    function LogoutUser() {
+        var csrf = document.getElementsByName("csrfmiddlewaretoken")[0];
+        const formData = new FormData();
+        formData.append('csrfmiddlewaretoken', csrf.value);
+        const request = new XMLHttpRequest();
+        request.open("POST", "/logout", false);
+        request.send(formData);
+        window.location.reload(true);
+    }
 
 </script>
 {% endblock %}

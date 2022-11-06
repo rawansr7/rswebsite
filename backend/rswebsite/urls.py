@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.views.generic import TemplateView
-from .views import flats_details, Flats
+from .views import flats_details, Flats, login, signup, logout
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -28,4 +28,7 @@ urlpatterns = [
         flats_details,
         name="sflats",
     ),
+    path("login", login, name="login"),
+    path("signup", signup, name="signup"),
+    path("logout", logout, name="logout"),
 ]
