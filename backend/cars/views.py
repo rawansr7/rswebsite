@@ -13,11 +13,4 @@ def flats_details(request, pk):
 
 def all_flats(request):
     cars = Car.objects.all()
-    stars_iter = [["s"] * car.stars for car in cars]
-    cars_and_stars = zip(cars, stars_iter)
-
-    return render(
-        request,
-        "Flats.html",
-        {"cars_and_stars": cars_and_stars, "main_url": "sflats"},
-    )
+    return render(request, "Flats.html", {"cars": cars})
