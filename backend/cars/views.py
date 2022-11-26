@@ -11,7 +11,7 @@ def flats_details(request, pk):
     )
 
 
-def all_flats(request, pk):
+def all_flats(request):
     cars = Car.objects.all()
     stars_iter = [["s"] * car.stars for car in cars]
     cars_and_stars = zip(cars, stars_iter)
