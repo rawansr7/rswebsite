@@ -44,20 +44,20 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link  text-warning" aria-current="page" href={% url 'home' %}>Home</a>
+                        <a id="nav_link_to_home" class="nav-link  text-warning" aria-current="page" href={% url 'home' %}>Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link  text-warning" aria-current="page" href={% url 'flats' %}>Our Flats</a>
+                        <a id="nav_link_to_flats" class="nav-link  text-warning" aria-current="page" href={% url 'flats' %}>Our Flats</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-warning" href="#">Reservation</a>
+                        <a id="nav_link_to_reservation" class="nav-link text-warning" href="#">Reservation</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active text-warning" href={% url 'about' %}>About US</a>
+                        <a id="nav_link_to_about" class="nav-link text-warning" href={% url 'about' %}>About US</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled text-warning" href="#" tabindex="-1" aria-disabled="true">Contact
-                            US</a>
+                        <a id="nav_link_to_contact" class="nav-link disabled text-warning" href="#" tabindex="-1"
+                            aria-disabled="true">Contact US</a>
                     </li>
                 </ul>
             </div>
@@ -169,6 +169,25 @@
         </div>
     </footer>
 
+    <script>
+
+        const current_url = window.location.pathname;
+        if (current_url.startsWith("{% url 'flats' %}")) {
+            document.getElementById("nav_link_to_flats").className = "nav-link active text-warning";
+        }
+        else if (current_url.startsWith("{% url 'about' %}")) {
+            document.getElementById("nav_link_to_about").className = "nav-link active text-warning";
+        }
+        /* else if (current_url.startsWith("/reservation")) { // TODO: modify
+            document.getElementById("nav_link_to_reservation").className = "nav-link active text-warning";
+        }*/ 
+        /* else if (current_url === "/contact") { // TODO: modify
+            document.getElementById("nav_link_to_contact").className = "nav-link active text-warning";
+        }*/
+        else {
+            document.getElementById("nav_link_to_home").className = "nav-link active text-warning";
+        }
+    </script>
 </body>
 
 </html>

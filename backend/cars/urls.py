@@ -6,5 +6,5 @@ urlpatterns = [
     path("", TemplateView.as_view(template_name="homePage.html"), name="home"),
     path("about", TemplateView.as_view(template_name="aboutUs.html"), name="about"),
     path("flats", all_flats, name="flats"),
-    path("sflats/<int:pk>", flats_details, name="sflats"),
+    path("flats/<int:pk>", flats_details, name="sflats"),
 ]
