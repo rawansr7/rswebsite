@@ -58,17 +58,22 @@
                     </form>
                     <form method="POST" id="register" class="input-group-register" action={% url 'signup' %}>
                         {% csrf_token %}
-                        <input name="reg_fname" type="text" class="input-field" placeholder="First Name" />
+                        <input id="reg_fname" name="reg_fname" type="text" class="input-field"
+                            placeholder="First Name" />
                         <div id="fname_error" style="color:red ; visibility:hidden;"> Please Fill up your first name
                         </div>
-                        <input name="reg_lname" type="text" class="input-field" placeholder="Last Name" />
+                        <input id="reg_lname" name="reg_lname" type="text" class="input-field"
+                            placeholder="Last Name" />
                         <div id="lname_error" style="color:red ; visibility:hidden;"> Please Fill up your last name
                         </div>
-                        <input name="reg_email" type="email" class="input-field" placeholder="Email Id" />
+                        <input id="reg_email" name="reg_email" type="email" class="input-field"
+                            placeholder="Email Id" />
                         <div id="reg_email_error" style="color:red ; visibility:hidden;"> Please Fill up your email
                         </div>
-                        <input name="reg_pass1" type="password" class="input-field" placeholder="Password" />
-                        <input name="reg_pass2" type="password" class="input-field" placeholder="Confirm Password" />
+                        <input id="reg_pass1" name="reg_pass1" type="password" class="input-field"
+                            placeholder="Password" />
+                        <input id="reg_pass2" name="reg_pass2" type="password" class="input-field"
+                            placeholder="Confirm Password" />
                         <div id="reg_pass_error" style="color:red ; visibility:hidden;"> Passwords don't match
                         </div>
                         <input type="checkbox" class="check-box" /> <span>I agree to the terms and conditions</span>
@@ -188,11 +193,31 @@
 </div>
 <script>
     function reset_errors() {
-        document.getElementById("fname_error").style.visibility = "hidden";
-        document.getElementById("lname_error").style.visibility = "hidden";
-        document.getElementById("reg_email_error").style.visibility = "hidden";
-        document.getElementById("reg_pass_error").style.visibility = "hidden";
-        // pass1.style.border = "solid 1px black";
+        const error_divs = ["fname_error",
+            "lname_error",
+            "reg_email_error",
+            "reg_pass_error",
+            "invalid_login_id",
+            "email_error",
+            "pass_error",];
+
+        error_divs.forEach(function (item, index) {
+            document.getElementById(item).style.visibility = "hidden";
+        });
+        const input_fields = ["email",
+            "password",
+            "reg_fname",
+            "reg_lname",
+            "reg_email",
+            "reg_pass1",
+            "reg_pass2",];
+
+        input_fields.forEach(function (item, index) {
+            const element = document.getElementById(item);
+            element.style.border = "solid 0px white";
+            element.style.borderBottom = "solid 1px #F3C693";
+        });
+
     }
 
     function is_empty(element, error_id) {
@@ -218,7 +243,7 @@
 </script>
 <script>
     function LoginUser() {
-
+        reset_errors();
         var username = document.getElementById("email");
         var password = document.getElementById("password");
         var csrf = document.getElementsByName("csrfmiddlewaretoken")[0];
@@ -233,7 +258,7 @@
 
 
         const request = new XMLHttpRequest();
-        request.open("POST", "/login", false);
+        request.open("POST", "{% url 'login' %}", false);
         request.send(formData);
         success = process_response(request.response, "invalid_login_id");
         if (success) { window.location.reload(true); }
@@ -335,7 +360,7 @@
 
 
         const request = new XMLHttpRequest();
-        request.open("POST", "/signup", false);
+        request.open("POST", "{% url 'signup' %}", false);
         request.send(formData);
         success = process_response(request.response, "reg_email_error");
         if (success) {
@@ -350,7 +375,7 @@
         const formData = new FormData();
         formData.append('csrfmiddlewaretoken', csrf.value);
         const request = new XMLHttpRequest();
-        request.open("POST", "/logout", false);
+        request.open("POST", "{% url 'logout' %}", false);
         request.send(formData);
         window.location.reload(true);
     }
