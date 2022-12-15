@@ -1,0 +1,82 @@
+body {
+    background: linear-gradient(45deg,#e6bb6d,#1a1818,#f5b743,#161515);
+    animation: color 12s ease-in-out infinite;
+    background-size: 300% 300%;
+    }
+    @keyframes color {
+        0%{
+            background-position: 0 50%;
+        }
+        50%{
+            background-position: 100% 50%;
+        }
+        100%{
+            background-position: 0 50%;
+        }
+    }
+    
+    
+    * {
+        box-sizing: border-box;
+        font-family: Raleway;
+        color: #777;
+    }
+
+
+* {
+    box-sizing: border-box;
+    font-family: Raleway;
+    color: #777;
+}
+
+/*steps*/
+.pro-container{
+	background-color:#fff;
+	border-radius: 10px;
+	margin-left: 40px;
+	margin-right: 40px;
+	transform: translate(0%,8%); 
+	box-shadow:20px 30px 25px rgba(0,0,0,0.15)
+}
+.step-row {
+	transform: translate(0%,40%); 
+
+    top: 30px;
+    width:65%;
+    height: 60px;
+    margin:0 auto;
+    display: flex;
+    align-items:center;
+    box-shadow: 0 -1px 5px -1px black;
+    position:relative;
+    font-size:25px;
+    cursor: pointer;
+}
+ .step-col {
+     width:33.3%;
+     text-align: center;
+     position: relative;
+ }
+ .step-col a{
+    color:#555;
+    text-decoration: none;
+    font-size: 20px;
+    letter-spacing: 1;
+ }
+ #progress {
+    position: absolute;
+    width: 65.3%;
+    height: 100%;
+    background: linear-gradient(to right,#f78113,#f5b70b,#daa30c);
+ }
+ #progress::after{
+     content: '';
+     height: 0;
+     width: 0;
+     border-top: 30px solid transparent;
+     border-bottom: 30px solid transparent;
+     position: absolute;
+     right: -20px;
+     top:0;
+     border-left: 20px solid #daa30c;
+ } 
