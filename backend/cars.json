@@ -1,0 +1,222 @@
+[
+    {
+        "model": "cars.Car",
+        "pk": 1,
+        "fields": {
+            "brand": "Creta-Hundai",
+            "year": 2021,
+            "price": 355,
+            "stars": 4,
+            "description": "Powerful and responsive Creta's highly evolved powertrains make driving a pure joy. Gasoline engines feature weight-saving all-aluminum construction for better fuel economy and they come with Dual Overhead Camshafts (DOHC) plus Dual Variable Valve Timing for improved performance. Gearbox options have been expanded to include a 7-speed Dual Clutch  Transmission which delivers lightning-fast shifting and the all-new Intelligent Variable Transmission.",
+            "image_urls": [
+                "imgCars/c1.1.png",
+                "imgCars/c1.2.png",
+                "imgCars/c1.3.png",
+                "imgCars/c1.4.png"
+            ],
+            "seats": 4,
+            "bags": 2,
+            "doors": 4
+        }
+    },
+    {
+        "model": "cars.Car",
+        "pk": 3,
+        "fields": {
+            "brand": "SUZUKI-CIAZ",
+            "year": 2021,
+            "price": 300,
+            "stars": 4,
+            "description": "BLA BLA BLA",
+            "image_urls": [
+                "imgCars/c3.1.png",
+                "imgCars/c3.2.png",
+                "imgCars/c3.3.png",
+                "imgCars/c3.4.png"
+            ],
+            "seats": 4,
+            "bags": 2,
+            "doors": 4
+        }
+    },
+    {
+        "model": "cars.Car",
+        "pk": 44,
+        "fields": {
+            "brand": "???-????",
+            "year": 2021,
+            "price": 350,
+            "stars": 4,
+            "description": "BLA BLA BLA",
+            "image_urls": [
+                "imgCars/c44.1.png",
+                "imgCars/c44.2.png",
+                "imgCars/c44.3.png",
+                "imgCars/c44.4.png"
+            ],
+            "seats": 4,
+            "bags": 2,
+            "doors": 4
+        }
+    },
+    {
+        "model": "cars.Car",
+        "pk": 5,
+        "fields": {
+            "brand": "HUNDAI-I10",
+            "year": 2021,
+            "price": 290,
+            "stars": 4,
+            "description": "BLA BLA BLA",
+            "image_urls": [
+                "imgCars/c5.1.png",
+                "imgCars/c5.2.png",
+                "imgCars/c5.3.png",
+                "imgCars/c5.4.png"
+            ],
+            "seats": 4,
+            "bags": 2,
+            "doors": 4
+        }
+    },
+    {
+        "model": "cars.Car",
+        "pk": 6,
+        "fields": {
+            "brand": "HUNDAI-SOLARY",
+            "year": 2021,
+            "price": 310,
+            "stars": 4,
+            "description": "BLA BLA BLA",
+            "image_urls": [
+                "imgCars/c6.1.png",
+                "imgCars/c6.2.png",
+                "imgCars/c6.3.png",
+                "imgCars/c6.4.png"
+            ],
+            "seats": 4,
+            "bags": 2,
+            "doors": 4
+        }
+    },
+    {
+        "model": "cars.Car",
+        "pk": 7,
+        "fields": {
+            "brand": "NISSAN-SUNNY",
+            "year": 2021,
+            "price": 290,
+            "stars": 3,
+            "description": "BLA BLA BLA",
+            "image_urls": [
+                "imgCars/c7.1.png",
+                "imgCars/c7.2.png",
+                "imgCars/c7.3.png",
+                "imgCars/c7.4.png"
+            ],
+            "seats": 4,
+            "bags": 2,
+            "doors": 4
+        }
+    },
+    {
+        "model": "cars.Car",
+        "pk": 8,
+        "fields": {
+            "brand": "Toyota Corolla",
+            "year": 2021,
+            "price": 345,
+            "stars": 3,
+            "description": "BLA BLA BLA",
+            "image_urls": [
+                "imgCars/c8.1.png",
+                "imgCars/c8.2.png",
+                "imgCars/c8.3.png",
+                "imgCars/c8.4.png"
+            ],
+            "seats": 4,
+            "bags": 2,
+            "doors": 4
+        }
+    },
+    {
+        "model": "cars.Car",
+        "pk": 9,
+        "fields": {
+            "brand": "BMW",
+            "year": 2021,
+            "price": 330,
+            "stars": 4,
+            "description": "BLA BLA BLA",
+            "image_urls": [
+                "imgCars/c9.1.png",
+                "imgCars/c9.2.png",
+                "imgCars/c9.3.png",
+                "imgCars/c9.4.png"
+            ],
+            "seats": 4,
+            "bags": 2,
+            "doors": 4
+        }
+    },
+    {
+        "model": "cars.Car",
+        "pk": 10,
+        "fields": {
+            "brand": "Kia Picanto/Hyundai Grand I10",
+            "year": 2021,
+            "price": 345,
+            "stars": 4,
+            "description": "BLA BLA BLA",
+            "image_urls": [
+                "imgCars/c10.1.png",
+                "imgCars/c10.2.png",
+                "imgCars/c10.3.png",
+                "imgCars/c10.4.png"
+            ],
+            "seats": 4,
+            "bags": 2,
+            "doors": 4
+        }
+    },
+    {
+        "model": "cars.Car",
+        "pk": 11,
+        "fields": {
+            "brand": "Lexus",
+            "year": 2021,
+            "price": 320,
+            "stars": 4,
+            "description": "BLA BLA BLA",
+            "image_urls": [
+                "imgCars/c11.1.png",
+                "imgCars/c11.2.png",
+                "imgCars/c11.3.png",
+                "imgCars/c11.4.png"
+            ],
+            "seats": 4,
+            "bags": 2,
+            "doors": 4
+        }
+    },
+    {
+        "model": "cars.Car",
+        "pk": 12,
+        "fields": {
+            "brand": "?????????",
+            "year": 2021,
+            "price": 340,
+            "stars": 4,
+            "description": "BLA BLA BLA",
+            "image_urls": [
+                "imgCars/c12.1.png",
+                "imgCars/c12.2.png",
+                "imgCars/c12.3.png",
+                "imgCars/c12.4.png"
+            ],
+            "seats": 4,
+            "bags": 2,
+            "doors": 4
+        }
+    }
+]

@@ -1,13 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+{% load static %}
+
+{% block title %}
 <title> Sibrour Rent A Car Lebanon </title>
+{% endblock %}
+
+
+{% block static_files %}
 <link rel="stylesheet" href="http://pro.font-awesome.com.relases/v5.10.0/css/all.css"/>
-<link rel="stylesheet" href="Flats.css">
-<link rel="stylesheet" href="step2.css">
+<link rel="stylesheet" href="{% static 'Flats.css' %}">
+<link rel="stylesheet" href="{% static 'step2.css' %}">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
 <link rel="stylesheet"type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
 <style>
@@ -23,12 +24,13 @@
     .line span {display:block;width: 100px; height: 4px; background-color: #f5b70b; margin: auto; position:relative;bottom: 0.5px;
     }
 </style>
-</head>
-<body>
+{% endblock %}
+
+{% block navbar %}
     <nav class="navbar navbar-expand-lg navbar-light bg-dark ">
         <div class="container-fluid ">
           <a class="navbar-brand" href="#">
-            <img src="imghomePage/logo.png" alt="" width="100" height="55"/>
+            <img src="{% static 'imghomePage/logoo.png' %}" alt="" width="100" height="55"/>
           </a>
       
             <button
@@ -41,20 +43,21 @@
             <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a class="nav-link active text-warning" aria-current="page" href="homePage.html">Home</a>
-              </li>
-                <li class="nav-item">
-                <a class="nav-link active text-warning" aria-current="page" href="#">Our Flats</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-warning" href="#">Reservation</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-warning" href="aboutUs.html">About US</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled text-warning" href="#" tabindex="-1" aria-disabled="true">Contact US</a>
-              </li>
+                <a id="nav_link_to_home" class="nav-link  text-warning" aria-current="page" href={% url 'home' %}>Home</a>
+            </li>
+            <li class="nav-item">
+                <a id="nav_link_to_flats" class="nav-link  text-warning" aria-current="page" href={% url 'flats' %}>Our Flats</a>
+            </li>
+            <li class="nav-item">
+                <a id="nav_link_to_reservation" class="nav-link text-warning" href={% url 'reservation' %}>Reservation</a>
+            </li>
+            <li class="nav-item">
+                <a id="nav_link_to_about" class="nav-link text-warning" href={% url 'about' %}>About US</a>
+            </li>
+            <li class="nav-item">
+                <a id="nav_link_to_contact" class="nav-link disabled text-warning" href="#" tabindex="-1"
+                    aria-disabled="true">Contact US</a>
+            </li>
               
             </ul>
           </div>
@@ -62,203 +65,37 @@
         
         
     </nav>
+{% endblock %}
+
+{% block content %}
+
     <div class="step-row">
         <div id="progress"></div>
-        <div class="step-col"><a href="step1.html"> step1 </a></div>
-        <div class="step-col"><a href="page2.html"> step2 </a></div>
-        <div class="step-col"><a href="store.html" > step3 </a></div>
+        <div class="step-col"><a href={% url 'step1' %}> step1 </a></div>
+        <div class="step-col"><a href={% url 'step2' %}> step2 </a></div>
+        <div class="step-col"><a href={% url 'step3' %} > step3 </a></div>
        </div>
     
     <section id="product1" class="section-p1"> 
      
-       <div class="pro-container" >
-        
-          <div class="pro" onclick="window.location.href='sFlats.html'; "> 
-             <img src="imgaboutUs/c1bleu.png">
-          
-           <div class="des">
-              <h5> HUNDAI-CRETA<h5>
-              <div class="star">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>      
+       <div class="pro-container" >      
+          {% for car in cars %}
+          <div class="pro" onclick="window.location.href='{% url 'sflats' pk=car.pk %}';">
+              <img src="{% static car.image_urls.0 %}">
+
+              <div class="des">
+                  <h5> {{ car.brand }} {{ car.year }} </h5>
+                      <div class="star">
+                          {% with ''|center:car.stars as range %}
+                          {% for _ in range %}
+                          <i class="fas fa-star"></i>
+                          {% endfor %}
+                          {% endwith %}
+                      </div>
+                      <h4> {{ car.price }}$/Day</h4>
               </div>
-              <h4> 355$</h4>
-           </div>
           </div>
-
-
-          <div class=" pro"> 
-            <img src="imgCars/c2w.png">
-         
-          <div class="des">
-             <h4> ****  </h4>
-             <div class="star">
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="far fa-star"></i> 
-             </div>
-             <h4> 340$</h4>
-          </div>
-         </div>
-
-         <div class="pro"> 
-          <img src="imgCars/c3-1.png">
-       
-        <div class="des">
-           <h4> SUZUKI – CIAZ</h4>
-           <div class="star">
-             <i class="fas fa-star"></i>
-             <i class="fas fa-star"></i>
-             <i class="far fa-star"></i>
-             <i class="far fa-star"></i> 
-           </div>
-           <h4> 300$</h4>
-        </div>
+          {% endfor %}
        </div>
-
-       <div class= "pro"> 
-        <img src="imgCars/c44-1png.jpg" style="height: 155px;">
-     
-      <div class="des">
-        <h4> ****</h4>
-        <div class="star">
-           <i class="fas fa-star"></i>
-           <i class="fas fa-star"></i>
-           <i class="fas fa-star"></i>
-           <i class="fas fa-star"></i> 
-         </div>
-         <h4> 350$</h4>
-      </div>
-     </div>
-
-     <div class="pro"> 
-      <img src="imgCars/c5.2.png"style="height: 150px;">
-   
-    <div class="des">
-       <h4> HUNDAI-I10 </h4>
-       <div class="star">
-         <i class="fas fa-star"></i>
-         <i class="far fa-star"></i>
-         <i class="far fa-star"></i>
-         <i class="far fa-star"></i> 
-       </div>
-       <h4> 290$</h4>
-    </div>
-
-   </div>
-
-   <div class="pro"> 
-    <img src="imgCars/c6.1.png" style="height: 145px;">
- 
-  <div class="des">
-     <h4> HUNDAI-SOLARY </h4>
-     <div class="star">
-       <i class="fas fa-star"></i>
-       <i class="fas fa-star"></i>
-       <i class="fas fa-star"></i>
-       <i class="far fa-star"></i> 
-     </div>
-     <h4> 310$</h4>
-  </div>
-
- </div>
-
- <div class="pro"> 
-  <img src="imgCars/c7.1.png" style="height: 150px;">
-
-<div class="des">
-   <h4>  NISSAN-SUNNY </h4>
-   <div class="star">
-     <i class="fas fa-star"></i>
-     <i class="fas fa-star"></i>
-     <i class="fas fa-star"></i>
-     <i class="fas fa-star-half"></i> 
-   </div>
-   <h4> 290$</h4>
-</div>
-
-</div>
-<div class="pro"> 
-  <img src="imgCars/c8.1.png"style="height: 140px;">
-
-<div class="des">
-  <h4> Toyota Corolla <h4>
-   <div class="star">
-     <i class="fas fa-star"></i>
-     <i class="fas fa-star"></i>
-     <i class="fas fa-star"></i>
-     <i class="fas fa-star"></i> 
-   </div>
-   <h4> 345$</h4>
-</div>
-</div>
-<div class="pro"> 
-  <img src="imgCars/c9.1.png">
-
-<div class="des">
-  <h4> BMW</h4>
-  <div class="star">
-     <i class="fas fa-star"></i>
-     <i class="fas fa-star"></i>
-     <i class="fas fa-star"></i>
-     <i class="far fa-star"></i> 
-   </div>
-   <h4> 330$</h4>
-</div>
-</div>
-<div class="pro"> 
-  <img src="imgCars/c10.3.png">
-
-<div class="des">
-  <h4> Kia Picanto/Hyundai Grand I10</h4>
-  <div class="star">
-     <i class="fas fa-star"></i>
-     <i class="fas fa-star"></i>
-     <i class="fas fa-star"></i>
-     <i class="fas fa-star"></i> 
-   </div>
-   <h4> 345$</h4>
-</div>
-</div>
-<div class="pro"> 
-  <img src="imgCars/c11.1.png">
-
-<div class="des">
-  <h4> Lexus</h4>
-  <div class="star">
-     <i class="fas fa-star"></i>
-     <i class="fas fa-star"></i>
-     <i class="fas fa-star"></i>
-     <i class="far fa-star"></i> 
-   </div>
-   <h4> 320$</h4>
-</div>
-</div>
-<div class="pro"> 
-  <img src="imgCars/c12.2.png">
-
-<div class="des">
-  <h4> ****</h4>
-  <div class="star">
-     <i class="fas fa-star"></i>
-     <i class="fas fa-star-half"></i>
-     <i class="far fa-star"></i>
-     <i class="far fa-star"></i> 
-   </div>
-   <h4> 340$</h4>
-</div>
-</div>
-
-
-       </div>
-
     </section>
-
-
-
-
-</body>
-</html>
+{% endblock %}

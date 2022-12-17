@@ -3,6 +3,13 @@
 
 {% block title %} <title> Sibrour Rent A Car Lebanon </title> {% endblock %}
 
+{% block extra_css %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'Flats.css' %}" />
+<link rel="stylesheet" href="{% static 'sFlats.css' %}" />
+{% endblock %}
+
+
 {% block content %}
 {% load static %}
 <section>
@@ -28,7 +35,7 @@
                 <img src="{% static car.image_urls.0 %}">
 
                 <div class="des">
-                    <h4> {{ car.brand }} {{ car.year }} </h5>
+                    <h5> {{ car.brand }} {{ car.year }} </h5>
                         <div class="star">
                             {% with ''|center:car.stars as range %}
                             {% for _ in range %}

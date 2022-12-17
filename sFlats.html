@@ -4,6 +4,14 @@
 
 {% block content %}
 
+{% block extra_css %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'sFlats.css' %}" />
+<link rel="stylesheet" href="{% static 'Flats.css' %}" />
+
+
+{% endblock %}
+
 {% load static %}
 
 <section id="prodetails" class="section-p1">

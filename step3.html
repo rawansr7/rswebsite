@@ -1,25 +1,31 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
+{% load static %}
 
-        <title>The Generics | Store</title>
-        <meta name="description" content="This is the description">
-        <link rel="stylesheet" href="store.css" />
-        <script src="page3.js"></script>
-        <style>
-        .nav-item > .nav-link { font-size: larger;
-        }
-        nav ul li a:hover {
-            background-color: #fff;
-        }
-       </style>
-    </head>
-    <body>
+{% block title %}
+<title>The Generics | Store</title>
+{% endblock %}
+
+
+{% block static_files %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
+
+        
+<meta name="description" content="This is the description">
+<link rel="stylesheet" href={% static 'step3.css' %} />
+<script src={% static 'step3.js' %}></script>
+<style>
+.nav-item > .nav-link { font-size: larger;
+}
+nav ul li a:hover {
+    background-color: #fff;
+}
+</style>
+{% endblock %}
+
+{% block navbar %}
         <nav class="navbar navbar-expand-lg navbar-light bg-dark ">
             <div class="container-fluid ">
               <a class="navbar-brand" href="#">
-                <img src="imghomePage/logoo.png" alt="" width="100" height="55"/>
+                <img src="{% static 'imghomePage/logoo.png' %}" alt="" width="100" height="55"/>
               </a>
           
                 <button
@@ -31,34 +37,37 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                  <li class="nav-item">
-                    <a class="nav-link active text-warning" aria-current="page" href="homePage.html">Home</a>
-                  </li>
                     <li class="nav-item">
-                    <a class="nav-link active text-warning" aria-current="page" href="Flats.html">Our Flats</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link text-warning" href="#">Reservation</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link text-warning" href="aboutUs.html">About US</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link disabled text-warning" href="#" tabindex="-1" aria-disabled="true">Contact US</a>
-                  </li>
-                  
+                        <a id="nav_link_to_home" class="nav-link  text-warning" aria-current="page" href={% url 'home' %}>Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="nav_link_to_flats" class="nav-link  text-warning" aria-current="page" href={% url 'flats' %}>Our Flats</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="nav_link_to_reservation" class="nav-link text-warning" href={% url 'reservation' %}>Reservation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="nav_link_to_about" class="nav-link text-warning" href={% url 'about' %}>About US</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="nav_link_to_contact" class="nav-link disabled text-warning" href="#" tabindex="-1"
+                            aria-disabled="true">Contact US</a>
+                    </li>
+                      
                 </ul>
               </div>
             </div> 
             
          </nav>
-        
+{% endblock %}
+
+{% block content %}
+
             <div class="step-row">
                 <div id="progress"></div>
-                <div class="step-col"><a href="page1.html"> step1 </a></div>
-                <div class="step-col"><a href="page2.html"> step2 </a></div>
-                <div class="step-col"><a href="#"> step3 </a></div>
-                <div class="step-col"><a href="page4.html"> step4 </a></div>
+                <div class="step-col"><a href={% url 'step1' %}> step1 </a></div>
+                <div class="step-col"><a href={% url 'step2' %}> step2 </a></div>
+                <div class="step-col"><a href={% url 'step3' %} > step3 </a></div>
                 
             </div> 
           
@@ -66,8 +75,8 @@
         <section class="container content-section " >
             <div class="shop-items" >
                 <div class="shop-item">
-                    <span class="shop-item-title" style="margin-top:30px" >Creta- Hundai 2021 </span>
-                    <img class="shop-item-image"  style="width: 400px; transform: none;"src="imgaboutUs/c1bleu.png">
+                    <span class="shop-item-title" style="margin-top:30px" > {{ car.brand }} {{ car.year }} </span>
+                    <img class="shop-item-image"  style="width: 400px; transform: none;"src="{% static car.image_urls.0 %}">
                     <div class="shop-item-details" >
                         <span class="shop-item-price">$12.99</span>
                         <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
@@ -75,18 +84,13 @@
                 </div>
                 <div class="shop-item" style="width: 400px;">
                     <span class="shop-item-title" style="margin-bottom:40px"></span>
-                    <i class="bi bi-briefcase"></i> <span> 2 bags </span>
-                    <i class="stm-rental-seats"></i> <span> 5 seats</span>
-                    <i class="stm-rental-seats"></i> <span> 4 doors </span> <br>
+                    <i class="bi bi-briefcase"></i> <span>  {{ car.bags }}  bags </span>
+                    <i class="stm-rental-seats"></i> <span>  {{ car.seats }}  seats</span>
+                    <i class="stm-rental-seats"></i> <span>  {{ car.doors }} doors </span> <br>
                     <h2> More Information</h2>
              
                     <div class="shop-item-details">
-                        <span class="shop-item-price">Powerful and responsive Creta’s highly evolved powertrains make driving a pure joy.
-                            Gasoline engines feature weight-saving all-aluminum construction for better fuel economy
-                            and they come with Dual Overhead Camshafts (DOHC) plus Dual Variable Valve Timing for
-                            improved performance. Gearbox options have been expanded to include a 7-speed Dual Clutch 
-                            Transmission which delivers lightning-fast shifting and the all-new Intelligent Variable
-                             Transmission.     </span>
+                        <span class="shop-item-price"> {{ car.description }} </span>
                     </div>
                 </div>
             </div>
@@ -96,7 +100,7 @@
                     <div class="shop-items">
                         <div class="shop-item">
                             <span class="shop-item-title">Tire chains</span>
-                            <img class="shop-item-image" src="imgPage3/tireChain.png">
+                            <img class="shop-item-image" src="{% static 'imgPage3/tireChain.png' %}">
                             <div class="shop-item-details">
                                 <span class="shop-item-price">$70</span>
                                 <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
@@ -110,7 +114,7 @@
                         </div>
                         <div class="shop-item">
                             <span class="shop-item-title">Car Insurance</span>
-                            <img class="shop-item-image"style="width: 250px;" src="imgPage3/CarInsruance.png">
+                            <img class="shop-item-image"style="width: 250px;" src="{% static 'imgPage3/CarInsruance.png' %}">
                             <div class="shop-item-details">
                                 <span class="shop-item-price">$70</span>
                                 <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
@@ -125,7 +129,7 @@
                         </div>
                 <div class="shop-item">
                     <span class="shop-item-title"> Additionel Driver</span>
-                    <img class="shop-item-image"width = "280px" src="imgPage3/driver_one.png">
+                    <img class="shop-item-image"width = "280px" src="{% static 'imgPage3/driver_one.png' %}">
                     <div class="shop-item-details">
                         <span class="shop-item-price">$19.99</span>
                         <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
@@ -143,7 +147,7 @@
             <div class="shop-items">
                 <div class="shop-item">
                     <span class="shop-item-title">Baby Car Seat-A</span>
-                    <img class="shop-item-image" src="imgPage3/babyCarSeatA.png">
+                    <img class="shop-item-image" src="{% static 'imgPage3/babyCarSeatA.png' %}">
                     <div class="shop-item-details">
                         <span class="shop-item-price">$56.99</span>
                         <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
@@ -159,7 +163,7 @@
                 </div>
                 <div class="shop-item">
                     <span class="shop-item-title">babyCarSeat-B</span>
-                    <img class="shop-item-image" style="width: 250px;"src="imgPage3/BABycarSEATB.png" > 
+                    <img class="shop-item-image" style="width: 250px;"src="{% static 'imgPage3/BABycarSEATB.png' %}"> 
                     <div class="shop-item-details">
                         <span class="shop-item-price">$56.99</span>
                         <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
@@ -175,7 +179,7 @@
                 </div>
                 <div class="shop-item">            
                   <span class="shop-item-title"> Satellite Navigation</span>
-                    <img class="shop-item-image" src="imgPage3/SaNav.png">
+                    <img class="shop-item-image" src="{% static 'imgPage3/SaNav.png' %}">
                     <div class="shop-item-details">
                         <span class="shop-item-price">$19.99</span>
                         <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
@@ -199,8 +203,8 @@
             <div class="cart-items">
                 <div class="cart-row">
                     <div class="cart-item cart-column">
-                        <img class="cart-item-image" src="imgaboutUs/c1bleu.png" width="100" height="100">
-                        <span class="cart-item-title">Creta Hundai-2021</span>
+                        <img class="cart-item-image" src="{% static car.image_urls.0 %}" width="100" height="100">
+                        <span class="cart-item-title"> {{ car.brand }} {{ car.year }} </span>
                     </div>
                     <span class="cart-price cart-column">$19.99</span>
                     <div class="cart-quantity cart-column">
@@ -217,6 +221,8 @@
             <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
         </section>
        
+{% endblock %}
+{% comment %} 
         <footer class="bg-dark text-white pt-5 pb-4">
 
             <div class="container text-center text-md-left">
@@ -308,6 +314,4 @@
         </footer>
           
           
-          
-    </body>
-</html>
+           {% endcomment %}

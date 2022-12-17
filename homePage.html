@@ -2,6 +2,12 @@
 
 {% block title %} <title> Sibrour Rent A Car Lebanon </title> {% endblock %}
 
+{% block extra_css %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'homePage.css' %}" />
+
+{% endblock %}
+
 {% block content %}
 {% load static %}
 <div class="container-fluid">
