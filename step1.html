@@ -6,66 +6,40 @@
     <title>Document</title>
 {% endblock title %}
 
-{% block static_files %}
+{% block extra_css %}
     <link rel="stylesheet" href="{% static 'step1.css' %}" />
     <!--flatpickr css-->
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"/>
-    <!--miniCard-->
-    <link rel="stylesheet" href="{% static 'minCard.css' %}" />
-    <!--links css for miniCard-->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-          integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
-          crossorigin="anonymous"/>
-{% endblock static_files %}
+{% endblock extra_css %}
 
-{% block navbar %}
+{% comment %} {% block navbar %}
     <nav class="navbar navbar-expand-lg navbar-light bg-dark ">
         <div class="container-fluid ">
-            <div class="collapse navbar-collapse"
-                 id="navbarNav"
-                 style="line-height:70px">
-                <img src="{% static 'imghomePage/logoo.png' %}"
-                     style="width: 100px;
-                            height: 70px;
-                            margin: 5px 30px"/>
+            <div class="collapse navbar-collapse" id="navbarNav" style="line-height:70px">
+                <img src="{% static 'imghomePage/logoo.png' %}" style="width: 100px; height: 70px; margin: 5px 30px"/>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a id="nav_link_to_home"
-                           class="nav-link  text-warning"
-                           aria-current="page"
-                           href="{% url 'home' %}">Home</a>
+                        <a id="nav_link_to_home" class="nav-link  text-warning" aria-current="page" href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a id="nav_link_to_flats"
-                           class="nav-link  text-warning"
-                           aria-current="page"
-                           href="{% url 'flats' %}">Our Flats</a>
+                        <a id="nav_link_to_flats" class="nav-link  text-warning" aria-current="page" href="{% url 'flats' %}">Our Flats</a>
                     </li>
                     <li class="nav-item">
-                        <a id="nav_link_to_reservation"
-                           class="nav-link text-warning"
-                           href="{% url 'reservation' %}">Reservation</a>
+                        <a id="nav_link_to_reservation" class="nav-link text-warning" href="{% url 'reservation' %}">Reservation</a>
                     </li>
                     <li class="nav-item">
-                        <a id="nav_link_to_about"
-                           class="nav-link text-warning"
-                           href="{% url 'about' %}">About US</a>
+                        <a id="nav_link_to_about" class="nav-link text-warning" href="{% url 'about' %}">About US</a>
                     </li>
                     <li class="nav-item">
-                        <a id="nav_link_to_contact"
-                           class="nav-link disabled text-warning"
-                           href="#"
-                           tabindex="-1"
-                           aria-disabled="true">Contact US</a>
+                        <a id="nav_link_to_contact" class="nav-link disabled text-warning" href="#" tabindex="-1" aria-disabled="true">Contact US</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 {% endblock navbar %}
-
+ {% endcomment %}
 {% block content %}
     <div class="step-row">
         <div id="progress"></div>
