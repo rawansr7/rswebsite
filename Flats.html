@@ -1,64 +1,61 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
+{% load static %}
 
-{% block title %} <title> Sibrour Rent A Car Lebanon </title> {% endblock %}
+{% block title %}
+    <title>Sibrour Rent A Car Lebanon</title>
+{% endblock title %}
 
 {% block extra_css %}
-{% load static %}
-<link rel="stylesheet" href="{% static 'Flats.css' %}" />
-<link rel="stylesheet" href="{% static 'sFlats.css' %}" />
-{% endblock %}
-
+    <link rel="stylesheet" href="{% static 'Flats.css' %}" />
+{% endblock extra_css %}
 
 {% block content %}
-{% load static %}
-<section>
-    <div class="section-header text-center pt-5">
-        <h2 class="section-title"> Our Fleets</h2>
-        <div class="line"> <span></span> </div>
-    </div>
-    <p class="parag">
-        From standard cars to luxurious sport cars, SUV’s and convertibles, Sibrour Rent a Car has a wide selection of
-        new
-        and safe cars that are constantly under maintenance. Enjoy the ride without <br> any concerns! *All Prices
-        quoted
-        are exclusive of VAT
-    </p>
-</section>
-<section id="product1" class="section-p1">
-    <h1 class="ligne"> Our Cars Collection</h2>
-
+    <section>
+        <div class="section-header text-center pt-5">
+            <h2 class="section-title">Our Fleets</h2>
+            <div class="line">
+                <span></span>
+            </div>
+        </div>
+        <p class="parag">
+            From standard cars to luxurious sport cars, SUV’s and convertibles, Sibrour Rent a Car has a wide selection of
+            new
+            and safe cars that are constantly under maintenance. Enjoy the ride without
+            <br/>
+            any concerns! *All Prices
+            quoted
+            are exclusive of VAT
+        </p>
+    </section>
+    <section id="product1" class="section-p1">
+        <h1 class="ligne">Our Cars Collection</h1>
         <div class="pro-container">
             {% for car in cars %}
-
-            <div class="pro" onclick="window.location.href='{% url 'sflats' pk=car.pk %}';">
-                <img src="{% static car.image_urls.0 %}">
-
-                <div class="des">
-                    <h5> {{ car.brand }} {{ car.year }} </h5>
+                <div class="pro"
+                     onclick="window.location.href='{% url 'sflats' pk=car.pk %}';">
+                    <img src="{% static car.image_urls.0 %}"/>
+                    <div class="des">
+                        <h5>{{ car.brand }} {{ car.year }}</h5>
                         <div class="star">
-                            {% with ''|center:car.stars as range %}
-                            {% for _ in range %}
-                            <i class="fas fa-star"></i>
-                            {% endfor %}
+                            {% with ""|center:car.stars as range %}
+                                {% for _ in range %}<i class="fas fa-star"></i>{% endfor %}
                             {% endwith %}
                         </div>
-                        <h3> {{ car.price }}$/Day</h3>
+                        <h3>{{ car.price }}$/Day</h3>
+                    </div>
+                    <a href="#"><i class="fas fa-shopping-cart lio"></i></a>
                 </div>
-                <a href="#"><i class="fas fa-shopping-cart lio"></i></a>
-
-            </div>
             {% endfor %}
         </div>
-
-</section>
-<br><br>
-<section id="pagination" class="section-p1">
-    <a href="#"> 1</a>
-    <a href="#"> 2</a>
-    <a href="#"> <i class="fas fa-arrow-right"></i></a>
-
-
-</section>
-<br><br>
-{% endblock %}
+    </section>
+    <br/>
+    <br/>
+    <section id="pagination" class="section-p1">
+        <a href="#">1</a>
+        <a href="#">2</a>
+        <a href="#"> <i class="fas fa-arrow-right"></i></a>
+    </section>
+    <br/>
+    <br/>
+{% endblock content %}

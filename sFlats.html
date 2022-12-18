@@ -1,49 +1,39 @@
-{% extends 'base.html' %}
-{% block title %} <title> Sibrour Rent A Car Lebanon </title> {% endblock %}
+{% extends "base.html" %}
 
+{% load static %}
 
-{% block content %}
+{% block title %}
+  <title>Sibrour Rent A Car Lebanon</title>
+{% endblock title %}
 
 {% block extra_css %}
-{% load static %}
-<link rel="stylesheet" href="{% static 'sFlats.css' %}" />
-<link rel="stylesheet" href="{% static 'Flats.css' %}" />
+  <link rel="stylesheet" href="{% static 'sFlats.css' %}" />
+{% endblock extra_css %}
 
-
-{% endblock %}
-
-{% load static %}
-
-<section id="prodetails" class="section-p1">
-  <div class="single-pro-image">
-    <img src="{% static car.image_urls.0 %}" width="100%" id="MainImg" alt>
-
-    <div class="small-img-grp">
-      {% for image_url in car.image_urls %}
-      <div class="small-img-col">
-        <img src="{% static image_url %}" width="100%" class="small-img">
+{% block content %}
+  <section id="prodetails" class="section-p1">
+    <div class="single-pro-image">
+      <img src="{% static car.image_urls.0 %}" width="100%" id="MainImg" alt/>
+      <div class="small-img-grp">
+        {% for image_url in car.image_urls %}
+          <div class="small-img-col">
+            <img src="{% static image_url %}" width="100%" class="small-img"/>
+          </div>
+        {% endfor %}
       </div>
-      {% endfor %}
-
     </div>
-  </div>
-
-  <div class="single-pro-details">
-    <h1> {{ car.brand }} {{ car.year }} </h1>
-
-    <i class=""></i> <span> {{ car.doors }} doors </span>
-    <i class="fas fa-tachometer-alt "></i> <span> {{ car.seats }} seats</span>
-    <i class="fas fa-briefcase"></i> <span> {{ car.bags }} bags </span>
-
-    <div class="price"> {{ car.price }}$/day</div>
-    <button class="normal"> Add to cart</button>
-    <h4> More Information </h4>
-    <p>{{ car.description }}</p>
-  </div>
-</section>
-
-<script>
-
+    <div class="single-pro-details">
+      <h1>{{ car.brand }} {{ car.year }}</h1>
+      <i></i> <span>{{ car.doors }} doors</span>
+      <i class="fas fa-tachometer-alt "></i> <span>{{ car.seats }} seats</span>
+      <i class="fas fa-briefcase"></i> <span>{{ car.bags }} bags</span>
+      <div class="price">{{ car.price }}$/day</div>
+      <button class="normal">Add to cart</button>
+      <h4>More Information</h4>
+      <p>{{ car.description }}</p>
+    </div>
+  </section>
+  <script>
   var MainImg = document.getElementById("MainImg")
   var smallimg = document.getElementsByClassName("small-img")
 
@@ -59,5 +49,5 @@
   smallimg[3].onclick = function () {
     MainImg.src = smallimg[3].src;
   }
-</script>
-{% endblock %}
+  </script>
+{% endblock content %}
