@@ -3,18 +3,10 @@
     padding: 0;
     box-sizing: border-box;
 }
-
-.nav-item>.nav-link {
-    font-size: larger;
-}
-
 h2,
+
 .card-title {
     text-align: center;
-}
-
-nav ul li a:hover {
-    background-color: #fff
 }
 
 .slide1 {
@@ -238,13 +230,6 @@ blockquote::before {
     margin: 30px 10px 34px 0;
 }
 
-span {
-    color: #777;
-    font-size: 12px;
-    bottom: 68px;
-    position: absolute;
-}
-
 #login {
     left: 30px;
 }
@@ -282,4 +267,20 @@ span {
     font-size: 18px;
     color: #7a797e;
     bottom: 17px;
+}
+.line {
+    width: 150px;
+    background: #ddd;
+    height: 3px;
+    margin: auto;
+}
+
+.line span {
+    display: block;
+    width: 100px;
+    height: 4px;
+    background-color: #f5b70b;
+    margin: auto;
+    position: relative;
+    bottom: 0.5px;
 }

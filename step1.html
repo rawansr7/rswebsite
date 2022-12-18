@@ -1,4 +1,4 @@
-{% extends "base" %}
+{% extends "base.html" %}
 
 {% load static %}
 
@@ -67,31 +67,6 @@
 {% endblock navbar %}
 
 {% block content %}
-    <div>
-        <div class="navbar-top">
-            <div>
-                <button id="menuButton">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-            <!--Shopping cart-->
-            <div class="shopping-cart">
-                <div class="sum-prices">
-                    <span style="color:#e9ce93">My Purchases</span>
-                    <!--Shopping cart logo-->
-                    <i class="fas fa-shopping-cart shoppingCartButton"></i>
-                </div>
-            </div>
-        </div>
-        <div class="producstOnCart hide">
-            <div class="top">
-                <button id="closeButton">
-                    <i class="fas fa-times-circle"></i>
-                </button>
-                <h3>Cart</h3>
-            </div>
-        </div>
-    </div>
     <div class="step-row">
         <div id="progress"></div>
         <div class="step-col">
@@ -178,28 +153,33 @@
             </div>
         </form>
     </div>
-    <!--js-->
+{% endblock content %}
+
+{% block footer %}
+{% endblock footer %}
+
+{% block extra_js %}
     <script>
     function getddl() {
      document.getElementById('lbltext1').innerHTML= 
-	 ("Pick up Location is:" +form1.myoption[form1.myoption.selectedIndex].text)
+     ("Pick up Location is:" +form1.myoption[form1.myoption.selectedIndex].text)
 
-	}
-	function getddll() {
+    }
+    function getddll() {
      document.getElementById('lbltext2').innerHTML= 
-	 ("Return Location is:" +form1.myOption[form1.myOption.selectedIndex].text)
+     ("Return Location is:" +form1.myOption[form1.myOption.selectedIndex].text)
 
-	}
-	    
+    }
+        
     </script>
     <!--flatpickr js-->
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
-	 flatpickr("#datetime",{
-	 enableTime: true,
-	 dateFormat: "Y-m-d H:i",
-	 minDate: "today",
-	 maxDate: new Date().fp_incr(31) // 31 days from now
+     flatpickr("#datetime",{
+     enableTime: true,
+     dateFormat: "Y-m-d H:i",
+     minDate: "today",
+     maxDate: new Date().fp_incr(31) // 31 days from now
  })
   // for cleaning the datetime input
   const my_fp = document.querySelector("#datetime")._flatpickr;
@@ -207,4 +187,4 @@
  
     </script>
     <script src="{% static 'step1.js' %}"></script>
-{% endblock content %}
+{% endblock extra_js %}

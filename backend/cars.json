@@ -21,6 +21,26 @@
     },
     {
         "model": "cars.Car",
+        "pk": 2,
+        "fields": {
+            "brand": "Creta-Hundai",
+            "year": 2021,
+            "price": 355,
+            "stars": 4,
+            "description": "Powerful and responsive Creta's highly evolved powertrains make driving a pure joy. Gasoline engines feature weight-saving all-aluminum construction for better fuel economy and they come with Dual Overhead Camshafts (DOHC) plus Dual Variable Valve Timing for improved performance. Gearbox options have been expanded to include a 7-speed Dual Clutch  Transmission which delivers lightning-fast shifting and the all-new Intelligent Variable Transmission.",
+            "image_urls": [
+                "imgCars/c2.1.png",
+                "imgCars/c2.2.png",
+                "imgCars/c2.3.png",
+                "imgCars/c2.4.png"
+            ],
+            "seats": 4,
+            "bags": 2,
+            "doors": 4
+        }
+    },
+    {
+        "model": "cars.Car",
         "pk": 3,
         "fields": {
             "brand": "SUZUKI-CIAZ",
@@ -41,7 +61,7 @@
     },
     {
         "model": "cars.Car",
-        "pk": 44,
+        "pk": 4,
         "fields": {
             "brand": "???-????",
             "year": 2021,
@@ -49,10 +69,10 @@
             "stars": 4,
             "description": "BLA BLA BLA",
             "image_urls": [
-                "imgCars/c44.1.png",
-                "imgCars/c44.2.png",
-                "imgCars/c44.3.png",
-                "imgCars/c44.4.png"
+                "imgCars/c4.1.png",
+                "imgCars/c4.2.png",
+                "imgCars/c4.3.png",
+                "imgCars/c4.4.png"
             ],
             "seats": 4,
             "bags": 2,
