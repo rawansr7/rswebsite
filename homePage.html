@@ -70,7 +70,10 @@
                         <div class="button-box">
                             <div id="btnn"></div>
                             <button type="button" onclick="login()" class="toggle-btnn">Log In</button>
-                            <button type="button" onclick="register()" class="toggle-btnn">Register</button>
+                            <button type="button"
+                                    onclick="register()"
+                                    class="toggle-btnn"
+                                    style="padding: 10px 35px">Register</button>
                         </div>
                         <form method="POST" id="login" class="input-group-login">
                             {% csrf_token %}
@@ -315,26 +318,27 @@
     }
     </script>
     {% comment %} <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script> {% endcomment %}
-        var r = document.getElementById('login-form');
-        var x = document.getElementById('login');
-        var y = document.getElementById('register');
-        var z = document.getElementById('btnn');
-        function openform() {
-        r.style.display = 'block';
-        }
-        function register() {
-        x.style.left = '-400px';
-        y.style.left = '50px';
-        z.style.left = '110px';
-        }
-        function login() {
-        x.style.left = '50px';
-        y.style.left = '450px';
-        z.style.left = '0px';
-        }
-        </script>
-        <script>
+    {% endcomment %}
+    <script>
+            var r = document.getElementById('login-form');
+            var x = document.getElementById('login');
+            var y = document.getElementById('register');
+            var z = document.getElementById('btnn');
+            function openform() {
+            r.style.display = 'block';
+            }
+            function register() {
+            x.style.left = '-400px';
+            y.style.left = '50px';
+            z.style.left = '110px';
+            }
+            function login() {
+            x.style.left = '50px';
+            y.style.left = '450px';
+            z.style.left = '0px';
+            }
+    </script>
+    <script>
     var modal = document.getElementById('login-form');
     window.onclick = function (event) {
         if (event.target == modal) {
@@ -344,8 +348,8 @@
     }
 
 
-        </script>
-        <script>
+    </script>
+    <script>
     function CreateUser() {
         reset_errors();
         form = document.getElementById('register');
@@ -405,5 +409,5 @@
         window.location.reload(true);
     }
 
-        </script>
-    {% endblock content %}
+    </script>
+{% endblock content %}

@@ -13,33 +13,6 @@
           href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"/>
 {% endblock extra_css %}
 
-{% comment %} {% block navbar %}
-    <nav class="navbar navbar-expand-lg navbar-light bg-dark ">
-        <div class="container-fluid ">
-            <div class="collapse navbar-collapse" id="navbarNav" style="line-height:70px">
-                <img src="{% static 'imghomePage/logoo.png' %}" style="width: 100px; height: 70px; margin: 5px 30px"/>
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a id="nav_link_to_home" class="nav-link  text-warning" aria-current="page" href="{% url 'home' %}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="nav_link_to_flats" class="nav-link  text-warning" aria-current="page" href="{% url 'flats' %}">Our Flats</a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="nav_link_to_reservation" class="nav-link text-warning" href="{% url 'reservation' %}">Reservation</a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="nav_link_to_about" class="nav-link text-warning" href="{% url 'about' %}">About US</a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="nav_link_to_contact" class="nav-link disabled text-warning" href="#" tabindex="-1" aria-disabled="true">Contact US</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-{% endblock navbar %}
- {% endcomment %}
 {% block content %}
     <div class="step-row">
         <div id="progress"></div>
@@ -56,10 +29,10 @@
     <label id="lbltext1"></label>
     <br/>
     <label id="lbltext2"></label>
-    <div class="container" style="margin-top: 50px;">
+    <div class="containerrr" style="margin-top: 50px;">
         <form id="form1">
-            <div class="row">
-                <div class="column">
+            <div class="rowww">
+                <div >
                     <label for="location">Pick up Location</label>
                     <br/>
                     <select id="myoption" onchange="getddl()">
@@ -77,7 +50,7 @@
                         </option>
                     </select>
                 </div>
-                <div class="column"style="margin-left:25px">
+                <div style="margin-left:25px">
                     <label for="Location">Return Location</label>
                     <br/>
                     <select id="myOption"onchange="getddll()">
@@ -96,8 +69,8 @@
                     </select>
                 </div>
             </div>
-            <div class="row">
-                <div class="column">
+            <div class="rowww">
+                <div >
                     <label for="date">Pick up Date</label>
                     <br/>
                     <input type="text"
@@ -105,7 +78,7 @@
                            id="datetime"
                            placeholder="Select DateTime"/>
                 </div>
-                <div class="column" style="margin-left:25px">
+                <div style="margin-left:25px">
                     <label for="time">Return Date</label>
                     <br/>
                     <input type="text"
@@ -113,9 +86,10 @@
                            id="datetime"
                            placeholder="Select DateTime"/>
                 </div>
-                <div class="column">
+                <div >
                     <img src="{% static 'imgCars/1.1.png' %}"
-                         style="width:200px;
+                         style="position: relative;
+                                width:200px;
                                 height:350px;
                                 margin-top: -167px;
                                 margin-bottom: -122px;
@@ -127,38 +101,32 @@
             </div>
         </form>
     </div>
-{% endblock content %}
-
-{% block footer %}
-{% endblock footer %}
-
-{% block extra_js %}
     <script>
-    function getddl() {
-     document.getElementById('lbltext1').innerHTML= 
-     ("Pick up Location is:" +form1.myoption[form1.myoption.selectedIndex].text)
-
-    }
-    function getddll() {
-     document.getElementById('lbltext2').innerHTML= 
-     ("Return Location is:" +form1.myOption[form1.myOption.selectedIndex].text)
-
-    }
-        
+        function getddl() {
+         document.getElementById('lbltext1').innerHTML= 
+         ("Pick up Location is:" +form1.myoption[form1.myoption.selectedIndex].text)
+    
+        }
+        function getddll() {
+         document.getElementById('lbltext2').innerHTML= 
+         ("Return Location is:" +form1.myOption[form1.myOption.selectedIndex].text)
+    
+        }
+            
     </script>
     <!--flatpickr js-->
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
-     flatpickr("#datetime",{
-     enableTime: true,
-     dateFormat: "Y-m-d H:i",
-     minDate: "today",
-     maxDate: new Date().fp_incr(31) // 31 days from now
- })
-  // for cleaning the datetime input
-  const my_fp = document.querySelector("#datetime")._flatpickr;
-  my_fp.clear();
- 
+         flatpickr("#datetime",{
+         enableTime: true,
+         dateFormat: "Y-m-d H:i",
+         minDate: "today",
+         maxDate: new Date().fp_incr(31) // 31 days from now
+     })
+      // for cleaning the datetime input
+      const my_fp = document.querySelector("#datetime")._flatpickr;
+      my_fp.clear();
+     
     </script>
     <script src="{% static 'step1.js' %}"></script>
-{% endblock extra_js %}
+{% endblock content %}
