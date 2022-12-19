@@ -8,34 +8,10 @@
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'homePage.css' %}" />
+    <link rel="stylesheet" href="{% static 'cart.css' %}" />
 {% endblock extra_css %}
 
 {% block content %}
-    {% comment %} <div>
-    <div class="navbar-top">
-        <div>
-            <button id="menuButton">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-        <!--Shopping cart-->
-        <div class="shopping-cart">
-            <div class="sum-prices">
-                <span style="color:#e9ce93">My Purchases</span>
-                <!--Shopping cart logo-->
-                <i class="fas fa-shopping-cart shoppingCartButton"></i>
-            </div>
-        </div>
-    </div>
-    <div class="producstOnCart hide">
-        <div class="top">
-            <button id="closeButton">
-                <i class="fas fa-times-circle"></i>
-            </button>
-            <h3>Cart</h3>
-        </div>
-    </div>
-    </div> {% endcomment %}
     <div class="container0-fluid">
         <div class="slider-wrapper ">
             <div class="slide1 min-vh-100 bg-cover d-flex align-items-center">
@@ -65,6 +41,9 @@
                         </div>
                     </div>
                 </div>
+                {% if user.is_authenticated %}
+                {% include "cart.html" %}
+                {% endif %}
                 <div id="login-form" class="login-page">
                     <div class="form-box">
                         <div class="button-box">
@@ -175,8 +154,7 @@
         <section class="Feedbacks">
             <div class="container">
                 <h1 class="ligne">What Our Custumers Say</h1>
-                <p class="text-center">
-                </p>
+                <p class="text-center"></p>
                 <div class="row">
                     <div class=" col-md-4 text-center">
                         <div class="profile">
@@ -187,9 +165,7 @@
                                 Fair prices,a lot of flexibility,I personally trust these guys,
                                 their mission is to safisfy their custumers.
                             </blockquote>
-                            <h3>
-                                Joury K.
-                            </h3>
+                            <h3>Joury K.</h3>
                         </div>
                     </div>
                     <div class=" col-md-4 text-center">
@@ -410,4 +386,5 @@
     }
 
     </script>
+    <script src="{% static 'cart.js' %}"></script>
 {% endblock content %}
