@@ -29,79 +29,77 @@
     <label id="lbltext1"></label>
     <br/>
     <label id="lbltext2"></label>
-    <div class="containerrr" style="margin-top: 50px;">
-        <form id="form1">
-            <div class="rowww">
-                <div >
-                    <label for="location">Pick up Location</label>
-                    <br/>
-                    <select id="myoption" onchange="getddl()">
-                        <option selected class="selected">
-                            Choose Location
-                        </option>
-                        <option>
-                            International Airport
-                        </option>
-                        <option>
-                            Delivery Service
-                        </option>
-                        <option>
-                            Our Main Office
-                        </option>
-                    </select>
+    <div class="registration">
+        <div class="register-form">
+            <form>
+                <div class="registerInfo">
+                    <div class="placeTime">
+                        <label for="location">Pickup Location</label>
+                        <br/>
+                        <select id="myoption" onchange="getddl()">
+                            <option selected class="selected">
+                                Choose Location
+                            </option>
+                            <option>
+                                International Airport
+                            </option>
+                            <option>
+                                Delivery Service
+                            </option>
+                            <option>
+                                Our Main Office
+                            </option>
+                        </select>
+                    </div>
+                    <div class="placeTime">
+                        <label for="Location">Return Location</label>
+                        <br/>
+                        <select id="myOption"onchange="getddll()">
+                            <option selected class="selected">
+                                Choose Location
+                            </option>
+                            <option>
+                                International Airport
+                            </option>
+                            <option>
+                                Delivery Service
+                            </option>
+                            <option>
+                                Our Main Office
+                            </option>
+                        </select>
+                    </div>
+                    <div class="placeTime">
+                        <label for="date">Pick up Date</label>
+                        <br/>
+                        <input type="text"
+                               name="datetime"
+                               id="datetime"
+                               placeholder="Select DateTime"/>
+                    </div>
+                    <div class="placeTime">
+                        <label for="time">Return Date</label>
+                        <br/>
+                        <input type="text"
+                               name="datetime "
+                               id="datetime"
+                               placeholder="Select DateTime"/>
+                    </div>
                 </div>
-                <div style="margin-left:25px">
-                    <label for="Location">Return Location</label>
-                    <br/>
-                    <select id="myOption"onchange="getddll()">
-                        <option selected class="selected">
-                            Choose Location
-                        </option>
-                        <option>
-                            International Airport
-                        </option>
-                        <option>
-                            Delivery Service
-                        </option>
-                        <option>
-                            Our Main Office
-                        </option>
-                    </select>
+                <div class="Next-btn-box">
+                    <input type="submit" id="next" class="next" value="Next"/>
                 </div>
-            </div>
-            <div class="rowww">
-                <div >
-                    <label for="date">Pick up Date</label>
-                    <br/>
-                    <input type="text"
-                           name="datetime "
-                           id="datetime"
-                           placeholder="Select DateTime"/>
-                </div>
-                <div style="margin-left:25px">
-                    <label for="time">Return Date</label>
-                    <br/>
-                    <input type="text"
-                           name="datetime "
-                           id="datetime"
-                           placeholder="Select DateTime"/>
-                </div>
-                <div >
-                    <img src="{% static 'imgCars/1.1.png' %}"
-                         style="position: relative;
-                                width:200px;
-                                height:350px;
-                                margin-top: -167px;
-                                margin-bottom: -122px;
-                                border-radius: 10px"/>
-                </div>
-            </div>
-            <div class="btn-box">
-                <input type="submit" id="next" class="next" value="Next"/>
-            </div>
-        </form>
+            </form>
+        </div>
+        <div class="register-logo">
+            <img src="{% static 'imgCars/1.1.png' %}"
+                 width="100%"
+                 height="auto"
+                 style="border:0"/>
+        </iframe>
     </div>
-    <script>
+</div>
+<script>
         function getddl() {
          document.getElementById('lbltext1').innerHTML= 
          ("Pick up Location is:" +form1.myoption[form1.myoption.selectedIndex].text)
@@ -113,10 +111,10 @@
     
         }
             
-    </script>
-    <!--flatpickr js-->
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script>
+</script>
+<!--flatpickr js-->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
          flatpickr("#datetime",{
          enableTime: true,
          dateFormat: "Y-m-d H:i",
@@ -127,5 +125,5 @@
       const my_fp = document.querySelector("#datetime")._flatpickr;
       my_fp.clear();
      
-    </script>
+</script>
 {% endblock content %}
