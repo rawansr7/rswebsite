@@ -223,11 +223,11 @@
         "model": "cars.Car",
         "pk": 12,
         "fields": {
-            "brand": "?????????",
+            "brand": "Audi A5",
             "year": 2021,
             "price": 340,
             "stars": 1,
-            "description": "The 2023 Audi A5 offers everything you’d want in a performance-oriented luxury small car. From powerful engine options and athletic handling to an elegant interior and smooth ride, the A5 is a well- rounded package that showcases the brand’s penchant for refined sportiness.",
+            "description": "The 2021 Audi A5 offers everything you’d want in a performance-oriented luxury small car. From powerful engine options and athletic handling to an elegant interior and smooth ride, the A5 is a well- rounded package that showcases the brand’s penchant for refined sportiness.",
             "image_urls": [
                 "imgCars/c12.1.png",
                 "imgCars/c12.2.png",

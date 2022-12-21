@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block title %}
-  <title>Sibrour Rent A Car Lebanon</title>
+  <title>Sibour Rent A Car Lebanon</title>
 {% endblock title %}
 
 {% block extra_css %}
@@ -25,11 +25,14 @@
     </div>
     <div class="single-pro-details">
       <h1>{{ car.brand }} {{ car.year }}</h1>
+      <img src="{% static 'icons/door.jpg' %}" style="width: 40px;"/>
       <i></i> <span>{{ car.doors }} doors</span>
-      <i class="fas fa-tachometer-alt "></i> <span>{{ car.seats }} seats</span>
-      <i class="fas fa-briefcase"></i> <span>{{ car.bags }} bags</span>
+      <img src="{% static 'icons/seat.png' %}" style="width: 40px;"/>
+      <span>{{ car.seats }} seats</span>
+      <img src="{% static 'icons/airbagcar.jpg' %}" style="width: 35px;"/>
+      <span>{{ car.bags }} bags</span>
       <div class="price">{{ car.price }}$/day</div>
-      <button class="normal">Add to cart</button>
+      <br/>
       <h4>More Information</h4>
       <p>{{ car.description }}</p>
     </div>

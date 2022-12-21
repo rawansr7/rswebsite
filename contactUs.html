@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'contactUs.css' %}"/>
+  <!--link css-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+        crossorigin="anonymous"/>
+  <!--link js-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+          integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+          crossorigin="anonymous"></script>
+  <!--link font-awesome-->
+  <link rel="stylesheet"
+        type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"/>
+{% endblock extra_css %}
+
+{% block title %}
+  <title title="Contact Us">Sibour Rent a Car-Contact Us</title>
+{% endblock title %}
+
+{% block content %}
+  <section>
+    <div class="section-header text-center pt-5">
+      <h2 class="section-title">Contact Us</h2>
+      <div class="line">
+        <span></span>
+      </div>
+    </div>
+  </section>
+  <div class="contact-in">
+    <div class="contact-form">
+      <form>
+        <input type="text" placeholder="FULL Name" class="contact-form-txt"/>
+        <input type="text" placeholder="Email" class="contact-form-txt"/>
+        <textarea placeholder="Message" class="contact-form-textarea"></textarea>
+        <input type="submit" value="submit" class="contact-form-btn"/>
+      </form>
+    </div>
+    <div class="contact-map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.0716020330005!2d35.50436201463357!3d33.88780973382603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151f171dc9716471%3A0xcf7fef0191c13f42!2sBechara%20El%20Khoury%2C%20Bayrut!5e0!3m2!1sen!2slb!4v1671149486111!5m2!1sen!2slb"
+              width="100%"
+              height="auto"
+              style="border:0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </iframe>
+  </div>
+</div>
+<div class="page">
+  <div align="center">
+    <div class="rect">
+      <h3 class="ligne">Contact Info</h3>
+      <h4 style="top: 40px;">
+        <i class="fas fa-envelope mr-3"></i><span>sibour98@gmail.com</span>
+      </h4>
+      <h4 style="top: 70px; left: 45%;">
+        <i class="fas fa-phone mr-3"> <span>+961 70 54 78 58</span> </i>
+      </h4>
+      <h4 style="top: 110px; left: 45%;">
+        <i class="fas fa-print mr-3"> </i> <span>+961 01 35 97 25</span>
+      </h4>
+      <br/>
+      <h4 style="top: 40px; ">
+        <i class="fas fa-clock"></i> <span>We are open from Monday to Saturday</span>
+      </h4>
+    </div>
+  </div>
+</div>
+{% endblock content %}

@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block title %}
-    <title>Sibrour Rent A Car Lebanon</title>
+    <title>Sibour Rent A Car Lebanon</title>
 {% endblock title %}
 
 {% block extra_css %}
@@ -37,12 +37,12 @@
                                    style="width:auto">Login/Signup</a>
                             {% endif %}
                             <a href="{% url 'flats' %}"
-                               class="btn btn-outline-warning text-dark ms-md-3 ">Our Flats</a>
+                               class="btn btn-outline-warning text-dark ms-md-3 ">Our Fleets</a>
                         </div>
                     </div>
                 </div>
                 {% if user.is_authenticated %}
-                {% include "cart.html" %}
+                    {% include "cart.html" %}
                 {% endif %}
                 <div id="login-form" class="login-page">
                     <div class="form-box">
@@ -161,7 +161,7 @@
                             <img src="{% static 'imghomePage/user2.jpg' %}" class="user" />
                             <blockquote>
                                 <i class="fa fa-quote-left" style="color: #f5b70b"></i>
-                                Always using Sibrour Rent a Car for car rentiing in Lebanon.
+                                Always using Sibour Rent a Car for car rentiing in Lebanon.
                                 Fair prices,a lot of flexibility,I personally trust these guys,
                                 their mission is to safisfy their custumers.
                             </blockquote>

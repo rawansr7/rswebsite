@@ -5,6 +5,11 @@ from django.urls import path
 urlpatterns = [
     path("", TemplateView.as_view(template_name="homePage.html"), name="home"),
     path("about", TemplateView.as_view(template_name="aboutUs.html"), name="about"),
+    path(
+        "contact",
+        TemplateView.as_view(template_name="contactUs.html"),
+        name="contactus",
+    ),
     path("flats", all_flats, name="flats"),
     path("flats/<int:pk>", flats_details, name="sflats"),
     path("reservation", reservation, name="reservation"),

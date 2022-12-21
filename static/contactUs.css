@@ -1,0 +1,133 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+     width: 100%;
+     height: 100vh;
+     display: grid;
+     align-items: center;
+}
+.section-title { font-size:40px; 
+}
+.line {width: 150px; background: #ddd;  height: 3px; margin: auto; 
+}
+.line span {display:block;width: 100px; height: 4px; background-color: #f5b70b; margin: auto; position:relative;bottom: 0.5px;
+}
+.contact-in {
+     width: 80%;
+     height: auto;
+     margin: 70px auto;
+     display: flex;
+     flex-wrap: wrap;
+     padding: 10px;
+     border-radius: 10px;
+     background: rgb(225, 225, 225, 0);
+     box-shadow: 0px 0px 10px 0px rgb(252, 186, 4);
+}
+.contact-map {
+     width: 100%;
+     height: auto;
+     flex: 50%;
+}
+.contact-map iframe {
+     width: 100%;
+     height: 100%;
+}
+.contact-form {
+     width: 100%;
+     height: auto;
+     flex: 50%;
+     padding: 30px;
+     text-align: center;  
+}
+
+.contact-form-txt{
+     width: 100%;
+     height: 40px;
+     color:rgb(5, 5, 5);
+     border: 3px solid #f8b50a;
+     border-radius: 50px;
+     outline: none;
+     margin-bottom: 20px;
+     padding: 15px;
+}
+.contact-form-txt::placeholder {
+      color: rgb(22, 22, 22);
+}
+.contact-form-textarea{
+    width: 100%;
+    height: 130px;
+    color:rgb(17, 16, 16);
+    border: 3px solid #e79b0e;
+    border-radius: 20px;
+    outline: none;
+    margin-bottom: 20px;
+    padding: 15px;
+    font-family: 'Poppins',sans-serif;
+}
+.contact-form-textarea::placeholder {
+     color:rgb(22, 22, 22);
+}
+.contact-form-btn {
+     width: 100%;
+     border:none;
+     outline: none;
+     border-radius: 50px;
+     background: rgba(247, 191, 8, 0.867);
+     color: #fff;
+     text-transform: uppercase;
+     padding: 10px 0;
+     cursor: pointer;
+     font-size:18px;
+}
+
+.page {
+     height: 100vh;
+   }
+   .page::before {
+     content: "";
+     position: fixed;
+     width: 300%;
+     height: 100%;
+     background-color: #0d0d0e;
+     left: 50%;
+     top: 50%;
+     transform: translateX(-50%) skew(0, -10deg);
+     border-radius: 50%;
+     z-index: -1;
+     animation: waving 15s ease-in-out infinite alternate;
+   }
+   
+   .rect {
+     margin-top: 80px;
+     height: 500px;
+     width: 400px;
+     background: rgb(255, 166, 1);
+     border-radius: 50px;
+
+   }
+    h3 {
+     position: absolute;
+     left: 50%;
+     transform: translate(-50%, 150%);
+}
+h4 {
+     position: relative;  
+     left: 50%;
+     transform: translate(-50%, 290%);
+}
+   
+     @keyframes waving {
+       from {
+         transform: translateX(-50%) skew(0, -10deg);
+       }
+       to {
+         transform: translateX(-30%) skew(10deg, 0);
+       }
+     }
+     span {
+       color: rgb(53, 52, 52);   
+       font-size: 22px;
+       }
