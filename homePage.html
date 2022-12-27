@@ -3,206 +3,178 @@
 {% load static %}
 
 {% block title %}
-    <title>Sibour Rent A Car Lebanon</title>
+<title>Sibour Rent A Car Lebanon</title>
 {% endblock title %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'homePage.css' %}" />
-    <link rel="stylesheet" href="{% static 'cart.css' %}" />
+<link rel="stylesheet" href="{% static 'homePage.css' %}" />
+<link rel="stylesheet" href="{% static 'cart.css' %}" />
 {% endblock extra_css %}
 
 {% block content %}
-    <div class="container0-fluid">
-        <div class="slider-wrapper ">
-            <div class="slide1 min-vh-100 bg-cover d-flex align-items-center">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <h6 class="text-uppercase text-warning">Rent A Car In Lebanon And Drive In Style</h6>
-                            <h1 class="display-2 ">
-                                Choose the car
-                                <br />
-                                of your dreams
-                            </h1>
-                            {% if user.is_authenticated %}
-                                <h6>Welcome {{ user.first_name }}!</h6>
-                                <a href="#"
-                                   class="btn btn-outline-dark"
-                                   onclick="LogoutUser()"
-                                   style="width:auto">Logout</a>
-                            {% else %}
-                                <a href="#"
-                                   class="btn btn-outline-dark"
-                                   onclick="openform()"
-                                   style="width:auto">Login/Signup</a>
-                            {% endif %}
-                            <a href="{% url 'flats' %}"
-                               class="btn btn-outline-warning text-dark ms-md-3 ">Our Fleets</a>
-                        </div>
-                    </div>
-                </div>
-                {% if user.is_authenticated %}
-                    {% include "cart.html" %}
-                {% endif %}
-                <div id="login-form" class="login-page">
-                    <div class="form-box">
-                        <div class="button-box">
-                            <div id="btnn"></div>
-                            <button type="button" onclick="login()" class="toggle-btnn">Log In</button>
-                            <button type="button"
-                                    onclick="register()"
-                                    class="toggle-btnn"
-                                    style="padding: 10px 35px">Register</button>
-                        </div>
-                        <form method="POST" id="login" class="input-group-login">
-                            {% csrf_token %}
-                            <div id="invalid_login_id" style="color:red ; visibility:hidden;">Invalid credentials</div>
-                            <input type="text" class="input-field" id="email" placeholder="Email Id" />
-                            <div id="email_error" style="color:red ; visibility:hidden;">Please Fill up your email</div>
-                            <input type="password"
-                                   class="input-field"
-                                   id="password"
-                                   placeholder="Enter Password"/>
-                            <span>
-                                <i id="eye" class="fa fa-eye" aria-hidden="true" onclick="toggle()"></i>
-                            </span>
-                            <div id="pass_error" style="color:red ; visibility:hidden;">Please Fill up your password</div>
-                            <button type="button" class="submit-btnn" onclick="LoginUser()">Login</button>
-                        </form>
-                        <form method="POST"
-                              id="register"
-                              class="input-group-register"
-                              action="{% url 'signup' %}">
-                            {% csrf_token %}
-                            <input id="reg_fname"
-                                   name="reg_fname"
-                                   type="text"
-                                   class="input-field"
-                                   placeholder="First Name"/>
-                            <div id="fname_error" style="color:red ; visibility:hidden;">Please Fill up your first name</div>
-                            <input id="reg_lname"
-                                   name="reg_lname"
-                                   type="text"
-                                   class="input-field"
-                                   placeholder="Last Name"/>
-                            <div id="lname_error" style="color:red ; visibility:hidden;">Please Fill up your last name</div>
-                            <input id="reg_email"
-                                   name="reg_email"
-                                   type="email"
-                                   class="input-field"
-                                   placeholder="Email Id"/>
-                            <div id="reg_email_error" style="color:red ; visibility:hidden;">Please Fill up your email</div>
-                            <input id="reg_pass1"
-                                   name="reg_pass1"
-                                   type="password"
-                                   class="input-field"
-                                   placeholder="Password"/>
-                            <input id="reg_pass2"
-                                   name="reg_pass2"
-                                   type="password"
-                                   class="input-field"
-                                   placeholder="Confirm Password"/>
-                            <div id="reg_pass_error" style="color:red ; visibility:hidden;">Passwords don't match</div>
-                            <input type="checkbox" class="check-box" />
-                            <span>I agree to the terms and conditions</span>
-                            <button type="button" class="submit-btnn" onclick="CreateUser()">Register</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br />
-        <br />
-        <div class="container1 bg-white">
-            <div class="services">
-                <h1 class="ligne">Our Services</h1>
-            </div>
-            <div class="row">
-                <div class="col-md-4 text-center">
-                    <div class="icon">
-                        <i class="fa fa-car "></i>
-                    </div>
-                    <h3>Wide Selection</h3>
-                    <p>
-                        From standard cars to luxurious sport cars, SUV’s and convertibles, NN Rent a Car has a wide
-                        selection of new and safe cars that are constantly under maintenance. Enjoy the ride without any
-                        concerns!
-                    </p>
-                </div>
-                <div class="col-md-4 text-center">
-                    <div class="icon">
-                        <i class="fa fa-phone" aria-hidden="true"></i>
-                    </div>
-                    <h3>24/7 Support</h3>
-                    <p>
-                        NN Rent a Car is ready 24/7 to serve clients in case of any inconvenience. Our services cover
-                        different areas all around Lebanon. Call us at: +961 3 664024
-                    </p>
-                </div>
-                <div class="col-md-4 text-center">
-                    <div class="icon">
-                        <i class="fa fa-dollar-sign"></i>
-                    </div>
-                    <h3>Great Prices</h3>
-                    <p>
-                        Explore the city with a car of your choice; whether friendly economy or luxurious, all our
-                        prices are calculated to fit your needs!
-                    </p>
-                </div>
-            </div>
-        </div>
-        <section class="Feedbacks">
+<div class="container0-fluid">
+    <div class="slider-wrapper ">
+        <div class="slide1 min-vh-100 bg-cover d-flex align-items-center">
             <div class="container">
-                <h1 class="ligne">What Our Custumers Say</h1>
-                <p class="text-center"></p>
                 <div class="row">
-                    <div class=" col-md-4 text-center">
-                        <div class="profile">
-                            <img src="{% static 'imghomePage/user2.jpg' %}" class="user" />
-                            <blockquote>
-                                <i class="fa fa-quote-left" style="color: #f5b70b"></i>
-                                Always using Sibour Rent a Car for car rentiing in Lebanon.
-                                Fair prices,a lot of flexibility,I personally trust these guys,
-                                their mission is to safisfy their custumers.
-                            </blockquote>
-                            <h3>Joury K.</h3>
-                        </div>
-                    </div>
-                    <div class=" col-md-4 text-center">
-                        <div class="profile">
-                            <img src="{% static 'imghomePage/user1.jpg' %}" class="user" />
-                            <blockquote>
-                                <i class="fa fa-quote-left" style="color: #f5b70b"></i>
-                                One of the most reputable caar rental companies in the region.
-                                Ponctuality, professionalism, and prices are always remarkable
-                                with the clienteles.
-                            </blockquote>
-                            <h3>
-                                François Z.
-                            </h3>
-                        </div>
-                    </div>
-                    <div class=" col-md-4 text-center">
-                        <div class="profile">
-                            <img src="{% static 'imghomePage/user3.jpg' %}" class="user" />
-                            <blockquote>
-                                <i class="fa fa-quote-left" style="color: #f5b70b"></i>
-                                Wide variety of cars, friendly and helpful staff.
-                                Prices are very good. Also all fleet well maintained
-                                and new. Love this place my number one go too. Highly
-                                recommended!
-                            </blockquote>
-                            <h3>
-                                Céline B.
-                            </h3>
-                        </div>
+                    <div class="col-12">
+                        <h6 class="text-uppercase text-warning">Rent A Car In Lebanon And Drive In Style</h6>
+                        <h1 class="display-2 ">
+                            Choose the car
+                            <br />
+                            of your dreams
+                        </h1>
+                        {% if user.is_authenticated %}
+                        <h6>Welcome {{ user.first_name }}!</h6>
+                        <a href="#" class="btn btn-outline-dark" onclick="LogoutUser()" style="width:auto">Logout</a>
+                        {% else %}
+                        <a href="#" class="btn btn-outline-dark" onclick="openform()"
+                            style="width:auto">Login/Signup</a>
+                        {% endif %}
+                        <a href="{% url 'flats' %}" class="btn btn-outline-warning text-dark ms-md-3 ">Our Fleets</a>
                     </div>
                 </div>
             </div>
-        </section>
-        <br />
+            {% if user.is_authenticated %}
+            {% include "cart.html" %}
+            {% endif %}
+            <div id="login-form" class="login-page">
+                <div class="form-box">
+                    <div class="button-box">
+                        <div id="btnn"></div>
+                        <button type="button" onclick="login()" class="toggle-btnn">Log In</button>
+                        <button type="button" onclick="register()" class="toggle-btnn"
+                            style="padding: 10px 35px">Register</button>
+                    </div>
+                    <form method="POST" id="login" class="input-group-login">
+                        {% csrf_token %}
+                        <div id="invalid_login_id" style="color:red ; visibility:hidden;">Invalid credentials</div>
+                        <input type="text" class="input-field" id="email" placeholder="Email Id" />
+                        <div id="email_error" style="color:red ; visibility:hidden;">Please Fill up your email</div>
+                        <input type="password" class="input-field" id="password" placeholder="Enter Password" />
+                        <span>
+                            <i id="eye" class="fa fa-eye" aria-hidden="true" onclick="toggle()"></i>
+                        </span>
+                        <div id="pass_error" style="color:red ; visibility:hidden;">Please Fill up your password</div>
+                        <button type="button" class="submit-btnn" onclick="LoginUser()">Login</button>
+                    </form>
+                    <form method="POST" id="register" class="input-group-register" action="{% url 'signup' %}">
+                        {% csrf_token %}
+                        <input id="reg_fname" name="reg_fname" type="text" class="input-field"
+                            placeholder="First Name" />
+                        <div id="fname_error" style="color:red ; visibility:hidden;">Please Fill up your first name
+                        </div>
+                        <input id="reg_lname" name="reg_lname" type="text" class="input-field"
+                            placeholder="Last Name" />
+                        <div id="lname_error" style="color:red ; visibility:hidden;">Please Fill up your last name</div>
+                        <input id="reg_email" name="reg_email" type="email" class="input-field"
+                            placeholder="Email Id" />
+                        <div id="reg_email_error" style="color:red ; visibility:hidden;">Please Fill up your email</div>
+                        <input id="reg_pass1" name="reg_pass1" type="password" class="input-field"
+                            placeholder="Password" />
+                        <input id="reg_pass2" name="reg_pass2" type="password" class="input-field"
+                            placeholder="Confirm Password" />
+                        <div id="reg_pass_error" style="color:red ; visibility:hidden;">Passwords don't match</div>
+                        <input type="checkbox" class="check-box" />
+                        <span>I agree to the terms and conditions</span>
+                        <button type="button" class="submit-btnn" onclick="CreateUser()">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    <script>
+    <br />
+    <br />
+    <div class="container1 bg-white">
+        <div class="services">
+            <h1 class="ligne">Our Services</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <div class="icon">
+                    <i class="fa fa-car "></i>
+                </div>
+                <h3>Wide Selection</h3>
+                <p>
+                    From standard cars to luxurious sport cars, SUV’s and convertibles, NN Rent a Car has a wide
+                    selection of new and safe cars that are constantly under maintenance. Enjoy the ride without any
+                    concerns!
+                </p>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="icon">
+                    <i class="fa fa-phone" aria-hidden="true"></i>
+                </div>
+                <h3>24/7 Support</h3>
+                <p>
+                    NN Rent a Car is ready 24/7 to serve clients in case of any inconvenience. Our services cover
+                    different areas all around Lebanon. Call us at: +961 3 664024
+                </p>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="icon">
+                    <i class="fa fa-dollar-sign"></i>
+                </div>
+                <h3>Great Prices</h3>
+                <p>
+                    Explore the city with a car of your choice; whether friendly economy or luxurious, all our
+                    prices are calculated to fit your needs!
+                </p>
+            </div>
+        </div>
+    </div>
+    <section class="Feedbacks">
+        <div class="container">
+            <h1 class="ligne">What Our Custumers Say</h1>
+            <p class="text-center"></p>
+            <div class="row">
+                <div class=" col-md-4 text-center">
+                    <div class="profile">
+                        <img src="{% static 'imghomePage/user2.jpg' %}" class="user" />
+                        <blockquote>
+                            <i class="fa fa-quote-left" style="color: #f5b70b"></i>
+                            Always using Sibour Rent a Car for car rentiing in Lebanon.
+                            Fair prices,a lot of flexibility,I personally trust these guys,
+                            their mission is to safisfy their custumers.
+                        </blockquote>
+                        <h3>Joury K.</h3>
+                    </div>
+                </div>
+                <div class=" col-md-4 text-center">
+                    <div class="profile">
+                        <img src="{% static 'imghomePage/user1.jpg' %}" class="user" />
+                        <blockquote>
+                            <i class="fa fa-quote-left" style="color: #f5b70b"></i>
+                            One of the most reputable caar rental companies in the region.
+                            Ponctuality, professionalism, and prices are always remarkable
+                            with the clienteles.
+                        </blockquote>
+                        <h3>
+                            François Z.
+                        </h3>
+                    </div>
+                </div>
+                <div class=" col-md-4 text-center">
+                    <div class="profile">
+                        <img src="{% static 'imghomePage/user3.jpg' %}" class="user" />
+                        <blockquote>
+                            <i class="fa fa-quote-left" style="color: #f5b70b"></i>
+                            Wide variety of cars, friendly and helpful staff.
+                            Prices are very good. Also all fleet well maintained
+                            and new. Love this place my number one go too. Highly
+                            recommended!
+                        </blockquote>
+                        <h3>
+                            Céline B.
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br />
+</div>
+<script>
     function reset_errors() {
         const error_divs = ["fname_error",
             "lname_error",
@@ -251,8 +223,8 @@
         }
         return true;
     }
-    </script>
-    <script>
+</script>
+<script>
     function LoginUser() {
         reset_errors();
         var username = document.getElementById("email");
@@ -292,29 +264,32 @@
         }
 
     }
-    </script>
-    {% comment %} <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    {% endcomment %}
-    <script>
-            var r = document.getElementById('login-form');
-            var x = document.getElementById('login');
-            var y = document.getElementById('register');
-            var z = document.getElementById('btnn');
-            function openform() {
-            r.style.display = 'block';
-            }
-            function register() {
-            x.style.left = '-400px';
-            y.style.left = '50px';
-            z.style.left = '110px';
-            }
-            function login() {
-            x.style.left = '50px';
-            y.style.left = '450px';
-            z.style.left = '0px';
-            }
-    </script>
-    <script>
+</script>
+{% comment %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+{% endcomment %}
+<script>
+    var r = document.getElementById('login-form');
+    var x = document.getElementById('login');
+    var y = document.getElementById('register');
+    var z = document.getElementById('btnn');
+    function openform() {
+        r.style.display = 'block';
+    }
+    function register() {
+        x.style.left = '-400px';
+        y.style.left = '50px';
+        z.style.left = '110px';
+    }
+    function login() {
+        x.style.left = '50px';
+        y.style.left = '450px';
+        z.style.left = '0px';
+    }
+</script>
+<script>
     var modal = document.getElementById('login-form');
     window.onclick = function (event) {
         if (event.target == modal) {
@@ -324,8 +299,8 @@
     }
 
 
-    </script>
-    <script>
+</script>
+<script>
     function CreateUser() {
         reset_errors();
         form = document.getElementById('register');
@@ -385,6 +360,6 @@
         window.location.reload(true);
     }
 
-    </script>
-    <script src="{% static 'cart.js' %}"></script>
+</script>
+<script src="{% static 'cart.js' %}"></script>
 {% endblock content %}

@@ -36,3 +36,11 @@ def step3(request):
         "step3.html",
         {"car": car},
     )
+
+def sstep3(request, pk):
+    car = Car.objects.get(pk=pk)
+    return render(
+        request,
+        "step3.html",
+        {"car": car},
+    )
