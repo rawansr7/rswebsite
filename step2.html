@@ -3,43 +3,44 @@
 {% load static %}
 
 {% block title %}
-<title>Sibour Rent A Car Lebanon</title>
+    <title>Sibour Rent A Car Lebanon</title>
 {% endblock title %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'Flats.css' %}" />
-<link rel="stylesheet" href="{% static 'step2.css' %}" />
+    <link rel="stylesheet" href="{% static 'Flats.css' %}" />
+    <link rel="stylesheet" href="{% static 'step2.css' %}" />
 {% endblock extra_css %}
 
 {% block content %}
-<div class="step-row">
-    <div id="progress"></div>
-    <div class="step-col">
-        <a href={% url 'step1' %}>step1</a>
-    </div>
-    <div class="step-col">
-        <a href={% url 'step2' %}>step2</a>
-    </div>
-    <div class="step-col">
-        <a href={% url 'step3' %}>step3</a>
-    </div>
-</div>
-<section id="product1" class="section-p1">
-    <div class="pro-container" style="margin-bottom: 200px;">
-        {% for car in cars %}
-        <div class="pro" onclick="window.location.href='{% url 'sstep3' pk=car.pk %}';">
-            <img src="{% static car.image_urls.0 %}" />
-            <div class="des">
-                <h5>{{ car.brand }} {{ car.year }}</h5>
-                <div class="star">
-                    {% with ""|center:car.stars as range %}
-                    {% for _ in range %}<i class="fas fa-star"></i>{% endfor %}
-                    {% endwith %}
-                </div>
-                <h4>{{ car.price }}$/Day</h4>
-            </div>
+    <div class="step-row">
+        <div id="progress"></div>
+        <div class="step-col">
+            <a href={% url 'step1' %}>step1</a>
         </div>
-        {% endfor %}
+        <div class="step-col">
+            <a href={% url 'step2' %}>step2</a>
+        </div>
+        <div class="step-col">
+            <a href={% url 'step3' %}>step3</a>
+        </div>
     </div>
-</section>
+    <section id="product1" class="section-p1">
+        <div class="pro-container" style="margin-bottom: 200px;">
+            {% for car in cars %}
+                <div class="pro"
+                     onclick="window.location.href='{% url 'sstep3' pk=car.pk %}';">
+                    <img src="{% static car.image_urls.0 %}" />
+                    <div class="des">
+                        <h5>{{ car.brand }} {{ car.year }}</h5>
+                        <div class="star">
+                            {% with ""|center:car.stars as range %}
+                                {% for _ in range %}<i class="fas fa-star"></i>{% endfor %}
+                            {% endwith %}
+                        </div>
+                        <h4>{{ car.price }}$/Day</h4>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
 {% endblock content %}
