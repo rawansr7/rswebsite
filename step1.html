@@ -3,127 +3,38 @@
 {% load static %}
 
 {% block title %}
-    <title>Document</title>
+    <title>Sibour Rent A Car Lebanon</title>
 {% endblock title %}
 
 {% block extra_css %}
+    <link rel="stylesheet" href="{% static 'Flats.css' %}" />
     <link rel="stylesheet" href="{% static 'step1.css' %}" />
-    <!--flatpickr css-->
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"/>
 {% endblock extra_css %}
 
 {% block content %}
     <div class="step-row">
         <div id="progress"></div>
-        <div class="step-col">
-            <a href={% url 'step1' %}>step1</a>
-        </div>
-        <div class="step-col">
-            <a href={% url 'step2' %}>step2</a>
-        </div>
-        <div class="step-col">
-            <a href={% url 'step3' %}>step3</a>
-        </div>
+        <div class="step-col">step1</div>
+        <div class="step-col">step2</div>
+        <div class="step-col">step3</div>
     </div>
-    <label id="lbltext1"></label>
-    <br/>
-    <label id="lbltext2"></label>
-    <div class="registration">
-        <div class="register-form">
-            <form>
-                <div class="registerInfo">
-                    <div class="placeTime">
-                        <label for="location">Pickup Location</label>
-                        <br/>
-                        <select id="myoption" onchange="getddl()">
-                            <option selected class="selected">
-                                Choose Location
-                            </option>
-                            <option>
-                                International Airport
-                            </option>
-                            <option>
-                                Delivery Service
-                            </option>
-                            <option>
-                                Our Main Office
-                            </option>
-                        </select>
-                    </div>
-                    <div class="placeTime">
-                        <label for="Location">Return Location</label>
-                        <br/>
-                        <select id="myOption"onchange="getddll()">
-                            <option selected class="selected">
-                                Choose Location
-                            </option>
-                            <option>
-                                International Airport
-                            </option>
-                            <option>
-                                Delivery Service
-                            </option>
-                            <option>
-                                Our Main Office
-                            </option>
-                        </select>
-                    </div>
-                    <div class="placeTime">
-                        <label for="date">Pick up Date</label>
-                        <br/>
-                        <input type="text"
-                               name="datetime"
-                               id="datetime"
-                               placeholder="Select DateTime"/>
-                    </div>
-                    <div class="placeTime">
-                        <label for="time">Return Date</label>
-                        <br/>
-                        <input type="text"
-                               name="datetime "
-                               id="datetime"
-                               placeholder="Select DateTime"/>
+    <section id="product1" class="section-p1">
+        <div class="pro-container" style="margin-bottom: 200px;">
+            {% for car in cars %}
+                <div class="pro"
+                     onclick="window.location.href='{% url 'sflats' pk=car.pk %}';">
+                    <img src="{% static car.image_urls.0 %}" />
+                    <div class="des">
+                        <h5>{{ car.brand }} {{ car.year }}</h5>
+                        <div class="star">
+                            {% with ""|center:car.stars as range %}
+                                {% for _ in range %}<i class="fas fa-star"></i>{% endfor %}
+                            {% endwith %}
+                        </div>
+                        <h4>{{ car.price }}$/Day</h4>
                     </div>
                 </div>
-                <div class="Next-btn-box">
-                    <input type="submit" id="next" class="next" value="Next"/>
-                </div>
-            </form>
+            {% endfor %}
         </div>
-        <div class="register-logo">
-            <img src="{% static 'imgCars/1.1.png' %}"
-                 width="100%"
-                 height="auto"
-                 style="border:0"/>
-        </iframe>
-    </div>
-</div>
-<script>
-        function getddl() {
-         document.getElementById('lbltext1').innerHTML= 
-         ("Pick up Location is:" +form1.myoption[form1.myoption.selectedIndex].text)
-    
-        }
-        function getddll() {
-         document.getElementById('lbltext2').innerHTML= 
-         ("Return Location is:" +form1.myOption[form1.myOption.selectedIndex].text)
-    
-        }
-            
-</script>
-<!--flatpickr js-->
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-<script>
-         flatpickr("#datetime",{
-         enableTime: true,
-         dateFormat: "Y-m-d H:i",
-         minDate: "today",
-         maxDate: new Date().fp_incr(31) // 31 days from now
-     })
-      // for cleaning the datetime input
-      const my_fp = document.querySelector("#datetime")._flatpickr;
-      my_fp.clear();
-     
-</script>
+    </section>
 {% endblock content %}

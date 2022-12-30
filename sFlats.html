@@ -33,6 +33,10 @@
       <span>{{ car.bags }} bags</span>
       <div class="price">{{ car.price }}$/day</div>
       <br/>
+      <form method="POST">
+        {% csrf_token %}
+        <button>Add to cart</button>
+      </form>
       <h4>More Information</h4>
       <p>{{ car.description }}</p>
     </div>

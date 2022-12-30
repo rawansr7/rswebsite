@@ -3,12 +3,16 @@ from cars.models import Car
 
 
 def flats_details(request, pk):
-    car = Car.objects.get(pk=pk)
-    return render(
-        request,
-        "sFlats.html",
-        {"car": car},
-    )
+    if request.method == "POST":
+        # TODO: save it in db
+        return redirect("step2", pk=pk)
+    elif request.method == "GET":
+        car = Car.objects.get(pk=pk)
+        return render(
+            request,
+            "sFlats.html",
+            {"car": car},
+        )
 
 
 def all_flats(request):
@@ -21,23 +25,20 @@ def reservation(request):
 
 
 def step1(request):
-    return render(request, "step1.html")
-
-
-def step2(request):
     cars = Car.objects.all()
-    return render(request, "step2.html", {"cars": cars})
+    return render(request, "step1.html", {"cars": cars})
 
 
-def step3(request):
-    car = Car.objects.get(pk=1)
-    return render(
-        request,
-        "step3.html",
-        {"car": car},
-    )
+def step2(request, pk):
+    if request.method == "GET":
+        return render(request, "step2.html")
 
-def sstep3(request, pk):
+    elif request.method == "POST":
+        # do something
+        return redirect("step3", pk=pk)
+
+
+def step3(request, pk):
     car = Car.objects.get(pk=pk)
     return render(
         request,
