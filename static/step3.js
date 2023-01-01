@@ -23,7 +23,7 @@ function ready() {
         button.addEventListener('click', addToCartClicked)
     }
 
-    document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
+    // document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
 }
 
 function purchaseClicked() {
@@ -39,6 +39,8 @@ function removeCartItem(event) {
     var buttonClicked = event.target
     buttonClicked.parentElement.parentElement.remove()
     updateCartTotal()
+    var form_element = document.getElementById("chosen-options")
+    form_element.elements[buttonClicked.parentElement.parentElement.id].value = 0
 }
 
 function quantityChanged(event) {
@@ -47,6 +49,8 @@ function quantityChanged(event) {
         input.value = 1
     }
     updateCartTotal()
+    var form_element = document.getElementById("chosen-options")
+    form_element.elements[input.parentElement.parentElement.id].value = input.value
 }
 
 function addToCartClicked(event) {
@@ -55,12 +59,14 @@ function addToCartClicked(event) {
     var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText
     var price = shopItem.getElementsByClassName('shop-item-price')[0].innerText
     var imageSrc = shopItem.getElementsByClassName('shop-item-image')[0].src
-    addItemToCart(title, price, imageSrc)
+    var db_id = shopItem.getElementsByClassName('shop-item-id')[0].innerText
+    addItemToCart(title, price, imageSrc, db_id)
     updateCartTotal()
 }
 
-function addItemToCart(title, price, imageSrc) {
+function addItemToCart(title, price, imageSrc, db_id) {
     var cartRow = document.createElement('div')
+    cartRow.setAttribute("id", db_id);
     cartRow.classList.add('cart-row')
     var cartItems = document.getElementsByClassName('cart-items')[0]
     var cartItemNames = cartItems.getElementsByClassName('cart-item-title')
@@ -84,6 +90,10 @@ function addItemToCart(title, price, imageSrc) {
     cartItems.append(cartRow)
     cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem)
     cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged)
+
+    var form_element = document.getElementById("chosen-options")
+    form_element.elements[db_id].value = "1"
+
 }
 
 function updateCartTotal() {

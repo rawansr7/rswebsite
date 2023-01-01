@@ -101,7 +101,7 @@ select option {
 	margin-top: 20px;
 }
 
-.Next-btn-box input {
+.Next-btn-box button {
 	display: block;
 	width: 65%;
 	margin: 10px 40px;

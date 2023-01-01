@@ -14,15 +14,9 @@
 {% block content %}
     <div class="step-row">
         <div id="progress"></div>
-        <div class="step-col">
-            <a href={% url 'step1' %}>step1</a>
-        </div>
-        <div class="step-col">
-            <a href={% url 'step2' %}>step2</a>
-        </div>
-        <div class="step-col">
-            <a href={% url 'step3' %}>step3</a>
-        </div>
+        <div class="step-col">step1</div>
+        <div class="step-col">step2</div>
+        <div class="step-col">step3</div>
     </div>
     <section class="container content-section ">
         <div class="shop-items">
@@ -33,7 +27,7 @@
                             transform: none"
                      src="{% static car.image_urls.0 %}"/>
                 <div class="shop-item-details">
-                    <span class="shop-item-price">$12.99</span>
+                    <span class="shop-item-price">${{ car.price }}</span>
                     <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
                 </div>
             </div>
@@ -53,128 +47,49 @@
     <section class="container content-section ">
         <h2 class="section-header">Protection Options</h2>
         <div class="shop-items">
-            <div class="shop-item">
-                <span class="shop-item-title">Tire chains</span>
-                <img class="shop-item-image" src="{% static 'imgPage3/tireChain.png' %}"/>
-                <div class="shop-item-details">
-                    <span class="shop-item-price">$70</span>
-                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+            {% for option in protection_options %}
+                <div class="shop-item">
+                    <div class="shop-item-id" style="display: none;">option-{{ option.id }}</div>
+                    <span class="shop-item-title">{{ option.title }}</span>
+                    <img class="shop-item-image"
+                         src="{% static option.image_url %}"
+                         width="250px"/>
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">${{ option.price }}</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                    <!--rotate img information-->
+                    <div class="box-content">
+                        <h3>{{ option.title }}</h3>
+                        {{ option.description }}
+                    </div>
                 </div>
-                <!--rotate img information-->
-                <div class="box-content">
-                    <h3>Tire chains</h3>
-                    Get better traction in cold weather with tire chains . Try the best snow chains for your car.
-                </div>
-            </div>
-            <div class="shop-item">
-                <span class="shop-item-title">Car Insurance</span>
-                <img class="shop-item-image"
-                     style="width: 250px"
-                     src="{% static 'imgPage3/CarInsruance.png' %}"/>
-                <div class="shop-item-details">
-                    <span class="shop-item-price">$70</span>
-                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-                </div>
-                <!--rotate img information-->
-                <div class="box-content">
-                    <h3>Car Insurance</h3>
-                    Super Collision Damage Waiver insurance with Zero Excess.
-                    The lessee still remains responsible for the 25% of the
-                    car value in case of car theft or total loss damage.
-                </div>
-            </div>
-            <div class="shop-item">
-                <span class="shop-item-title">Additionel Driver</span>
-                <img class="shop-item-image"
-                     width="280px"
-                     src="{% static 'imgPage3/driver_one.png' %}"/>
-                <div class="shop-item-details">
-                    <span class="shop-item-price">$19.99</span>
-                    <button class="btn btn-primary shop-item-button" type="button">
-                        ADD TO CART
-                    </button>
-                </div>
-                <!--rotate img information-->
-                <div class="box-content">
-                    <h3>
-                        Additional Driver
-                    </h3>
-                    Share the driving: journeys are always better when you can take turns at the wheel!
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </section>
     <section class="container content-section mt-5">
-        <h2 class="section-header">
-            Additional Adds
-        </h2>
+        <h2 class="section-header">Additional Adds</h2>
         <div class="shop-items">
-            <div class="shop-item">
-                <span class="shop-item-title">Baby Car Seat-A</span>
-                <img class="shop-item-image"
-                     src="{% static 'imgPage3/babyCarSeatA.png' %}"/>
-                <div class="shop-item-details">
-                    <span class="shop-item-price">$56.99</span>
-                    <button class="btn btn-primary shop-item-button" type="button">
-                        ADD TO CART
-                    </button>
+            {% for option in additional_options %}
+                <div class="shop-item">
+                    <div class="shop-item-id" style="display: none;">option-{{ option.id }}</div>
+                    <span class="shop-item-title">{{ option.title }}</span>
+                    <img class="shop-item-image"
+                         src="{% static option.image_url %}"
+                         width="250px"/>
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">${{ option.price }}</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                    <!--rotate img information-->
+                    <div class="box-content">
+                        <h3>
+                            {{ option.title }}
+                        </h3>
+                        {{ option.description | safe }}
+                    </div>
                 </div>
-                <!--rotate img information-->
-                <div class="box-content">
-                    <h3>
-                        Baby seat a Car-A
-                    </h3>
-                    Rearward-facing baby seat suitable for
-                    <br/>
-                    Age: 0-12 months
-                    <br/>
-                    Weight: 0-13 kg
-                    <br/>
-                    Height: 40-75 cm
-                </div>
-            </div>
-            <div class="shop-item">
-                <span class="shop-item-title">babyCarSeat-B</span>
-                <img class="shop-item-image"
-                     style="width: 250px"
-                     src="{% static 'imgPage3/BABycarSEATB.png' %}"/>
-                <div class="shop-item-details">
-                    <span class="shop-item-price">$56.99</span>
-                    <button class="btn btn-primary shop-item-button" type="button">
-                        ADD TO CART
-                    </button>
-                </div>
-                <!--rotate img information-->
-                <div class="box-content">
-                    <h3>
-                        Baby seat a Car-B
-                    </h3>
-                    orward-facing baby seat suitable for
-                    <br/>
-                    Age: 1-6 years
-                    <br/>
-                    Weight: up to 18 kg
-                    <br/>
-                    $10.00
-                </div>
-            </div>
-            <div class="shop-item">
-                <span class="shop-item-title"> Satellite Navigation</span>
-                <img class="shop-item-image" src="{% static 'imgPage3/SaNav.png' %}"/>
-                <div class="shop-item-details">
-                    <span class="shop-item-price">$19.99</span>
-                    <button class="btn btn-primary shop-item-button" type="button">
-                        ADD TO CART
-                    </button>
-                </div>
-                <!--rotate img information-->
-                <div class="box-content">
-                    <h3>
-                        Satellite Navigation
-                    </h3>
-                    Satellite navigation system provides turn-by-turn direction.
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </section>
     <section class="container content-section">
@@ -195,7 +110,7 @@
                          height="100"/>
                     <span class="cart-item-title"> {{ car.brand }} {{ car.year }} </span>
                 </div>
-                <span class="cart-price cart-column">$19.99</span>
+                <span class="cart-price cart-column">${{ car.price }}</span>
                 <div class="cart-quantity cart-column">
                     <input class="cart-quantity-input" type="number" value="1" min="1" max="1"/>
                     <button class="btn btn-danger" type="button">
@@ -206,10 +121,15 @@
         </div>
         <div class="cart-total">
             <strong class="cart-total-title">Total</strong>
-            <span class="cart-total-price">$19.99</span>
+            <span class="cart-total-price">${{ car.price }}</span>
         </div>
-        <button class="btn btn-primary btn-purchase" type="button">
-            PURCHASE
-        </button>
+        <form method="POST" id="chosen-options">
+            {% csrf_token %}
+            {% for option in protection_options %}<input type="hidden" name="option-{{ option.id }}" value="0"/>{% endfor %}
+            {% for option in additional_options %}<input type="hidden" name="option-{{ option.id }}" value="0"/>{% endfor %}
+            <button class="btn btn-primary btn-purchase">
+                PURCHASE
+            </button>
+        </form>
     </section>
 {% endblock content %}

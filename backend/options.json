@@ -1,0 +1,68 @@
+[
+    {
+        "model": "cars.Option",
+        "pk": 1,
+        "fields": {
+            "typ": "Protection",
+            "title": "Tire Chains",
+            "description": "Get better traction in cold weather with tire chains . Try the best snow chains for your car.",
+            "image_url": "imgPage3/tireChain.png",
+            "price": 70
+        }
+    },
+    {
+        "model": "cars.Option",
+        "pk": 2,
+        "fields": {
+            "typ": "Protection",
+            "title": "Car Insurance",
+            "description": "Super Collision Damage Waiver insurance with Zero Excess. The lessee still remains responsible for the 25% of the car value in case of car theft or total loss damage.",
+            "image_url": "imgPage3/CarInsruance.png",
+            "price": 70
+        }
+    },
+    {
+        "model": "cars.Option",
+        "pk": 3,
+        "fields": {
+            "typ": "Protection",
+            "title": "Additionel Driver",
+            "description": "Share the driving: journeys are always better when you can take turns at the wheel!",
+            "image_url": "imgPage3/driver_one.png",
+            "price": 19.99
+        }
+    },
+    {
+        "model": "cars.Option",
+        "pk": 4,
+        "fields": {
+            "typ": "Additional",
+            "title": "Baby Seat-A",
+            "description": "Rearward-facing baby seat suitable for <br/> Age: 0-12 months <br/> Weight: 0-13 kg <br/> Height: 40-75 cm",
+            "image_url": "imgPage3/babyCarSeatA.png",
+            "price": 56.99
+        }
+    },
+    {
+        "model": "cars.Option",
+        "pk": 5,
+        "fields": {
+            "typ": "Additional",
+            "title": "Baby Seat-B",
+            "description": "Forward-facing baby seat suitable for <br/> Age: 1-6 years <br/> Weight: up to 18 kg",
+            "image_url": "imgPage3/BABycarSEATB.png",
+            "price": 56.99
+        }
+    },
+    {
+        "model": "cars.Option",
+        "pk": 6,
+        "fields": {
+            "typ": "Additional",
+            "title": "Satellite Navigation",
+            "description": "Satellite navigation system provides turn-by-turn direction.",
+            "image_url": "imgPage3/SaNav.png",
+            "price": 19.99
+        }
+    }
+]
