@@ -3,11 +3,15 @@ from django.shortcuts import redirect, render
 from cars.models import Car, Option, Order, AddedOptionInfo
 from django.contrib.auth.decorators import login_required
 
+from .utils import send_cancellation, send_invoice
+
 
 def flats_details(request, pk):
     if request.method == "POST":
         car = Car.objects.get(pk=pk)
         order = Order(car=car, user=request.user)
+        color_id = int(request.POST.get("chosen-color"))
+        order.car_color = car.image_urls[color_id]
         order.save()
         return redirect("step2", pk=order.id)
     elif request.method == "GET":
@@ -37,6 +41,10 @@ def step1(request):
 
 @login_required
 def step2(request, pk):
+    order = Order.objects.get(pk=pk)
+    if order.return_location:
+        return redirect("step3", pk=pk)
+
     if request.method == "GET":
         return render(request, "step2.html")
 
@@ -45,7 +53,6 @@ def step2(request, pk):
         return_location = request.POST.get("return_location")
         pickup_datetime = request.POST.get("pickup_datetime")
         return_datetime = request.POST.get("return_datetime")
-        order = Order.objects.get(pk=pk)
         order.pickup_location = pickup_location
         order.return_location = return_location
         order.pickup_datetime = datetime.datetime.strptime(
@@ -71,6 +78,7 @@ def step3(request, pk):
             "step3.html",
             {
                 "car": order.car,
+                "car_color": order.car_color,
                 "protection_options": protection_options,
                 "additional_options": additional_options,
             },
@@ -84,11 +92,40 @@ def step3(request, pk):
                     option = Option.objects.get(pk=option_id)
                     op = AddedOptionInfo(option=option, count=option_count, order=order)
                     op.save()
+        order.status = "ORDERED"
+        order.save()
+        all_orders = order.car.orders.filter(status="PENDING")
+
+        other_users = []
+        for order_ in all_orders:
+            other_users.append(order_.user)
+            order.status = "CANCELLED"
+            order.save()
+
+        other_users = list(set(other_users))
+        # send_cancellation(other_users, order)
+        # send_invoice(request.user, order)
 
         return redirect("cart")
 
 
 @login_required
 def cart(request):
+    if request.method == "POST":
+        order_id = int(request.POST.get("cancelled-order"))
+        cancelled = Order.objects.get(pk=order_id)
+        cancelled.status = "CANCELLED"
+        cancelled.save()
+
     orders = request.user.orders.all()
+    orders = [
+        {
+            "car_color": order.car_color,
+            "status": order.status,
+            "id": order.id,
+            "car": order.car,
+            "options": order.added_options_info.all(),
+        }
+        for order in orders
+    ]
     return render(request, "cart.html", {"orders": orders})

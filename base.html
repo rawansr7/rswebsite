@@ -66,6 +66,11 @@
                                    class="nav-link text-warning"
                                    href="{% url 'reservation' %}">Reservation</a>
                             </li>
+                            <li class="nav-item">
+                                <a id="nav_link_to_reservation"
+                                   class="nav-link text-warning"
+                                   href="{% url 'cart' %}">My Orders</a>
+                            </li>
                         {% endif %}
                         <li class="nav-item">
                             <a id="nav_link_to_about"
@@ -111,16 +116,19 @@
                     <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
                         <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Useful links</h5>
                         <p>
-                            <a href="#" class="text-white" style="text-decoration:none;">Reservation</a>
+                            <a href="{% url 'flats' %}"
+                               class="text-white"
+                               style="text-decoration:none">Our Fleets</a>
                         </p>
                         <p>
-                            <a href="#" class="text-white" style="text-decoration:none;">Our Fleets</a>
+                            <a href="{% url 'about' %}"
+                               class="text-white"
+                               style="text-decoration:none">About Us</a>
                         </p>
                         <p>
-                            <a href="#" class="text-white" style="text-decoration:none;">About Us</a>
-                        </p>
-                        <p>
-                            <a href="#" class="text-white" style="text-decoration:none;">Contact Us</a>
+                            <a href="{% url 'contactus' %}"
+                               class="text-white"
+                               style="text-decoration:none">Contact Us</a>
                         </p>
                     </div>
                     <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">

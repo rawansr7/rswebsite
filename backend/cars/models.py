@@ -39,12 +39,13 @@ class Order(models.Model):
     STATUS = [
         ("PENDING", "PENDING"),
         ("ORDERED", "ORDERED"),
-        ("RETURNED", "RETURNED"),
+        ("COMPLETE", "COMPLETE"),
         ("CANCELLED", "CANCELLED"),
     ]
     car = models.ForeignKey(Car, on_delete=models.CASCADE, related_name="orders")
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="orders")
 
+    car_color = models.CharField(blank=True, null=True, max_length=500)
     return_datetime = models.DateTimeField(blank=True, null=True)
     return_location = models.CharField(
         blank=True, null=True, choices=LOCATIONS, max_length=50

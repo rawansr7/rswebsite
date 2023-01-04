@@ -14,9 +14,9 @@
 {% block content %}
     <div class="step-row">
         <div id="progress"></div>
-        <div class="step-col">step1</div>
-        <div class="step-col">step2</div>
-        <div class="step-col">step3</div>
+        <div class="step-col">Choose a Car</div>
+        <div class="step-col">Choose Time and Place</div>
+        <div class="step-col">Customize Your Order</div>
     </div>
     <section id="product1" class="section-p1">
         <div class="pro-container" style="margin-bottom: 200px;">
@@ -31,7 +31,28 @@
                                 {% for _ in range %}<i class="fas fa-star"></i>{% endfor %}
                             {% endwith %}
                         </div>
+                        <h4 style="color:rgb(43, 148, 43);">available</h4>
+                        {% comment %} <h4 style="color:rgb(243, 46, 46);">booked!</h4> {% endcomment %}
                         <h4>{{ car.price }}$/Day</h4>
+                        <h4 style="color:rgb(0, 0, 255);">Insurance deposit: 5000$</h4>
+                    </div>
+                </div>
+            {% endfor %}
+            {% for car in cars %}
+                <div class="pro"
+                     onclick="window.location.href='{% url 'sflats' pk=car.pk %}';">
+                    <img src="{% static car.image_urls.0 %}" />
+                    <div class="des">
+                        <h5>{{ car.brand }} {{ car.year }}</h5>
+                        <div class="star">
+                            {% with ""|center:car.stars as range %}
+                                {% for _ in range %}<i class="fas fa-star"></i>{% endfor %}
+                            {% endwith %}
+                        </div>
+                        {% comment %} <h4 style="color:rgb(43, 148, 43);">available</h4> {% endcomment %}
+                        <h4 style="color:rgb(243, 46, 46);">booked!</h4>
+                        <h4>{{ car.price }}$/Day</h4>
+                        <h4 style="color:rgb(0, 0, 255);">Insurance deposit: 5000$</h4>
                     </div>
                 </div>
             {% endfor %}

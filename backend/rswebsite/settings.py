@@ -140,3 +140,12 @@ SUPERUSER_USERNAME = "admin"
 SUPERUSER_PASSWORD = "admin"
 
 LOGIN_URL = "/"
+
+
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = "noreply.sibour@gmail.com"
+DEFAULT_FROM_EMAIL = "noreply.sibour@gmail.com"
+
+EMAIL_HOST_PASSWORD = "ysehzzhwnzywlmut"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True

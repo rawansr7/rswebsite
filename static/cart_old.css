@@ -1,0 +1,144 @@
+/* shopping cart */
+div .navbar-top {
+    max-width: 1600px;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 90px;
+}
+
+#menuButton {
+    width: 45px;
+    height: 40px;
+    cursor: pointer;
+    color: #dbb60f;
+    background: transparent;
+    border: none;
+    display: none;
+    font-size: 1.5rem;
+}
+
+#menuButton:focus {
+    outline: none;
+}
+#menuButton:hover {
+    color: #f0c714;
+}
+/* My purchases text*/
+
+.navbar-top .shopping-cart {
+    margin-left: 10px;
+    font-size: 1.4rem;
+}
+
+.shopping-cart .sum-prices {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+	/* margin: -520px 20px; */
+    top: 10%;
+    right: 2%;
+}
+
+#sum-prices {
+    padding-left: 5px;
+}
+.shoppingCartButton {
+    cursor: pointer;
+    color: #f0c059;
+}
+.shoppingCartButton:hover,
+.account:hover * {
+    color: #f0b22c;
+}
+.producstOnCart .top {
+    display: flex;
+    background-color: #616161;
+    text-align: center;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    width: 100%;
+}
+.top button {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    margin-left: 10px;
+    color: #c24c37;
+    cursor: pointer;
+}
+.producstOnCart {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none;
+    overflow: hidden;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    overscroll-behavior: contain;
+    background-color: #202020;
+    width: 300px;
+    height: 500px;
+    color: #f0f0f0;
+    z-index: 15;
+    position: fixed;
+    top: 140px;
+    right: 0;
+    text-align: center;
+    animation: fade 1s;
+}
+
+.producstOnCart::-webkit-scrollbar {
+    display: none;
+}
+
+@keyframes fade {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: none;
+    }
+}
+
+.producstOnCart::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
+
+.hide {
+    display: none;
+    visibility: none;
+}
+    .producstOnCart .top {
+        display: flex;
+        background-color: #616161;
+        text-align: center;
+        padding: 10px 0;
+        position: sticky;
+        top: 0;
+        width: 100%;
+    }
+    
+    .top button {
+        background: transparent;
+        border: none;
+        font-size: 1.5rem;
+        margin-left: 10px;
+        color: #c24c37;
+        cursor: pointer;
+    }
+    
+    .top button:hover {
+        color: #e40505;
+    }
+    .top h3 {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0 auto;
+    }
