@@ -26,3 +26,12 @@ nav ul li a:hover {
     position: relative;
     bottom: 0.5px;
 }
+
+.booked {
+    position: relative;
+    bottom: 55%;
+    left: 12%;
+    color: rgb(255, 0, 0);
+    font-size: 1.8vw;
+    transform: rotateZ(315deg)
+}

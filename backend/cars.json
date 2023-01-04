@@ -8,12 +8,6 @@
             "price": 355,
             "stars": 4,
             "description": "Powerful and responsive Creta's highly evolved powertrains make driving a pure joy. Gasoline engines feature weight-saving all-aluminum construction for better fuel economy and they come with Dual Overhead Camshafts (DOHC) plus Dual Variable Valve Timing for improved performance. Gearbox options have been expanded to include a 7-speed Dual Clutch  Transmission which delivers lightning-fast shifting and the all-new Intelligent Variable Transmission.",
-            "image_urls": [
-                "imgCars/c1.1.png",
-                "imgCars/c1.2.png",
-                "imgCars/c1.3.png",
-                "imgCars/c1.4.png"
-            ],
             "seats": 4,
             "bags": 2,
             "doors": 4
@@ -28,12 +22,6 @@
             "price": 340,
             "stars": 3,
             "description": "the new 2023 Sportage offers something for everyone. With best-in-class cargo room, powerful engine options, and a premium interior, Sportage is ready to go wherever the road takes you.",
-            "image_urls": [
-                "imgCars/c2.1.png",
-                "imgCars/c2.2.png",
-                "imgCars/c2.3.png",
-                "imgCars/c2.4.png"
-            ],
             "seats": 4,
             "bags": 2,
             "doors": 4
@@ -48,12 +36,6 @@
             "price": 300,
             "stars": 3,
             "description": "The Ciaz is created and perfected to inspire elegance. Indulging on the inside and classy on the outside,the elegant sedan keeps you in a Good Space. The elegant sedan is designed to keep the eyes restless for another glance. The Ciaz is powered by a K15 (1.5L) Petrol Engine, with a choice of manual and automatic transmission.",
-            "image_urls": [
-                "imgCars/c3.1.png",
-                "imgCars/c3.2.png",
-                "imgCars/c3.3.png",
-                "imgCars/c3.4.png"
-            ],
             "seats": 4,
             "bags": 2,
             "doors": 4
@@ -67,13 +49,7 @@
             "year": 2021,
             "price": 350,
             "stars": 4,
-            "description": "The Nissan X-TRAIL powers every adventure with a spirited 4-cylinder 2.5L engine that kicks out 169 HP at 6,000 rpm and 233 Nm at 4,000 rpm. Nissan’s innovative CVT variable valve  system ensures high torque output at low revs and improved fuel economy.",
-            "image_urls": [
-                "imgCars/c4.1.png",
-                "imgCars/c4.2.png",
-                "imgCars/c4.3.png",
-                "imgCars/c4.4.png"
-            ],
+            "description": "The Nissan X-TRAIL powers every adventure with a spirited 4-cylinder 2.5L engine that kicks out 169 HP at 6,000 rpm and 233 Nm at 4,000 rpm. Nissan\u2019s innovative CVT variable valve  system ensures high torque output at low revs and improved fuel economy.",
             "seats": 4,
             "bags": 2,
             "doors": 4
@@ -88,12 +64,6 @@
             "price": 290,
             "stars": 1,
             "description": "The Hyundai i10 has 2 Petrol Engine and 1 LPG Engine on offer.It is available with Manual &amp; Automatic  transmission. The i10 is a 5 seater 4 cylinder car and has length of 3585mm, width of 1595mm and a  wheelbase of 2380mm.",
-            "image_urls": [
-                "imgCars/c5.1.png",
-                "imgCars/c5.2.png",
-                "imgCars/c5.3.png",
-                "imgCars/c5.4.png"
-            ],
             "seats": 4,
             "bags": 2,
             "doors": 4
@@ -107,13 +77,7 @@
             "year": 2021,
             "price": 310,
             "stars": 3,
-            "description": "Hyundai Solaris ( 2021), 2 generation, restyling (HCR) – sedan B-segment, front-wheel type of drive. Manual and automatic. Gasoline engines with an output of from 100 to 123 horsepower.",
-            "image_urls": [
-                "imgCars/c6.1.png",
-                "imgCars/c6.2.png",
-                "imgCars/c6.3.png",
-                "imgCars/c6.4.png"
-            ],
+            "description": "Hyundai Solaris ( 2021), 2 generation, restyling (HCR) \u2013 sedan B-segment, front-wheel type of drive. Manual and automatic. Gasoline engines with an output of from 100 to 123 horsepower.",
             "seats": 4,
             "bags": 2,
             "doors": 4
@@ -128,12 +92,6 @@
             "price": 290,
             "stars": 3,
             "description": "The Nissan Sunny has 1 Diesel Engine and 1 Petrol Engine on offer. It is available with Manual &amp; Automatic transmission. The Sunny is a 5 seater 4 cylinder car and has length of 4455mm, width of 1695mm and a wheelbase of 2600mm.",
-            "image_urls": [
-                "imgCars/c7.1.png",
-                "imgCars/c7.2.png",
-                "imgCars/c7.3.png",
-                "imgCars/c7.4.png"
-            ],
             "seats": 4,
             "bags": 2,
             "doors": 4
@@ -148,12 +106,6 @@
             "price": 345,
             "stars": 4,
             "description": "The Toyota Corolla has 1 Petrol Engine on offer. The Petrol engine is 1794 cc . It is available with Manual  &amp; Automatic transmission.The Corolla is a 5 seater 4 cylinder car and has length of 4,530 mm, width of 1,705 mm and a wheelbase of 2,600 mm.",
-            "image_urls": [
-                "imgCars/c8.1.png",
-                "imgCars/c8.2.png",
-                "imgCars/c8.3.png",
-                "imgCars/c8.4.png"
-            ],
             "seats": 4,
             "bags": 2,
             "doors": 4
@@ -168,12 +120,6 @@
             "price": 330,
             "stars": 3,
             "description": "BMW models are unmistakable at first glance. Not only are they technologically impressive, they are emotionally moving too, with each model perfectly harmonising proportions, surfaces and details.",
-            "image_urls": [
-                "imgCars/c9.1.png",
-                "imgCars/c9.2.png",
-                "imgCars/c9.3.png",
-                "imgCars/c9.4.png"
-            ],
             "seats": 4,
             "bags": 2,
             "doors": 4
@@ -187,13 +133,7 @@
             "year": 2021,
             "price": 345,
             "stars": 4,
-            "description": "The Kia Picanto is seemingly the ideal small car, because it’s cheap to buy and run, with great economy and tiny dimensions that make it nippy in town.",
-            "image_urls": [
-                "imgCars/c10.1.png",
-                "imgCars/c10.2.png",
-                "imgCars/c10.3.png",
-                "imgCars/c10.4.png"
-            ],
+            "description": "The Kia Picanto is seemingly the ideal small car, because it\u2019s cheap to buy and run, with great economy and tiny dimensions that make it nippy in town.",
             "seats": 4,
             "bags": 2,
             "doors": 4
@@ -208,12 +148,6 @@
             "price": 320,
             "stars": 3,
             "description": "Lexus expertly combines superb craftsmanship and exaggerated styling throughout its diverse lineup. Lexus is a well-respected and highly sought-after brand in the luxury car market, known for its combination of style, performance, and technology.",
-            "image_urls": [
-                "imgCars/c11.1.png",
-                "imgCars/c11.2.png",
-                "imgCars/c11.3.png",
-                "imgCars/c11.4.png"
-            ],
             "seats": 4,
             "bags": 2,
             "doors": 4
@@ -227,16 +161,394 @@
             "year": 2021,
             "price": 340,
             "stars": 1,
-            "description": "The 2021 Audi A5 offers everything you’d want in a performance-oriented luxury small car. From powerful engine options and athletic handling to an elegant interior and smooth ride, the A5 is a well- rounded package that showcases the brand’s penchant for refined sportiness.",
-            "image_urls": [
-                "imgCars/c12.1.png",
-                "imgCars/c12.2.png",
-                "imgCars/c12.3.png",
-                "imgCars/c12.4.png"
-            ],
+            "description": "The 2021 Audi A5 offers everything you\u2019d want in a performance-oriented luxury small car. From powerful engine options and athletic handling to an elegant interior and smooth ride, the A5 is a well- rounded package that showcases the brand\u2019s penchant for refined sportiness.",
             "seats": 4,
             "bags": 2,
             "doors": 4
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 1,
+        "fields": {
+            "car": 1,
+            "image_url": "imgCars/c1.1.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 2,
+        "fields": {
+            "car": 1,
+            "image_url": "imgCars/c1.2.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 3,
+        "fields": {
+            "car": 1,
+            "image_url": "imgCars/c1.3.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 4,
+        "fields": {
+            "car": 1,
+            "image_url": "imgCars/c1.4.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 5,
+        "fields": {
+            "car": 2,
+            "image_url": "imgCars/c2.1.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 6,
+        "fields": {
+            "car": 2,
+            "image_url": "imgCars/c2.2.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 7,
+        "fields": {
+            "car": 2,
+            "image_url": "imgCars/c2.3.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 8,
+        "fields": {
+            "car": 2,
+            "image_url": "imgCars/c2.4.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 9,
+        "fields": {
+            "car": 3,
+            "image_url": "imgCars/c3.1.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 10,
+        "fields": {
+            "car": 3,
+            "image_url": "imgCars/c3.2.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 11,
+        "fields": {
+            "car": 3,
+            "image_url": "imgCars/c3.3.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 12,
+        "fields": {
+            "car": 3,
+            "image_url": "imgCars/c3.4.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 13,
+        "fields": {
+            "car": 4,
+            "image_url": "imgCars/c4.1.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 14,
+        "fields": {
+            "car": 4,
+            "image_url": "imgCars/c4.2.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 15,
+        "fields": {
+            "car": 4,
+            "image_url": "imgCars/c4.3.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 16,
+        "fields": {
+            "car": 4,
+            "image_url": "imgCars/c4.4.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 17,
+        "fields": {
+            "car": 5,
+            "image_url": "imgCars/c5.1.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 18,
+        "fields": {
+            "car": 5,
+            "image_url": "imgCars/c5.2.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 19,
+        "fields": {
+            "car": 5,
+            "image_url": "imgCars/c5.3.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 20,
+        "fields": {
+            "car": 5,
+            "image_url": "imgCars/c5.4.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 21,
+        "fields": {
+            "car": 6,
+            "image_url": "imgCars/c6.1.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 22,
+        "fields": {
+            "car": 6,
+            "image_url": "imgCars/c6.2.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 23,
+        "fields": {
+            "car": 6,
+            "image_url": "imgCars/c6.3.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 24,
+        "fields": {
+            "car": 6,
+            "image_url": "imgCars/c6.4.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 25,
+        "fields": {
+            "car": 7,
+            "image_url": "imgCars/c7.1.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 26,
+        "fields": {
+            "car": 7,
+            "image_url": "imgCars/c7.2.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 27,
+        "fields": {
+            "car": 7,
+            "image_url": "imgCars/c7.3.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 28,
+        "fields": {
+            "car": 7,
+            "image_url": "imgCars/c7.4.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 29,
+        "fields": {
+            "car": 8,
+            "image_url": "imgCars/c8.1.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 30,
+        "fields": {
+            "car": 8,
+            "image_url": "imgCars/c8.2.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 31,
+        "fields": {
+            "car": 8,
+            "image_url": "imgCars/c8.3.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 32,
+        "fields": {
+            "car": 8,
+            "image_url": "imgCars/c8.4.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 33,
+        "fields": {
+            "car": 9,
+            "image_url": "imgCars/c9.1.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 34,
+        "fields": {
+            "car": 9,
+            "image_url": "imgCars/c9.2.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 35,
+        "fields": {
+            "car": 9,
+            "image_url": "imgCars/c9.3.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 36,
+        "fields": {
+            "car": 9,
+            "image_url": "imgCars/c9.4.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 37,
+        "fields": {
+            "car": 10,
+            "image_url": "imgCars/c10.1.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 38,
+        "fields": {
+            "car": 10,
+            "image_url": "imgCars/c10.2.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 39,
+        "fields": {
+            "car": 10,
+            "image_url": "imgCars/c10.3.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 40,
+        "fields": {
+            "car": 10,
+            "image_url": "imgCars/c10.4.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 41,
+        "fields": {
+            "car": 11,
+            "image_url": "imgCars/c11.1.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 42,
+        "fields": {
+            "car": 11,
+            "image_url": "imgCars/c11.2.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 43,
+        "fields": {
+            "car": 11,
+            "image_url": "imgCars/c11.3.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 44,
+        "fields": {
+            "car": 11,
+            "image_url": "imgCars/c11.4.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 45,
+        "fields": {
+            "car": 12,
+            "image_url": "imgCars/c12.1.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 46,
+        "fields": {
+            "car": 12,
+            "image_url": "imgCars/c12.2.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 47,
+        "fields": {
+            "car": 12,
+            "image_url": "imgCars/c12.3.png"
+        }
+    },
+    {
+        "model": "cars.CarDesign",
+        "pk": 48,
+        "fields": {
+            "car": 12,
+            "image_url": "imgCars/c12.4.png"
         }
     }
 ]

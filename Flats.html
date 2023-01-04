@@ -34,7 +34,7 @@
             {% for car in cars %}
                 <div class="pro"
                      onclick="window.location.href='{% url 'sflats' pk=car.pk %}';">
-                    <img src="{% static car.image_urls.0 %}"/>
+                    <img src="{% static car.default_design.image_url %}"/>
                     <div class="des">
                         <h5>{{ car.brand }} {{ car.year }}</h5>
                         <div class="star">

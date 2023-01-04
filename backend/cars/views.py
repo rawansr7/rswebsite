@@ -1,6 +1,6 @@
 import datetime
 from django.shortcuts import redirect, render
-from cars.models import Car, Option, Order, AddedOptionInfo
+from cars.models import Car, Option, Order, AddedOptionInfo, CarDesign
 from django.contrib.auth.decorators import login_required
 
 from .utils import send_cancellation, send_invoice
@@ -8,18 +8,18 @@ from .utils import send_cancellation, send_invoice
 
 def flats_details(request, pk):
     if request.method == "POST":
-        car = Car.objects.get(pk=pk)
-        order = Order(car=car, user=request.user)
-        color_id = int(request.POST.get("chosen-color"))
-        order.car_color = car.image_urls[color_id]
+        car_design_id = int(request.POST.get("chosen_design"))
+        car_design = CarDesign.objects.get(pk=car_design_id)
+        order = Order(car_design=car_design, user=request.user)
         order.save()
         return redirect("step2", pk=order.id)
     elif request.method == "GET":
         car = Car.objects.get(pk=pk)
+        car_designs = car.designs.all()
         return render(
             request,
             "sFlats.html",
-            {"car": car},
+            {"car": car, "car_designs": car_designs},
         )
 
 
@@ -77,8 +77,8 @@ def step3(request, pk):
             request,
             "step3.html",
             {
-                "car": order.car,
-                "car_color": order.car_color,
+                "car": order.car_design.car,
+                "car_color": order.car_design.image_url,
                 "protection_options": protection_options,
                 "additional_options": additional_options,
             },
@@ -94,7 +94,7 @@ def step3(request, pk):
                     op.save()
         order.status = "ORDERED"
         order.save()
-        all_orders = order.car.orders.filter(status="PENDING")
+        all_orders = order.car_design.orders.filter(status="PENDING")
 
         other_users = []
         for order_ in all_orders:
@@ -120,10 +120,10 @@ def cart(request):
     orders = request.user.orders.all()
     orders = [
         {
-            "car_color": order.car_color,
+            "car_color": order.car_design.image_url,
             "status": order.status,
             "id": order.id,
-            "car": order.car,
+            "car": order.car_design.car,
             "options": order.added_options_info.all(),
         }
         for order in orders

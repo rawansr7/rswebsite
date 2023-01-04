@@ -8,13 +8,36 @@ class Car(models.Model):
     price = models.FloatField()
     stars = models.IntegerField()
     description = models.TextField()
-    image_urls = models.JSONField()
     seats = models.IntegerField()
     bags = models.IntegerField()
     doors = models.IntegerField()
 
+    @property
+    def available(self):
+        designs = [design for design in self.designs.all() if design.available]
+        return len(designs) > 0
+
+    @property
+    def default_design(self):
+        available_designs = [
+            design for design in self.designs.all() if design.available
+        ]
+        if len(available_designs):
+            return available_designs[0]
+        return self.designs.first()
+
     def __str__(self):
         return self.brand
+
+
+class CarDesign(models.Model):
+    car = models.ForeignKey(Car, on_delete=models.CASCADE, related_name="designs")
+    image_url = models.CharField(max_length=500)
+
+    @property
+    def available(self):
+        orders = self.orders.filter(status="ORDERED")
+        return not orders.exists()
 
 
 class Option(models.Model):
@@ -42,10 +65,11 @@ class Order(models.Model):
         ("COMPLETE", "COMPLETE"),
         ("CANCELLED", "CANCELLED"),
     ]
-    car = models.ForeignKey(Car, on_delete=models.CASCADE, related_name="orders")
+    car_design = models.ForeignKey(
+        CarDesign, on_delete=models.CASCADE, related_name="orders"
+    )
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="orders")
 
-    car_color = models.CharField(blank=True, null=True, max_length=500)
     return_datetime = models.DateTimeField(blank=True, null=True)
     return_location = models.CharField(
         blank=True, null=True, choices=LOCATIONS, max_length=50

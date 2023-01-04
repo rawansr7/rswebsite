@@ -14,11 +14,24 @@
 {% block content %}
   <section id="prodetails" class="section-p1">
     <div class="single-pro-image">
-      <img src="{% static car.image_urls.0 %}" width="100%" id="MainImg" alt/>
+      <img src="{% static car.default_design.image_url %}"
+           width="100%"
+           id="MainImg"
+           alt/>
       <div class="small-img-grp">
-        {% for image_url in car.image_urls %}
+        {% for car_design in car_designs %}
           <div class="small-img-col">
-            <img src="{% static image_url %}" width="100%" class="small-img"/>
+            {% if car_design.available %}
+              <img src="{% static car_design.image_url %}"
+                   width="100%"
+                   onclick="showimg(this)"
+                   id="{{ car_design.id }}"/>
+            {% else %}
+              <img src="{% static car_design.image_url %}"
+                   width="100%"
+                   id="{{ car_design.id }}"/>
+              <h5 class="booked">booked</h5>
+            {% endif %}
           </div>
         {% endfor %}
       </div>
@@ -36,7 +49,10 @@
       {% if user.is_authenticated %}
         <form method="POST">
           {% csrf_token %}
-          <input type="hidden" name="chosen-color" id="chosen-color-id" value="0"/>
+          <input type="hidden"
+                 name="chosen_design"
+                 id="chosen_design-id"
+                 value="{{ car.default_design.id }}"/>
           <button>Add to cart</button>
         </form>
       {% endif %}
@@ -45,24 +61,10 @@
     </div>
   </section>
   <script>
-  var MainImg = document.getElementById("MainImg")
-  var smallimg = document.getElementsByClassName("small-img")
-
-  smallimg[0].onclick = function () {
-      MainImg.src = smallimg[0].src;
-    document.getElementById("chosen-color-id").value = 0;
-  }
-  smallimg[1].onclick = function () {
-    MainImg.src = smallimg[1].src;
-  document.getElementById("chosen-color-id").value = 1;
-  }
-  smallimg[2].onclick = function () {
-    MainImg.src = smallimg[2].src;
-  document.getElementById("chosen-color-id").value = 2;
-  }
-  smallimg[3].onclick = function () {
-    MainImg.src = smallimg[3].src;
-  document.getElementById("chosen-color-id").value = 3;
+    function showimg(smallimg) {
+      var MainImg = document.getElementById("MainImg")
+      MainImg.src = smallimg.src;
+      document.getElementById("chosen_design-id").value = smallimg.id;
   }
   </script>
 {% endblock content %}
