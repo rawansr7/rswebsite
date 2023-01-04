@@ -44,7 +44,7 @@
       <span>{{ car.seats }} seats</span>
       <img src="{% static 'icons/airbagcar.jpg' %}" style="width: 35px;"/>
       <span>{{ car.bags }} bags</span>
-      <div class="price">{{ car.price }}$/day</div>
+      <div class="price">${{ car.price|floatformat:2 }}/day</div>
       <br/>
       {% if user.is_authenticated %}
         <form method="POST">

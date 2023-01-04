@@ -43,7 +43,7 @@
                         <td data-th="brand">
                             <div class="title">{{ order.car.brand }} {{ order.car.year }}</div>
                         </td>
-                        <td data-th="price" class="prix">{{ order.car.price }}$</td>
+                        <td data-th="price" class="prix">${{ order.car.price|floatformat:2 }}</td>
                     </tr>
                     {% for option in order.options %}
                         <tr>
@@ -55,7 +55,7 @@
                             <td data-th="brand">
                                 <div class="title">{{ option.count }} x {{ option.option.title }}</div>
                             </td>
-                            <td data-th="price"class="prix">{{ option.count }} x {{ option.option.price }}$</td>
+                            <td data-th="price"class="prix">{{ option.count }} x ${{ option.option.price|floatformat:2 }}</td>
                         </tr>
                     {% endfor %}
                 </table>
@@ -74,7 +74,7 @@
             {% endif %}
             <div class="cart-total">
                 <strong class="cart-total-title">Total</strong>
-                <span class="cart-total-price">$ 00</span>
+                <span class="cart-total-price">|floatformat:2</span>
             </div>
             <hr class="ligneee"/>
         </section>

@@ -27,7 +27,7 @@
                             transform: none"
                      src="{% static car_color %}"/>
                 <div class="shop-item-details">
-                    <span class="shop-item-price">${{ car.price }}</span>
+                    <span class="shop-item-price">${{ car.price|floatformat:2 }}</span>
                     <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
                 </div>
             </div>
@@ -55,7 +55,7 @@
                          src="{% static option.image_url %}"
                          width="250px"/>
                     <div class="shop-item-details">
-                        <span class="shop-item-price">${{ option.price }}</span>
+                        <span class="shop-item-price">${{ option.price|floatformat:2 }}</span>
                         <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
                     </div>
                     <!--rotate img information-->
@@ -78,7 +78,7 @@
                          src="{% static option.image_url %}"
                          width="250px"/>
                     <div class="shop-item-details">
-                        <span class="shop-item-price">${{ option.price }}</span>
+                        <span class="shop-item-price">${{ option.price|floatformat:2 }}</span>
                         <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
                     </div>
                     <!--rotate img information-->
@@ -110,7 +110,7 @@
                          height="100"/>
                     <span class="cart-item-title"> {{ car.brand }} {{ car.year }} </span>
                 </div>
-                <span class="cart-price cart-column">${{ car.price }}</span>
+                <span class="cart-price cart-column">${{ car.price|floatformat:2 }}</span>
                 <div class="cart-quantity cart-column">
                     <input class="cart-quantity-input" type="number" value="1" min="1" max="1"/>
                     <button class="btn btn-danger" type="button">
@@ -121,7 +121,7 @@
         </div>
         <div class="cart-total">
             <strong class="cart-total-title">Total</strong>
-            <span class="cart-total-price">${{ car.price }}</span>
+            <span class="cart-total-price">${{ car.price|floatformat:2 }}</span>
         </div>
         <button id="purchase" class="btn btn-primary btn-purchase">
             PURCHASE

@@ -36,8 +36,8 @@
                         {% else %}
                             <h4 style="color:rgb(243, 46, 46);">booked!</h4>
                         {% endif %}
-                        <h4>{{ car.price }}$/Day</h4>
-                        <h4 style="color:rgb(0, 0, 255);">Insurance deposit: 5000$</h4>
+                        <h4>${{ car.price|floatformat:2 }}/Day</h4>
+                        <h4 style="color:rgb(0, 0, 255);">Insurance deposit: 5000$|floatformat:2</h4>
                     </div>
                 </div>
             {% endfor %}

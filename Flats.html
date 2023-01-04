@@ -42,7 +42,7 @@
                                 {% for _ in range %}<i class="fas fa-star"></i>{% endfor %}
                             {% endwith %}
                         </div>
-                        <h3>{{ car.price }}$/Day</h3>
+                        <h3>${{ car.price|floatformat:2 }}/Day</h3>
                     </div>
                     <a href="#"><i class="fas fa-shopping-cart lio"></i></a>
                 </div>

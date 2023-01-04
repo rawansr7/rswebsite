@@ -99,6 +99,6 @@ function updateCartTotal() {
         var quantity = quantityElement.value
         total = total + (price * quantity)
     }
-    total = Math.round(total * 100) / 100
+    total = total.toFixed(2)
     document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total
 }
