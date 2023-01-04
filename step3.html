@@ -123,13 +123,67 @@
             <strong class="cart-total-title">Total</strong>
             <span class="cart-total-price">${{ car.price }}</span>
         </div>
-        <form method="POST" id="chosen-options">
-            {% csrf_token %}
-            {% for option in protection_options %}<input type="hidden" name="option-{{ option.id }}" value="0"/>{% endfor %}
-            {% for option in additional_options %}<input type="hidden" name="option-{{ option.id }}" value="0"/>{% endfor %}
-            <button class="btn btn-primary btn-purchase">
-                PURCHASE
-            </button>
-        </form>
+        <button id="purchase" class="btn btn-primary btn-purchase">
+            PURCHASE
+        </button>
+        <div class="wrapper">
+            <div class="title">
+                Select a Payment Method:
+            </div>
+            <div class="box">
+                <input type="radio" name="select" id="option-1"/>
+                <input type="radio" name="select" id="option-2"/>
+                <input type="radio" name="select" id="option-3"/>
+                <label for="option-1" class="option-1">
+                    <div class="dot">
+                    </div>
+                    <div class="text"
+                         style="font-size: 18px;
+                                font-weight: 400;
+                                padding-left: 10px">
+                        At Location
+                    </div>
+                </label>
+                <br/>
+                <label for="option-2" class="option-2">
+                    <div class="dot">
+                    </div>
+                    <div class="text"
+                         style="font-size: 18px;
+                                font-weight: 400;
+                                padding-left: 10px">
+                        Credit Card
+                    </div>
+                </label>
+                <br/>
+                <label for="option-3" class="option-3">
+                    <div class="dot">
+                    </div>
+                    <div class="text"
+                         style="font-size: 18px;
+                                font-weight: 400;
+                                padding-left: 10px">
+                        Online Payment
+                    </div>
+                </label>
+                <br/>
+                <form method="POST" id="chosen-options">
+                    {% csrf_token %}
+                    {% for option in protection_options %}<input type="hidden" name="option-{{ option.id }}" value="0"/>{% endfor %}
+                    {% for option in additional_options %}<input type="hidden" name="option-{{ option.id }}" value="0"/>{% endfor %}
+                    <button class="pay">
+                        Pay
+                    </button>
+                </form>
+            </div>
+        </div>
     </section>
 {% endblock content %}
+
+{% block extra_js %}
+    <script>
+    document.getElementById("purchase").addEventListener("click",function(){
+        document.querySelector(".wrapper").style.display="grid";
+    })
+    </script>
+{% endblock extra_js %}
