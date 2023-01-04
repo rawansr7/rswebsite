@@ -48,11 +48,21 @@
   var MainImg = document.getElementById("MainImg")
   var smallimg = document.getElementsByClassName("small-img")
 
-  for(i=0;i<4;i++){
-    smallimg[i].onclick = function () {
-      MainImg.src = smallimg[i].src;
-    document.getElementById("chosen-color-id").value = i;
-    }
+  smallimg[0].onclick = function () {
+      MainImg.src = smallimg[0].src;
+    document.getElementById("chosen-color-id").value = 0;
+  }
+  smallimg[1].onclick = function () {
+    MainImg.src = smallimg[1].src;
+  document.getElementById("chosen-color-id").value = 1;
+  }
+  smallimg[2].onclick = function () {
+    MainImg.src = smallimg[2].src;
+  document.getElementById("chosen-color-id").value = 2;
+  }
+  smallimg[3].onclick = function () {
+    MainImg.src = smallimg[3].src;
+  document.getElementById("chosen-color-id").value = 3;
   }
   </script>
 {% endblock content %}
