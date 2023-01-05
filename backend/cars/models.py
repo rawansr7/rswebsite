@@ -85,6 +85,16 @@ class Order(models.Model):
     )
     status = models.CharField(default="PENDING", choices=STATUS, max_length=50)
 
+    @property
+    def cost(self):
+        added_options = self.added_options_info.all()
+        return self.car_design.car.price + sum(
+            [
+                added_option.option.price * added_option.count
+                for added_option in added_options
+            ]
+        )
+
 
 class AddedOptionInfo(models.Model):
     option = models.ForeignKey(

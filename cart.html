@@ -19,8 +19,15 @@
             <div class="tab tab-1">
                 <table id="table" border="5">
                     <tr>
-                        <th colspan="2"style="background: #444; text-align: left;">
+                        <th style="background: #444; text-align: left;">
                             <span class="order">Order #{{ order.id }}</span>
+                        </th>
+                        <th style="background: #444; text-align: center;">
+                            {% if order.status == "ORDERED" or order.status == "PENDING" and order.pickup_datetime %}
+                                <span class="order" style="font-size:0.9vw;">To Pickup by:
+                                    <br/>
+                                {{ order.pickup_datetime }}</span>
+                            {% endif %}
                         </th>
                         <th style="background: #444; text-align: right;">
                             {% if order.status == "PENDING" %}<button type="button" class="delete">Pending</button>{% endif %}
@@ -72,9 +79,18 @@
                     </form>
                 </div>
             {% endif %}
+            {% if order.status == "ORDERED" %}
+                <div class="tab tab-2">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="cancelled-order" value="{{ order.id }}"/>
+                        <button class="delete">Cancel</button>
+                    </form>
+                </div>
+            {% endif %}
             <div class="cart-total">
                 <strong class="cart-total-title">Total</strong>
-                <span class="cart-total-price">|floatformat:2</span>
+                <span class="cart-total-price">${{ order.cost|floatformat:2 }}</span>
             </div>
             <hr class="ligneee"/>
         </section>

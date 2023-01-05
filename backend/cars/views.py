@@ -125,6 +125,8 @@ def cart(request):
             "id": order.id,
             "car": order.car_design.car,
             "options": order.added_options_info.all(),
+            "cost": order.cost,
+            "pickup_datetime": order.pickup_datetime,
         }
         for order in orders
     ]
