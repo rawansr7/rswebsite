@@ -85,6 +85,8 @@ class Order(models.Model):
     )
     status = models.CharField(default="PENDING", choices=STATUS, max_length=50)
 
+    created_at = models.DateTimeField(auto_now_add=True)
+
     @property
     def cost(self):
         added_options = self.added_options_info.all()
@@ -94,6 +96,9 @@ class Order(models.Model):
                 for added_option in added_options
             ]
         )
+
+    class Meta:
+        ordering = ["-created_at"]
 
 
 class AddedOptionInfo(models.Model):
