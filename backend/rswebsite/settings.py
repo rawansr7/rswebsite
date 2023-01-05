@@ -149,3 +149,5 @@ DEFAULT_FROM_EMAIL = "noreply.sibour@gmail.com"
 EMAIL_HOST_PASSWORD = "ysehzzhwnzywlmut"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+INVOICE_PATH = BASE_DIR.parent / "invoice.html"

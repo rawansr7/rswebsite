@@ -3,7 +3,7 @@ from django.shortcuts import redirect, render
 from cars.models import Car, Option, Order, AddedOptionInfo, CarDesign
 from django.contrib.auth.decorators import login_required
 
-from .utils import send_cancellation, send_invoice
+from .utils import send_invoice
 
 
 def flats_details(request, pk):
@@ -104,7 +104,7 @@ def step3(request, pk):
 
         other_users = list(set(other_users))
         # send_cancellation(other_users, order)
-        # send_invoice(request.user, order)
+        send_invoice(request, order)
 
         return redirect("cart")
 
