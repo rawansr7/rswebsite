@@ -185,7 +185,7 @@ body {
 .shop-item-details {
     display: flex;
     align-items: center;
-    padding: 5px;
+    padding: 25px;
 }
 
 .shop-item-details button {
@@ -330,7 +330,7 @@ body {
 
 .shop-item .box-content {
     width: 100%;
-    height: 100%;
+    height: 320px;
     position: absolute;
     top: 0;
     left: 0;

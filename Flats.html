@@ -33,7 +33,7 @@
         <div class="pro-container">
             {% for car in cars %}
                 <div class="pro"
-                     onclick="window.location.href='{% url 'sflats' pk=car.pk %}';">
+                     {% if car.available %} onclick="window.location.href='{% url 'sflats' pk=car.pk %}';" {% endif %}>
                     <img src="{% static car.default_design.image_url %}"/>
                     <div class="des">
                         <h5>{{ car.brand }} {{ car.year }}</h5>
@@ -42,7 +42,13 @@
                                 {% for _ in range %}<i class="fas fa-star"></i>{% endfor %}
                             {% endwith %}
                         </div>
-                        <h3>${{ car.price|floatformat:2 }}/Day</h3>
+                        {% if car.available %}
+                            <h4 style="color:rgb(43, 148, 43);">available</h4>
+                        {% else %}
+                            <h4 style="color:rgb(243, 46, 46);">booked!</h4>
+                        {% endif %}
+                        <h4>${{ car.price|floatformat:2 }}/Day</h4>
+                        <h4 style="color:rgb(0, 0, 255);">Insurance deposit: ${{ car.insurance|floatformat:2 }}</h4>
                     </div>
                     <a href="#"><i class="fas fa-shopping-cart lio"></i></a>
                 </div>

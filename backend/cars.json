@@ -10,7 +10,8 @@
             "description": "Powerful and responsive Creta's highly evolved powertrains make driving a pure joy. Gasoline engines feature weight-saving all-aluminum construction for better fuel economy and they come with Dual Overhead Camshafts (DOHC) plus Dual Variable Valve Timing for improved performance. Gearbox options have been expanded to include a 7-speed Dual Clutch  Transmission which delivers lightning-fast shifting and the all-new Intelligent Variable Transmission.",
             "seats": 4,
             "bags": 2,
-            "doors": 4
+            "doors": 4,
+            "insurance": 3000
         }
     },
     {
@@ -24,7 +25,8 @@
             "description": "the new 2023 Sportage offers something for everyone. With best-in-class cargo room, powerful engine options, and a premium interior, Sportage is ready to go wherever the road takes you.",
             "seats": 4,
             "bags": 2,
-            "doors": 4
+            "doors": 4,
+            "insurance": 2000
         }
     },
     {
@@ -38,7 +40,8 @@
             "description": "The Ciaz is created and perfected to inspire elegance. Indulging on the inside and classy on the outside,the elegant sedan keeps you in a Good Space. The elegant sedan is designed to keep the eyes restless for another glance. The Ciaz is powered by a K15 (1.5L) Petrol Engine, with a choice of manual and automatic transmission.",
             "seats": 4,
             "bags": 2,
-            "doors": 4
+            "doors": 4,
+            "insurance": 1754
         }
     },
     {
@@ -52,7 +55,8 @@
             "description": "The Nissan X-TRAIL powers every adventure with a spirited 4-cylinder 2.5L engine that kicks out 169 HP at 6,000 rpm and 233 Nm at 4,000 rpm. Nissan\u2019s innovative CVT variable valve  system ensures high torque output at low revs and improved fuel economy.",
             "seats": 4,
             "bags": 2,
-            "doors": 4
+            "doors": 4,
+            "insurance": 1929
         }
     },
     {
@@ -66,7 +70,8 @@
             "description": "The Hyundai i10 has 2 Petrol Engine and 1 LPG Engine on offer.It is available with Manual &amp; Automatic  transmission. The i10 is a 5 seater 4 cylinder car and has length of 3585mm, width of 1595mm and a  wheelbase of 2380mm.",
             "seats": 4,
             "bags": 2,
-            "doors": 4
+            "doors": 4,
+            "insurance": 999
         }
     },
     {
@@ -80,7 +85,8 @@
             "description": "Hyundai Solaris ( 2021), 2 generation, restyling (HCR) \u2013 sedan B-segment, front-wheel type of drive. Manual and automatic. Gasoline engines with an output of from 100 to 123 horsepower.",
             "seats": 4,
             "bags": 2,
-            "doors": 4
+            "doors": 4,
+            "insurance": 2500
         }
     },
     {
@@ -94,7 +100,8 @@
             "description": "The Nissan Sunny has 1 Diesel Engine and 1 Petrol Engine on offer. It is available with Manual &amp; Automatic transmission. The Sunny is a 5 seater 4 cylinder car and has length of 4455mm, width of 1695mm and a wheelbase of 2600mm.",
             "seats": 4,
             "bags": 2,
-            "doors": 4
+            "doors": 4,
+            "insurance": 3500
         }
     },
     {
@@ -108,7 +115,8 @@
             "description": "The Toyota Corolla has 1 Petrol Engine on offer. The Petrol engine is 1794 cc . It is available with Manual  &amp; Automatic transmission.The Corolla is a 5 seater 4 cylinder car and has length of 4,530 mm, width of 1,705 mm and a wheelbase of 2,600 mm.",
             "seats": 4,
             "bags": 2,
-            "doors": 4
+            "doors": 4,
+            "insurance": 1200
         }
     },
     {
@@ -122,7 +130,8 @@
             "description": "BMW models are unmistakable at first glance. Not only are they technologically impressive, they are emotionally moving too, with each model perfectly harmonising proportions, surfaces and details.",
             "seats": 4,
             "bags": 2,
-            "doors": 4
+            "doors": 4,
+            "insurance": 1200
         }
     },
     {
@@ -136,7 +145,8 @@
             "description": "The Kia Picanto is seemingly the ideal small car, because it\u2019s cheap to buy and run, with great economy and tiny dimensions that make it nippy in town.",
             "seats": 4,
             "bags": 2,
-            "doors": 4
+            "doors": 4,
+            "insurance": 3333
         }
     },
     {
@@ -150,7 +160,8 @@
             "description": "Lexus expertly combines superb craftsmanship and exaggerated styling throughout its diverse lineup. Lexus is a well-respected and highly sought-after brand in the luxury car market, known for its combination of style, performance, and technology.",
             "seats": 4,
             "bags": 2,
-            "doors": 4
+            "doors": 4,
+            "insurance": 3563
         }
     },
     {
@@ -164,7 +175,8 @@
             "description": "The 2021 Audi A5 offers everything you\u2019d want in a performance-oriented luxury small car. From powerful engine options and athletic handling to an elegant interior and smooth ride, the A5 is a well- rounded package that showcases the brand\u2019s penchant for refined sportiness.",
             "seats": 4,
             "bags": 2,
-            "doors": 4
+            "doors": 4,
+            "insurance": 2654
         }
     },
     {

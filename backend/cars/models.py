@@ -11,6 +11,7 @@ class Car(models.Model):
     seats = models.IntegerField()
     bags = models.IntegerField()
     doors = models.IntegerField()
+    insurance = models.FloatField()
 
     @property
     def available(self):

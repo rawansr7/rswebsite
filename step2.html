@@ -20,9 +20,6 @@
         <div class="step-col">step2</div>
         <div class="step-col">step3</div>
     </div>
-    <label id="lbltext1"></label>
-    <br/>
-    <label id="lbltext2"></label>
     <div class="registration">
         <div class="register-form">
             <form method="POST">
@@ -31,8 +28,8 @@
                     <div class="placeTime">
                         <label for="location">Pickup Location</label>
                         <br/>
-                        <select id="myoption" name="pickup_location">
-                            <option selected class="selected">
+                        <select id="myoption" name="pickup_location" required>
+                            <option value="" disabled selected hidden class="selected">
                                 Choose Location
                             </option>
                             <option>
@@ -50,7 +47,7 @@
                         <label for="Location">Return Location</label>
                         <br/>
                         <select id="myOption" name="return_location">
-                            <option selected class="selected">
+                            <option value="" disabled selected hidden class="selected">
                                 Choose Location
                             </option>
                             <option>
@@ -67,18 +64,22 @@
                     <div class="placeTime">
                         <label for="date">Pick up Date</label>
                         <br/>
-                        <input type="text"
+                        <input value=""
+                               type="text"
                                name="pickup_datetime"
                                id="datetime"
-                               placeholder="Select DateTime"/>
+                               placeholder="Select DateTime"
+                               required/>
                     </div>
                     <div class="placeTime">
                         <label for="time">Return Date</label>
                         <br/>
-                        <input type="text"
+                        <input value=""
+                               type="text"
                                name="return_datetime"
                                id="datetime"
-                               placeholder="Select DateTime"/>
+                               placeholder="Select DateTime"
+                               required/>
                     </div>
                 </div>
                 <div class="Next-btn-box">
@@ -94,23 +95,11 @@
         </iframe>
     </div>
 </div>
-<script>
-        function getddl() {
-         document.getElementById('lbltext1').innerHTML= 
-         ("Pick up Location is:" +form1.myoption[form1.myoption.selectedIndex].text)
-    
-        }
-        function getddll() {
-         document.getElementById('lbltext2').innerHTML= 
-         ("Return Location is:" +form1.myOption[form1.myOption.selectedIndex].text)
-    
-        }
-            
-</script>
 <!--flatpickr js-->
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
          flatpickr("#datetime",{
+         allowInput:true,
          enableTime: true,
          dateFormat: "Y-m-d H:i",
          minDate: "today",
