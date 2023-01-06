@@ -43,7 +43,6 @@ def send_invoice(request, order):
         }
     )
     body_html = t.render(c)
-    open("../rendered.html", "w").write(body_html)
     message = EmailMultiAlternatives(
         subject=f"Your Receipt For Payment (Order #{order.id})",
         body=body_html,
