@@ -107,13 +107,13 @@ def step3(request, pk):
         order.save()
         all_orders = order.car_design.orders.filter(status="PENDING")
 
-        other_users = []
+        # other_users = []
         for order_ in all_orders:
-            other_users.append(order_.user)
-            order.status = "CANCELLED"
-            order.save()
+            # other_users.append(order_.user)
+            order_.status = "CANCELLED"
+            order_.save()
 
-        other_users = list(set(other_users))
+        # other_users = list(set(other_users))
         # send_cancellation(other_users, order)
         send_invoice(request, order)
 
