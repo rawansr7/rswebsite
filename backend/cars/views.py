@@ -7,6 +7,9 @@ from .utils import send_invoice
 
 
 def flats_details(request, pk):
+    car = Car.objects.get(pk=pk)
+    if not car.available:
+        return render(request, "not_found.html")
     if request.method == "POST":
         car_design_id = int(request.POST.get("chosen_design"))
         car_design = CarDesign.objects.get(pk=car_design_id)
@@ -14,7 +17,6 @@ def flats_details(request, pk):
         order.save()
         return redirect("step2", pk=order.id)
     elif request.method == "GET":
-        car = Car.objects.get(pk=pk)
         car_designs = car.designs.all()
         return render(
             request,
@@ -42,6 +44,9 @@ def step1(request):
 @login_required
 def step2(request, pk):
     order = Order.objects.get(pk=pk)
+    if request.user.id != order.user.id:
+        return render(request, "404.html")
+
     if order.return_location:
         return redirect("step3", pk=pk)
 
@@ -69,6 +74,12 @@ def step2(request, pk):
 @login_required
 def step3(request, pk):
     order = Order.objects.get(pk=pk)
+    if request.user.id != order.user.id:
+        return render(request, "404.html")
+
+    if order.status != "PENDING":
+        return render(request, "404.html")
+
     if request.method == "GET":
         protection_options = Option.objects.filter(typ="Protection")
         additional_options = Option.objects.filter(typ="Additional")
