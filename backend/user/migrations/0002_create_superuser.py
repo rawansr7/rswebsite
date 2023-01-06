@@ -11,13 +11,6 @@ def createsuperuser(apps, schema_editor) -> None:
     User.objects.create_superuser(
         settings.SUPERUSER_USERNAME, password=settings.SUPERUSER_PASSWORD
     )
-    User.objects.create_user(
-        username="hasankassim7@hotmail.com",
-        email="hasankassim7@hotmail.com",
-        password="12345678",
-        first_name="Hasan",
-        last_name="Kassem",
-    )
 
 
 class Migration(migrations.Migration):
