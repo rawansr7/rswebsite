@@ -392,9 +392,9 @@ body {
 
 .wrapper {
     display: none;
-    position: absolute;
-    top: 210%;
-    left: 500px;
+    position: relative;
+    top: -200px;
+    left: 300px;
     width: 370px;
     background: #fff;
     border-radius: 10px;
