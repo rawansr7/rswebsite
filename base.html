@@ -189,23 +189,5 @@
         {% block extra_js %}
         {% endblock extra_js %}
 
-        {% comment %} <script>
-        const current_url = window.location.pathname;
-        if (current_url.startsWith("{% url 'flats' %}")) {
-            document.getElementById("nav_link_to_flats").className = "nav-link active text-warning";
-        }
-        else if (current_url.startsWith("{% url 'about' %}")) {
-            document.getElementById("nav_link_to_about").className = "nav-link active text-warning";
-        }
-        else if (current_url.startsWith("{% url 'reservation' %}")) {
-            document.getElementById("nav_link_to_reservation").className = "nav-link active text-warning";
-        }
-        /* else if (current_url === "/contact") { // TODO: modify
-            document.getElementById("nav_link_to_contact").className = "nav-link active text-warning";
-        }*/
-        else {
-            document.getElementById("nav_link_to_home").className = "nav-link active text-warning";
-        }
-        </script> {% endcomment %}
     </body>
 </html>

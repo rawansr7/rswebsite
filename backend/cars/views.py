@@ -6,6 +6,23 @@ from django.contrib.auth.decorators import login_required
 from .utils import send_invoice
 
 
+def home(request):
+    return render(request, "homePage.html")
+
+
+def about(request):
+    return render(request, "aboutUs.html")
+
+
+def contact(request):
+    return render(request, "contactUs.html")
+
+
+def all_flats(request):
+    cars = Car.objects.all()
+    return render(request, "Flats.html", {"cars": cars})
+
+
 def flats_details(request, pk):
     car = Car.objects.get(pk=pk)
     if not car.available:
@@ -23,11 +40,6 @@ def flats_details(request, pk):
             "sFlats.html",
             {"car": car, "car_designs": car_designs},
         )
-
-
-def all_flats(request):
-    cars = Car.objects.all()
-    return render(request, "Flats.html", {"cars": cars})
 
 
 @login_required
@@ -124,9 +136,9 @@ def step3(request, pk):
 def cart(request):
     if request.method == "POST":
         order_id = int(request.POST.get("cancelled-order"))
-        cancelled = Order.objects.get(pk=order_id)
-        cancelled.status = "CANCELLED"
-        cancelled.save()
+        order = Order.objects.get(pk=order_id)
+        order.status = "CANCELLED"
+        order.save()
 
     orders = request.user.orders.all()
     orders = [

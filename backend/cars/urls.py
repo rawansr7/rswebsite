@@ -1,13 +1,23 @@
-from django.views.generic import TemplateView
-from .views import flats_details, all_flats, reservation, step1, step2, step3, cart
+from .views import (
+    flats_details,
+    all_flats,
+    reservation,
+    step1,
+    step2,
+    step3,
+    cart,
+    home,
+    about,
+    contact,
+)
 from django.urls import path
 
 urlpatterns = [
-    path("", TemplateView.as_view(template_name="homePage.html"), name="home"),
-    path("about", TemplateView.as_view(template_name="aboutUs.html"), name="about"),
+    path("", home, name="home"),
+    path("about", about, name="about"),
     path(
         "contact",
-        TemplateView.as_view(template_name="contactUs.html"),
+        contact,
         name="contactus",
     ),
     path("flats", all_flats, name="flats"),
