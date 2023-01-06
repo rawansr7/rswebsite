@@ -2,7 +2,7 @@ from django.core.mail import EmailMultiAlternatives
 from django.template import Template, Context
 from django.conf import settings
 
-from django.templatetags.static import static
+# from django.templatetags.static import static
 from datetime import datetime
 
 from django.urls import reverse
@@ -39,7 +39,7 @@ def send_invoice(request, order):
             "total": order.cost,
             "contact_url": request.build_absolute_uri(reverse("contactus")),
             "homepage": request.build_absolute_uri(reverse("home")),
-            "logo_url": request.build_absolute_uri(static("imghomePage/logoo.png")),
+            # "logo_url": request.build_absolute_uri(static("imghomePage/logoo.png")),
         }
     )
     body_html = t.render(c)
